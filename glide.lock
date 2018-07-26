@@ -1,0 +1,12 @@
+hash: 5a3be795aff3864038ab2fb9c84c2b33eff70839a2e3b1ab593961c6c813d3ed
+updated: 2018-07-26T16:34:21.535727+02:00
+imports:
+- name: github.com/dailyburn/ratchet
+  version: 72e28d524d0285ac99a66c569285415f8002497b
+- name: github.com/oneiro-ndev/chaos
+  version: 31c1e6e169b287d7e2e899ad95efd70bab18104d
+  repo: git@github.com:oneiro-ndev/chaos
+- name: github.com/oneiro-ndev/ndau
+  version: ed1e15e10befce1d3fb166166fd48697afc25ed3
+  repo: git@github.com:oneiro-ndev/ndau
+testImports: []
