@@ -2,8 +2,13 @@ vendor/
 ndau.xlsx
 spreadsheets/
 
-# check_conf executable, but not source
+# executable, but not source
 check_conf
 !*/check_conf
+check_extract
+!*/check_extract
 
 **/.DS_Store
+.vscode/
+
+**/debug
