@@ -1,7 +1,12 @@
 package: github.com/oneiro-ndev/genesis
 import:
-- package: github.com/dailyburn/ratchet
+- package: github.com/BurntSushi/toml
+  version: ~0.3.0
 - package: github.com/oneiro-ndev/chaos
   repo: git@github.com:oneiro-ndev/chaos
 - package: github.com/oneiro-ndev/ndau
   repo: git@github.com:oneiro-ndev/ndau
+- package: github.com/oneiro-ndev/ndaumath
+  repo: git@github.com:oneiro-ndev/ndaumath.git
+- package: github.com/tealeg/xlsx
+  version: ^1.0.3

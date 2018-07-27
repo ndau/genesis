@@ -1,12 +1,17 @@
-hash: 5a3be795aff3864038ab2fb9c84c2b33eff70839a2e3b1ab593961c6c813d3ed
-updated: 2018-07-26T16:34:21.535727+02:00
+hash: 8de88fa1e5439bf761a819e38b20ef01ebbe20c3514da196702337c54a788f57
+updated: 2018-07-27T13:29:41.695309+02:00
 imports:
-- name: github.com/dailyburn/ratchet
-  version: 72e28d524d0285ac99a66c569285415f8002497b
+- name: github.com/BurntSushi/toml
+  version: b26d9c308763d68093482582cea63d69be07a0f0
 - name: github.com/oneiro-ndev/chaos
-  version: 31c1e6e169b287d7e2e899ad95efd70bab18104d
+  version: 132b1c7afc0c8380a19bb9ab4f5adf18bda008eb
   repo: git@github.com:oneiro-ndev/chaos
 - name: github.com/oneiro-ndev/ndau
   version: ed1e15e10befce1d3fb166166fd48697afc25ed3
   repo: git@github.com:oneiro-ndev/ndau
+- name: github.com/oneiro-ndev/ndaumath
+  version: 966e33463af68a339779a6459dec5280aa571567
+  repo: git@github.com:oneiro-ndev/ndaumath.git
+- name: github.com/tealeg/xlsx
+  version: 8be35264fa75a1bbe954ce51eba04f273e2c59e5
 testImports: []

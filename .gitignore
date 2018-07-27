@@ -1,2 +1,9 @@
-vendor
+vendor/
 ndau.xlsx
+spreadsheets/
+
+# check_conf executable, but not source
+check_conf
+!*/check_conf
+
+**/.DS_Store
