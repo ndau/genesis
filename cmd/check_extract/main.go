@@ -41,4 +41,19 @@ func main() {
 		fmt.Printf("Middle row: %v\n", rows[len(rows)/2])
 		fmt.Printf("Last row:   %v\n", rows[len(rows)-1])
 	}
+
+	duplicates := etl.DuplicateAddresses(rows)
+	if len(duplicates) > 0 {
+		fmt.Println("WARN: duplicate addresses present:")
+		for addr, rows := range duplicates {
+			fmt.Printf("  %s:\n", addr)
+			fmt.Printf("    ")
+			for _, row := range rows {
+				fmt.Printf("%d ", row)
+			}
+			fmt.Println()
+		}
+	} else {
+		fmt.Println("All addresses are distinct")
+	}
 }

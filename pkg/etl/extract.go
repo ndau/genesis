@@ -18,6 +18,7 @@ const (
 
 // RawRow encapsulates the raw data of a single row of the ndau spreadsheet
 type RawRow struct {
+	RowNumber    uint64
 	Address      string
 	QtyPurchased float64
 	PurchaseDate time.Time
@@ -101,15 +102,32 @@ func Extract(conf *Config) ([]RawRow, error) {
 	raws := make([]RawRow, 0, sheet.MaxRow-conf.FirstRow+1)
 	for row := conf.FirstRow; row < sheet.MaxRow; row++ {
 		raw, err := extractRow(sheet.Rows[row], conf, file.Date1904)
+		raw.RowNumber = uint64(row + 1)
 		if err != nil {
 			if isBlank(err) {
 				// if it's just a blank row, it's not a problem
 				continue
 			}
-			return nil, fmt.Errorf("Failure to extract row %d: %s", row, err.Error())
+			return nil, fmt.Errorf("Failure to extract row %d: %s", raw.RowNumber, err.Error())
 		}
 		raws = append(raws, raw)
 	}
 
 	return raws, nil
+}
+
+// DuplicateAddresses returns a map of every address referred to by more than one row
+func DuplicateAddresses(rows []RawRow) (duplicates map[string][]uint64) {
+	// fill the duplicates map
+	duplicates = make(map[string][]uint64)
+	for _, row := range rows {
+		duplicates[row.Address] = append(duplicates[row.Address], row.RowNumber)
+	}
+	// remove entries which are distinct
+	for addr := range duplicates {
+		if len(duplicates[addr]) <= 1 { // 0 shouldn't exist, but just in case
+			delete(duplicates, addr)
+		}
+	}
+	return
 }

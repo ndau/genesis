@@ -12,8 +12,6 @@ Read system variable initial values from a configuration file and write them to 
 
 ## initialize accounts
 
-Because this step is more complicated than the others, it is written as an ETL process using the [`ratchet` framework](https://github.com/dailyburn/ratchet/).
-
 - extract data from the interim spreadsheet
 - transform it appropriately
 - load it into a noms database appropriately.
