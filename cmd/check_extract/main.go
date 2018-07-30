@@ -36,8 +36,9 @@ func main() {
 	})
 	check(err)
 	fmt.Println("Rows extracted:", len(rows))
-	fmt.Printf("First row: %v\n", rows[0])
+	fmt.Printf("First row:  %v\n", rows[0])
 	if len(rows) > 0 {
-		fmt.Printf("Last row:  %v\n", rows[len(rows)-1])
+		fmt.Printf("Middle row: %v\n", rows[len(rows)/2])
+		fmt.Printf("Last row:   %v\n", rows[len(rows)-1])
 	}
 }

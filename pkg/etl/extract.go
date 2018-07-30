@@ -31,7 +31,7 @@ func (blank) Error() string {
 }
 
 func isBlank(err error) bool {
-	_, ok := err.(*blank)
+	_, ok := err.(blank)
 	return ok
 }
 
@@ -55,6 +55,12 @@ func extractRow(xrow *xlsx.Row, conf *Config, date1904 bool) (rr RawRow, err err
 			return RawRow{}, err
 		}
 	}
+
+	// any cell with 0 purchased should be considered blank
+	if rr.QtyPurchased == 0 {
+		return RawRow{}, blank{}
+	}
+
 	pdc := getCell(PurchaseDateS)
 	if pdc != nil {
 		rr.PurchaseDate, err = pdc.GetTime(date1904)
