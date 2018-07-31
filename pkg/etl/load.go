@@ -4,6 +4,7 @@ import (
 	"crypto/sha256"
 	"os"
 
+	"github.com/oneiro-ndev/genesis/pkg/config"
 	metast "github.com/oneiro-ndev/metanode/pkg/meta/state"
 	"github.com/oneiro-ndev/ndau/pkg/ndau"
 	"github.com/oneiro-ndev/ndau/pkg/ndau/backing"
@@ -14,7 +15,7 @@ import (
 )
 
 // Load the given rows into the noms configuration
-func Load(conf *Config, rows []RawRow, ndauhome string) error {
+func Load(conf *config.Config, rows []RawRow, ndauhome string) error {
 	nconf, err := nconfig.LoadDefault(nconfig.DefaultConfigPath(ndauhome))
 	if err != nil {
 		return errors.Wrap(err, "Failed to load ndau config")

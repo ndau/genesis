@@ -5,6 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/oneiro-ndev/genesis/pkg/config"
 	"github.com/oneiro-ndev/genesis/pkg/etl"
 )
 
@@ -24,10 +25,10 @@ func getNdauhome() string {
 }
 
 func main() {
-	path := etl.DefaultConfigPath(getNdauhome())
+	path := config.DefaultConfigPath(getNdauhome())
 	var rows []etl.RawRow
 	var err error
-	err = etl.WithConfig(path, func(conf *etl.Config) error {
+	err = config.WithConfig(path, func(conf *config.Config) error {
 		rows, err = etl.Extract(conf)
 		if err != nil {
 			return err

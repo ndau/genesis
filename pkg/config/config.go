@@ -1,4 +1,4 @@
-package etl
+package config
 
 import (
 	"fmt"
@@ -23,6 +23,15 @@ type Config struct {
 // This permits us not to worry about the headers, and instead simply
 // fetch the desired columns directly.
 type ColumnMap map[string]int
+
+// each column needs a const string identifier
+const (
+	AddressS           = "address"
+	QtyPurchasedS      = "qty_purchased"
+	PurchaseDateS      = "purchase_date"
+	UnlockDateS        = "unlock_date"
+	NotifyImmediatelyS = "notify_immediately"
+)
 
 // DefaultConfig creates a default config struct
 func DefaultConfig() (*Config, error) {
