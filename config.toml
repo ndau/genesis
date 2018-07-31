@@ -1,7 +1,7 @@
 path = "./ndau.xlsx"
 sheet = "Web Dashboard"
 first_row = 6
-noms_path = "~/.ndau/ndau/noms::ndau"
+noms_path = "$HOME/.ndau/ndau/noms"
 
 [columns]
   address = 3

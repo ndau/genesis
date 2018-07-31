@@ -2,6 +2,8 @@ package: github.com/oneiro-ndev/genesis
 import:
 - package: github.com/BurntSushi/toml
   version: ~0.3.0
+- package: github.com/attic-labs/noms
+  repo: git@github.com:oneiro-ndev/noms
 - package: github.com/oneiro-ndev/chaos
   repo: git@github.com:oneiro-ndev/chaos
 - package: github.com/oneiro-ndev/metanode

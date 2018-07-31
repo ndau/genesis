@@ -7,6 +7,8 @@ check_conf
 !*/check_conf
 check_extract
 !*/check_extract
+etl
+!*/etl
 
 **/.DS_Store
 .vscode/
