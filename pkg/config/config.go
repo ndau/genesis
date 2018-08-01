@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"os"
 	"strings"
+	"time"
 
 	"github.com/BurntSushi/toml"
 )
@@ -16,6 +17,7 @@ type Config struct {
 	Columns  ColumnMap `toml:"columns"`
 	FirstRow int       `toml:"first_row"`
 	NomsPath string    `toml:"noms_path"`
+	Genesis  time.Time `toml:"genesis"`
 }
 
 // ColumnMap is the map of column names to indices

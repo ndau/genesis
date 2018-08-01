@@ -3,30 +3,14 @@ package main
 import (
 	"errors"
 	"fmt"
-	"os"
-	"path/filepath"
 
+	util "github.com/oneiro-ndev/genesis/pkg/cli.util"
 	"github.com/oneiro-ndev/genesis/pkg/config"
 	"github.com/oneiro-ndev/genesis/pkg/etl"
 )
 
-func check(err error) {
-	if err != nil {
-		fmt.Fprintln(os.Stderr, fmt.Sprintf("%v", err))
-		os.Exit(1)
-	}
-}
-
-func getNdauhome() string {
-	nh := os.ExpandEnv("$NDAUHOME")
-	if len(nh) > 0 {
-		return nh
-	}
-	return filepath.Join(os.ExpandEnv("$HOME"), ".ndau")
-}
-
 func main() {
-	ndauhome := getNdauhome()
+	ndauhome := util.GetNdauhome()
 	path := config.DefaultConfigPath(ndauhome)
 	var rows []etl.RawRow
 	var err error
@@ -51,5 +35,5 @@ func main() {
 
 		return etl.Load(conf, rows, ndauhome)
 	})
-	check(err)
+	util.Check(err)
 }
