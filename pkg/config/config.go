@@ -1,10 +1,11 @@
-package etl
+package config
 
 import (
 	"fmt"
 	"io/ioutil"
 	"os"
 	"strings"
+	"time"
 
 	"github.com/BurntSushi/toml"
 )
@@ -16,6 +17,7 @@ type Config struct {
 	Columns  ColumnMap `toml:"columns"`
 	FirstRow int       `toml:"first_row"`
 	NomsPath string    `toml:"noms_path"`
+	Genesis  time.Time `toml:"genesis"`
 }
 
 // ColumnMap is the map of column names to indices
@@ -23,6 +25,15 @@ type Config struct {
 // This permits us not to worry about the headers, and instead simply
 // fetch the desired columns directly.
 type ColumnMap map[string]int
+
+// each column needs a const string identifier
+const (
+	AddressS           = "address"
+	QtyPurchasedS      = "qty_purchased"
+	PurchaseDateS      = "purchase_date"
+	UnlockDateS        = "unlock_date"
+	NotifyImmediatelyS = "notify_immediately"
+)
 
 // DefaultConfig creates a default config struct
 func DefaultConfig() (*Config, error) {

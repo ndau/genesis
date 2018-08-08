@@ -4,16 +4,8 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/oneiro-ndev/genesis/pkg/config"
 	"github.com/tealeg/xlsx"
-)
-
-// each field of a RawRow needs a const string identifier
-const (
-	AddressS           = "address"
-	QtyPurchasedS      = "qty_purchased"
-	PurchaseDateS      = "purchase_date"
-	UnlockDateS        = "unlock_date"
-	NotifyImmediatelyS = "notify_immediately"
 )
 
 // RawRow encapsulates the raw data of a single row of the ndau spreadsheet
@@ -36,7 +28,7 @@ func isBlank(err error) bool {
 	return ok
 }
 
-func extractRow(xrow *xlsx.Row, conf *Config, date1904 bool) (rr RawRow, err error) {
+func extractRow(xrow *xlsx.Row, conf *config.Config, date1904 bool) (rr RawRow, err error) {
 	getCell := func(name string) *xlsx.Cell {
 		col := conf.Columns[name]
 		if col >= len(xrow.Cells) {
@@ -45,11 +37,11 @@ func extractRow(xrow *xlsx.Row, conf *Config, date1904 bool) (rr RawRow, err err
 		return xrow.Cells[col]
 	}
 
-	ac := getCell(AddressS)
+	ac := getCell(config.AddressS)
 	if ac != nil {
 		rr.Address = ac.String()
 	}
-	qpc := getCell(QtyPurchasedS)
+	qpc := getCell(config.QtyPurchasedS)
 	if qpc != nil {
 		rr.QtyPurchased, err = qpc.Float()
 		if err != nil {
@@ -62,14 +54,14 @@ func extractRow(xrow *xlsx.Row, conf *Config, date1904 bool) (rr RawRow, err err
 		return RawRow{}, blank{}
 	}
 
-	pdc := getCell(PurchaseDateS)
+	pdc := getCell(config.PurchaseDateS)
 	if pdc != nil {
 		rr.PurchaseDate, err = pdc.GetTime(date1904)
 		if err != nil {
 			return RawRow{}, err
 		}
 	}
-	udc := getCell(UnlockDateS)
+	udc := getCell(config.UnlockDateS)
 	if udc != nil {
 		ud, err := udc.GetTime(date1904)
 		if err != nil {
@@ -84,7 +76,7 @@ func extractRow(xrow *xlsx.Row, conf *Config, date1904 bool) (rr RawRow, err err
 }
 
 // Extract the input spreadsheet into a list of raw rows
-func Extract(conf *Config) ([]RawRow, error) {
+func Extract(conf *config.Config) ([]RawRow, error) {
 	err := conf.CheckColumns()
 	if err != nil {
 		return nil, err

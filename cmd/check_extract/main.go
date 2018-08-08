@@ -2,39 +2,24 @@ package main
 
 import (
 	"fmt"
-	"os"
-	"path/filepath"
 
+	util "github.com/oneiro-ndev/genesis/pkg/cli.util"
+	"github.com/oneiro-ndev/genesis/pkg/config"
 	"github.com/oneiro-ndev/genesis/pkg/etl"
 )
 
-func check(err error) {
-	if err != nil {
-		fmt.Fprintln(os.Stderr, fmt.Sprintf("%v", err))
-		os.Exit(1)
-	}
-}
-
-func getNdauhome() string {
-	nh := os.ExpandEnv("$NDAUHOME")
-	if len(nh) > 0 {
-		return nh
-	}
-	return filepath.Join(os.ExpandEnv("$HOME"), ".ndau")
-}
-
 func main() {
-	path := etl.DefaultConfigPath(getNdauhome())
+	path := config.DefaultConfigPath(util.GetNdauhome())
 	var rows []etl.RawRow
 	var err error
-	err = etl.WithConfig(path, func(conf *etl.Config) error {
+	err = config.WithConfig(path, func(conf *config.Config) error {
 		rows, err = etl.Extract(conf)
 		if err != nil {
 			return err
 		}
 		return nil
 	})
-	check(err)
+	util.Check(err)
 	fmt.Println("Rows extracted:", len(rows))
 	fmt.Printf("First row:  %v\n", rows[0])
 	if len(rows) > 0 {

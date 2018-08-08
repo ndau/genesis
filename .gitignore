@@ -9,6 +9,8 @@ check_extract
 !*/check_extract
 etl
 !*/etl
+update_genesis_json
+!*/update_genesis_json
 
 **/.DS_Store
 .vscode/

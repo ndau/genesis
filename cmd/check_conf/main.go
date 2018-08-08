@@ -2,32 +2,16 @@ package main
 
 import (
 	"fmt"
-	"os"
-	"path/filepath"
 
-	"github.com/oneiro-ndev/genesis/pkg/etl"
+	util "github.com/oneiro-ndev/genesis/pkg/cli.util"
+	"github.com/oneiro-ndev/genesis/pkg/config"
 )
 
-func check(err error) {
-	if err != nil {
-		fmt.Fprintln(os.Stderr, fmt.Sprintf("%v", err))
-		os.Exit(1)
-	}
-}
-
-func getNdauhome() string {
-	nh := os.ExpandEnv("$NDAUHOME")
-	if len(nh) > 0 {
-		return nh
-	}
-	return filepath.Join(os.ExpandEnv("$HOME"), ".ndau")
-}
-
 func main() {
-	path := etl.DefaultConfigPath(getNdauhome())
-	err := etl.WithConfig(path, func(c *etl.Config) error {
+	path := config.DefaultConfigPath(util.GetNdauhome())
+	err := config.WithConfig(path, func(c *config.Config) error {
 		return c.CheckColumns()
 	})
-	check(err)
+	util.Check(err)
 	fmt.Println(path)
 }
