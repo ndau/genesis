@@ -2,6 +2,7 @@ package etl
 
 import (
 	"fmt"
+	"strings"
 	"time"
 
 	"github.com/oneiro-ndev/genesis/pkg/config"
@@ -15,6 +16,23 @@ type RawRow struct {
 	QtyPurchased float64
 	PurchaseDate time.Time
 	UnlockDate   *time.Time
+	RewardTarget *string
+}
+
+func (rr RawRow) String() string {
+	rt := "nil"
+	if rr.RewardTarget != nil {
+		rt = *rr.RewardTarget
+	}
+	return fmt.Sprintf(
+		"%d %s: %f ndau on %s, unlocking %s, rewards to %s",
+		rr.RowNumber,
+		rr.Address,
+		rr.QtyPurchased,
+		rr.PurchaseDate,
+		rr.UnlockDate,
+		rt,
+	)
 }
 
 type blank struct{}
@@ -69,6 +87,13 @@ func extractRow(xrow *xlsx.Row, conf *config.Config, date1904 bool) (rr RawRow, 
 		}
 		if ud != xlsx.TimeFromExcelTime(0, date1904) {
 			rr.UnlockDate = &ud
+		}
+	}
+	rtc := getCell(config.RewardTargetS)
+	if rtc != nil {
+		rts := rtc.String()
+		if len(rts) > 0 && !(strings.EqualFold("false", rts) || rts == "0") {
+			rr.RewardTarget = &rts
 		}
 	}
 

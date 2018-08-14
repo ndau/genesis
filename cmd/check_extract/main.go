@@ -41,4 +41,16 @@ func main() {
 	} else {
 		fmt.Println("All addresses are distinct")
 	}
+
+	foundNERow := false
+	for _, row := range rows {
+		if row.RewardTarget != nil {
+			foundNERow = true
+			fmt.Printf("First row with non-empty target: %s", row)
+			break
+		}
+	}
+	if !foundNERow {
+		fmt.Println("No rows found with non-empty reward target")
+	}
 }

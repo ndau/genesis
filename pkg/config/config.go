@@ -33,6 +33,7 @@ const (
 	PurchaseDateS      = "purchase_date"
 	UnlockDateS        = "unlock_date"
 	NotifyImmediatelyS = "notify_immediately"
+	RewardTargetS      = "reward_target"
 )
 
 // DefaultConfig creates a default config struct
