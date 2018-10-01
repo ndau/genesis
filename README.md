@@ -4,8 +4,6 @@ All of oneiro's blockchains need to be initialized in a variety of ways. For sim
 
 ## Quick start
 
-
-
 ```
 git clone git@github.com:oneiro-ndev/genesis.git $GOPATH/src/github.com/oneiro-ndev/genesis
 glide install
