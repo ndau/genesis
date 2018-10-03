@@ -4,10 +4,11 @@ All of oneiro's blockchains need to be initialized in a variety of ways. For sim
 
 ## Quick start
 
-```
+```sh
 git clone git@github.com:oneiro-ndev/genesis.git $GOPATH/src/github.com/oneiro-ndev/genesis
+cd $GOPATH/src/github.com/oneiro-ndev/genesis
 glide install
-go build -o ./etl cmd/etl/main.go
+go build ./cmd/etl
 ## Put ndau.xlsx in the project root.
 ./etl
 ```
