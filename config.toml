@@ -1,5 +1,5 @@
-path = "./ndau.xlsx"
-sheet = "Web Dashboard"
+path = "./ndau.csv"
+sheet = "DashData"
 first_row = 6
 noms_path = "$HOME/.ndau/ndau/noms"
 genesis = 2018-09-01T00:00:00Z
