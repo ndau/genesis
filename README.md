@@ -9,12 +9,19 @@ All of oneiro's blockchains need to be initialized in a variety of ways. For sim
 The `etl` program can read an input spreadsheet from a ".xlsx" or ".csv" file and produce an appropriate noms database.
 
 ```sh
+# clone repos if necessary
+git clone git@github.com:oneiro-ndev/ndau.git $GOPATH/src/github.com/oneiro-ndev/ndau
 git clone git@github.com:oneiro-ndev/genesis.git $GOPATH/src/github.com/oneiro-ndev/genesis
-cd $GOPATH/src/github.com/oneiro-ndev/genesis
-glide install
-go build ./cmd/etl
-## Update `config.toml` with the path to the source spreadsheet
-./etl
+# set up ndau state
+cd $GOPATH/src/github.com/oneiro-ndev/ndau
+bin/reset.sh && bin/build.sh && bin/init.sh
+# set up ETL
+cd ../genesis
+# IMPORTANT: Update `config.toml` with the path to the source spreadsheet
+./bin/etl.sh
+# run the ndau node
+cd ../ndau
+bin/run.sh
 ```
 
 Once ETL is complete, the noms database can be examined directly to see the results:
