@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 
 	util "github.com/oneiro-ndev/genesis/pkg/cli.util"
 	"github.com/oneiro-ndev/genesis/pkg/config"
@@ -40,5 +41,47 @@ func main() {
 		}
 	} else {
 		fmt.Println("All addresses are distinct")
+	}
+
+	foundNERow := false
+	for _, row := range rows {
+		if row.RewardTarget != nil {
+			foundNERow = true
+			fmt.Printf("First row with non-empty target: %s\n", row)
+			break
+		}
+	}
+	if !foundNERow {
+		fmt.Println("No rows found with non-empty reward target")
+	}
+
+	// verify that all rows either send or receive rows but not both
+	inbounds := make(map[string][]string)
+	for _, row := range rows {
+		if row.RewardTarget != nil {
+			inbounds[*row.RewardTarget] = append(
+				inbounds[*row.RewardTarget],
+				row.Address,
+			)
+		}
+	}
+
+	bidirectionalTransfers := 0
+	for _, row := range rows {
+		if row.RewardTarget != nil && inbounds[row.Address] != nil {
+			bidirectionalTransfers++
+			fmt.Printf(
+				"ERR: Row %d, address %s: transfers to %s and receives inbounds from the following:\n",
+				row.RowNumber,
+				row.Address,
+				*row.RewardTarget,
+			)
+			for _, inbound := range inbounds[*row.RewardTarget] {
+				fmt.Println("\t", inbound)
+			}
+		}
+	}
+	if bidirectionalTransfers > 0 {
+		os.Exit(1)
 	}
 }

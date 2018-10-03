@@ -14,6 +14,24 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
+func addressFrom(addrS string, rlogger logrus.FieldLogger) (address.Address, error) {
+	addr, err := address.Validate(addrS)
+	if err != nil {
+		addrHash := sha256.Sum256([]byte(addrS)) // the address data may be too short
+		addr, err = address.Generate(address.KindUser, addrHash[:])
+		if err != nil {
+			if rlogger != nil {
+				rlogger.WithError(err).Error("failed to generate address")
+			}
+			return addr, errors.Wrap(err, "failed to generate address")
+		}
+		if rlogger != nil {
+			rlogger.WithField("generated_address", addr.String()).Warn("invalid address in spreadsheet")
+		}
+	}
+	return addr, nil
+}
+
 // Load the given rows into the noms configuration
 func Load(conf *config.Config, rows []RawRow, ndauhome string) error {
 	nconf, err := nconfig.LoadDefault(nconfig.DefaultConfigPath(ndauhome))
@@ -41,18 +59,12 @@ func Load(conf *config.Config, rows []RawRow, ndauhome string) error {
 				"row":     row.RowNumber,
 				"address": row.Address,
 			})
-			addr, err := address.Validate(row.Address)
+			addr, err := addressFrom(row.Address, rlogger)
 			if err != nil {
-				addrHash := sha256.Sum256([]byte(row.Address)) // the address data may be too short
-				addr, err = address.Generate(address.KindUser, addrHash[:])
-				if err != nil {
-					rlogger.WithError(err).Error("failed to generate address")
-					return st, errors.Wrap(err, "failed to generate address")
-				}
-				rlogger.WithField("generated_address", addr.String()).Warn("invalid address in spreadsheet")
+				return st, err
 			}
 
-			ad, err := TransformRow(row)
+			ad, err := TransformRow(row, logger.WithField("column", config.AddressS))
 			if err != nil {
 				rlogger.WithError(err).Error("failed to transform row")
 				return st, errors.Wrap(err, "failed to transform row")
