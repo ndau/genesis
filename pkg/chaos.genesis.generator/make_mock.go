@@ -4,6 +4,7 @@ import (
 	"os"
 	"path/filepath"
 
+	"github.com/oneiro-ndev/chaincode/pkg/vm"
 	"github.com/oneiro-ndev/chaos/pkg/chaos/ns"
 	"github.com/oneiro-ndev/chaos/pkg/genesisfile"
 	"github.com/oneiro-ndev/ndaumath/pkg/address"
@@ -116,13 +117,7 @@ func generateData(bpc []byte) (mock genesisfile.GFile, ma Associated, err error)
 
 	// make default tx fee script
 	// this one is very simple: unconditionally returns numeric 0
-	// (base64 oAAgiA== if you'd like to decompile)
-	sets(sv.TxFeeScriptName, []byte([]byte{
-		0xa0,
-		0x00,
-		0x20,
-		0x88,
-	}))
+	sets(sv.TxFeeScriptName, vm.MiniAsm("zero").Bytes())
 
 	// min stake for an account to be active
 	sets(sv.MinStakeName, math.Ndau(1000*constants.QuantaPerUnit))
@@ -131,12 +126,7 @@ func generateData(bpc []byte) (mock genesisfile.GFile, ma Associated, err error)
 	// empty: returns the value on top of the stack
 	// as goodness functions have the total stake on top of the stack,
 	// that's actually not a terrible default
-	// (base64 oACI if you'd like to decompile)
-	sets(sv.NodeGoodnessFuncName, []byte([]byte{
-		0xa0,
-		0x00,
-		0x88,
-	}))
+	sets(sv.NodeGoodnessFuncName, vm.MiniAsm("").Bytes())
 
 	// make eai fee table
 	sets(sv.EAIFeeTableName, makeMockEAIFeeTable())
