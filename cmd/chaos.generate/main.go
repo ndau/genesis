@@ -22,7 +22,7 @@ func ndauhome() string {
 
 func check(err error) {
 	if err != nil {
-		fmt.Fprintf(
+		fmt.Fprintln(
 			os.Stderr,
 			err.Error(),
 		)

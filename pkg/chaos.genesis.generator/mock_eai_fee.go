@@ -56,16 +56,19 @@ func makeEAIFee(thousandths int64) (ef sv.EAIFee, err error) {
 	if err != nil {
 		return
 	}
-	*ef.To, err = address.Generate(address.KindNdau, public.KeyBytes())
+	var addr address.Address
+	addr, err = address.Generate(address.KindNdau, public.KeyBytes())
+	ef.To = &addr
 	if err != nil {
 		return
 	}
+
 	var fee int64
 	fee, err = signed.MulDiv(thousandths, constants.QuantaPerUnit, 1000)
+	ef.Fee = math.Ndau(fee)
 	if err != nil {
 		return
 	}
-	ef.Fee = math.Ndau(fee)
 
 	return
 }
