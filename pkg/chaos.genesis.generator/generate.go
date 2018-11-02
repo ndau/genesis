@@ -122,7 +122,9 @@ func generateData(bpc []byte) (mock genesisfile.GFile, ma Associated, err error)
 	sets(sv.NodeGoodnessFuncName, vm.MiniAsm("").Bytes())
 
 	// make eai fee table
-	sets(sv.EAIFeeTableName, makeMockEAIFeeTable())
+	var eaiFeeTable sv.EAIFeeTable
+	eaiFeeTable, err = makeEAIFeeTable()
+	sets(sv.EAIFeeTableName, eaiFeeTable)
 
 	// set default min duration between node rewards nominations
 	sets(sv.MinDurationBetweenNodeRewardNominationsName, math.Duration(1*math.Day))
@@ -131,13 +133,14 @@ func generateData(bpc []byte) (mock genesisfile.GFile, ma Associated, err error)
 	// generate ownership keys
 	ma[sv.NominateNodeRewardOwnershipName], ma[sv.NominateNodeRewardOwnershipPrivateName], err = signature.Generate(signature.Ed25519, nil)
 	if err != nil {
-		panic(err)
+		return
 	}
 	// now generate and set the address
 	nnrOwnership := ma[sv.NominateNodeRewardOwnershipName].(signature.PublicKey)
-	nnrAddr, err := address.Generate(address.KindNdau, nnrOwnership.KeyBytes())
+	var nnrAddr address.Address
+	nnrAddr, err = address.Generate(address.KindNdau, nnrOwnership.KeyBytes())
 	if err != nil {
-		panic(err)
+		return
 	}
 	sets(sv.NominateNodeRewardAddressName, nnrAddr)
 
@@ -148,13 +151,14 @@ func generateData(bpc []byte) (mock genesisfile.GFile, ma Associated, err error)
 	// generate ownership keys
 	ma[sv.CommandValidatorChangeOwnershipName], ma[sv.CommandValidatorChangeOwnershipPrivateName], err = signature.Generate(signature.Ed25519, nil)
 	if err != nil {
-		panic(err)
+		return
 	}
 	// now generate and set the address
 	cvcOwnership := ma[sv.CommandValidatorChangeOwnershipName].(signature.PublicKey)
-	cvcAddr, err := address.Generate(address.KindNdau, cvcOwnership.KeyBytes())
+	var cvcAddr address.Address
+	cvcAddr, err = address.Generate(address.KindNdau, cvcOwnership.KeyBytes())
 	if err != nil {
-		panic(err)
+		return
 	}
 	sets(sv.CommandValidatorChangeAddressName, cvcAddr)
 

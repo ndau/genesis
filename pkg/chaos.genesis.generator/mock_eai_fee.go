@@ -7,44 +7,73 @@ import (
 	"github.com/oneiro-ndev/ndaumath/pkg/signed"
 	math "github.com/oneiro-ndev/ndaumath/pkg/types"
 	sv "github.com/oneiro-ndev/system_vars/pkg/system_vars"
+	"github.com/pkg/errors"
 )
 
-func makeMockEAIFeeTable() sv.EAIFeeTable {
-	return sv.EAIFeeTable{
-		makeMockEAIFee("ndev operations", 40),
-		makeMockEAIFee("ntrd operations", 10),
-		makeMockEAIFee("rfe account", 1),
-		makeMockEAIFee("rewards nomination acct", 1),
-		makeMockNodeRewardEAIFee(98),
+func makeEAIFeeTable() (table sv.EAIFeeTable, err error) {
+	add := func(thousandths int64, maker func(int64) (sv.EAIFee, error)) {
+		var fee sv.EAIFee
+		fee, err = maker(thousandths)
+		table = append(table, fee)
 	}
+
+	// ndev operations
+	add(40, makeEAIFee)
+	if err != nil {
+		return
+	}
+
+	// ntrd operations
+	add(10, makeEAIFee)
+	if err != nil {
+		return
+	}
+
+	// rfe acct
+	add(1, makeEAIFee)
+	if err != nil {
+		return
+	}
+
+	// rewards nomination acct
+	add(1, makeEAIFee)
+	if err != nil {
+		return
+	}
+
+	// node rewards
+	add(98, makeNodeRewardEAIFee)
+	if err != nil {
+		return
+	}
+
+	return
 }
 
-func makeMockEAIFee(_ string, thousandths int64) sv.EAIFee {
-	public, _, err := signature.Generate(signature.Ed25519, nil)
+func makeEAIFee(thousandths int64) (ef sv.EAIFee, err error) {
+	var public signature.PublicKey
+	public, _, err = signature.Generate(signature.Ed25519, nil)
 	if err != nil {
-		panic(err)
+		return
 	}
-	addr, err := address.Generate(address.KindNdau, public.KeyBytes())
+	*ef.To, err = address.Generate(address.KindNdau, public.KeyBytes())
 	if err != nil {
-		panic(err)
+		return
 	}
-	fee, err := signed.MulDiv(thousandths, constants.QuantaPerUnit, 1000)
+	var fee int64
+	fee, err = signed.MulDiv(thousandths, constants.QuantaPerUnit, 1000)
 	if err != nil {
-		panic(err)
+		return
 	}
-	return sv.EAIFee{
-		Fee: math.Ndau(fee),
-		To:  &addr,
-	}
+	ef.Fee = math.Ndau(fee)
+
+	return
 }
 
-func makeMockNodeRewardEAIFee(thousandths int64) sv.EAIFee {
+func makeNodeRewardEAIFee(thousandths int64) (sv.EAIFee, error) {
 	fee, err := signed.MulDiv(thousandths, constants.QuantaPerUnit, 1000)
-	if err != nil {
-		panic(err)
-	}
 	return sv.EAIFee{
 		Fee: math.Ndau(fee),
 		To:  nil,
-	}
+	}, errors.Wrap(err, "making node rewards eai fee")
 }
