@@ -1,11 +1,9 @@
 package generator
 
 import (
-	"os"
-	"path/filepath"
+	"encoding/base64"
 
 	"github.com/oneiro-ndev/chaincode/pkg/vm"
-	"github.com/oneiro-ndev/chaos/pkg/chaos/ns"
 	"github.com/oneiro-ndev/chaos/pkg/genesisfile"
 	"github.com/oneiro-ndev/ndaumath/pkg/address"
 	"github.com/oneiro-ndev/ndaumath/pkg/constants"
@@ -18,23 +16,6 @@ import (
 	"golang.org/x/crypto/ed25519"
 )
 
-var system = ns.System
-
-// ensure that the parents of a given path exist
-func ensureDir(path string) error {
-	parent := filepath.Dir(path)
-	return os.MkdirAll(parent, 0700)
-}
-
-// Associated tracks associated data which goes with the mocks.
-//
-// In particular, it's used for tests. For example, we mock up some
-// public/private keypairs for the ReleaseFromEndowment transaction.
-// The public halves of those keys are written into the mock file,
-// but the private halves are communicated to the test suite by means
-// of the Associated struct.
-type Associated map[string]interface{}
-
 // Generate creates a genesisfile and associated data.
 //
 // Both arguments are paths to the files which should be written.
@@ -42,32 +23,44 @@ type Associated map[string]interface{}
 // Both files are written as TOML. In both cases, if there exists a TOML
 // file in that path already, new data will be added but existing data will
 // not be overwritten.
-func Generate(genesisfile, associated string) error {
-	bpc, _, err := ed25519.GenerateKey(nil)
+func Generate(gfilepath, associated string) (bpc []byte, err error) {
+	bpc, _, err = ed25519.GenerateKey(nil)
 	if err != nil {
-		return err
+		return
 	}
 
-	mock, ma, err := generateData(bpc)
+	var gfile genesisfile.GFile
+	var ma Associated
+	gfile, ma, err = generateData(bpc)
 	if err != nil {
-		return err
+		return
 	}
 
-	// TODO: remove this BS
-	var _ = mock
-	var _ = ma
+	// update the associated file
+	asscFile := make(AssociatedFile)
+	err = Update(associated, asscFile, func() error {
+		asscFile[base64.StdEncoding.EncodeToString(bpc)] = ma
+		return nil
+	})
+	if err != nil {
+		err = errors.Wrap(err, "updating associated file")
+		return
+	}
 
-	// TODO:
-	// load the associated file
-	// add a key: this BPC pubkey, whose value is the entire associated struct
-	// dump the associated file
+	// update the mockfile
+	existingGfile := make(genesisfile.GFile)
+	err = Update(gfilepath, existingGfile, func() error {
+		for k, v := range gfile {
+			existingGfile[k] = v
+		}
+		return nil
+	})
+	if err != nil {
+		err = errors.Wrap(err, "updating genesis file")
+		return
+	}
 
-	// TODO:
-	// load the existing mockfile
-	// for every key in the gfile, add it to the existing file
-	// dump the combined mockfile
-
-	return nil
+	return
 }
 
 // mock up some chaos data
