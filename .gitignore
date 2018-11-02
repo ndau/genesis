@@ -12,6 +12,8 @@ etl
 !*/etl
 update_genesis_json
 !*/update_genesis_json
+chaos.generate
+!*/chaos.generate
 
 **/.DS_Store
 .vscode/
