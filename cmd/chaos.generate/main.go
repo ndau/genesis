@@ -60,7 +60,7 @@ func main() {
 			if bpc != nil {
 				fmt.Printf(
 					"%25s: %s\n",
-					"bpc public key",
+					"b64 of bpc public key",
 					base64.StdEncoding.EncodeToString(bpc),
 				)
 			}

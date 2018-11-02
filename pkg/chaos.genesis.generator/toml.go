@@ -5,6 +5,7 @@ import (
 	"path/filepath"
 
 	"github.com/BurntSushi/toml"
+	"github.com/pkg/errors"
 )
 
 // ensure that the parents of a given path exist
@@ -24,33 +25,38 @@ func ensureDir(path string) error {
 func Update(path string, fileContainer interface{}, updater func() error) error {
 	err := ensureDir(path)
 	if err != nil {
-		return err
+		return errors.Wrap(err, "ensuring required path exists")
 	}
 
 	in, err := os.Open(path)
 	if err != nil && !os.IsNotExist(err) {
 		// propagate the error only if it's something other than the file not existing
 		// if it's that, we don't care; we can create a file
-		return err
+		return errors.Wrap(err, "opening file for read")
 	}
-	defer in.Close()
 
-	_, err = toml.DecodeReader(in, fileContainer)
-	if err != nil {
-		// we can't do anything about toml-reading errors
-		return err
+	if in != nil {
+		defer in.Close()
+		_, err = toml.DecodeReader(in, fileContainer)
+		if err != nil {
+			// we can't do anything about toml-reading errors
+			return errors.Wrap(err, "decoding toml")
+		}
 	}
 
 	err = updater()
 	if err != nil {
 		// user-supplied error
-		return err
+		return errors.Wrap(err, "updating")
 	}
 
 	out, err := os.Create(path)
 	defer out.Close()
 	if err != nil {
-		return err
+		return errors.Wrap(err, "opening file for write")
 	}
-	return toml.NewEncoder(out).Encode(fileContainer)
+	return errors.Wrap(
+		toml.NewEncoder(out).Encode(fileContainer),
+		"encoding toml",
+	)
 }
