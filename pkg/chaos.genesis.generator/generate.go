@@ -155,8 +155,7 @@ func generateData(bpc []byte) (mock genesisfile.GFile, ma Associated, err error)
 	}
 
 	// make default settlement duration
-	ded := sv.DefaultSettlementDuration{Duration: math.Day * 2}
-	_, err = sets(sv.DefaultSettlementDurationName, ded)
+	_, err = sets(sv.DefaultSettlementDurationName, math.Duration(math.Day*2))
 	if err != nil {
 		err = errors.Wrap(err, "setting default settlement duration")
 		return
