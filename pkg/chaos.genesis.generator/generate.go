@@ -2,6 +2,7 @@ package generator
 
 import (
 	"encoding/base64"
+	"strings"
 
 	"github.com/oneiro-ndev/chaincode/pkg/vm"
 	"github.com/oneiro-ndev/chaos/pkg/genesisfile"
@@ -38,7 +39,7 @@ func Generate(gfilepath, associated string) (bpc []byte, err error) {
 
 	// update the associated file
 	asscFile := make(AssociatedFile)
-	err = Update(associated, asscFile, func() error {
+	err = Update(associated, &asscFile, func() error {
 		asscFile[base64.StdEncoding.EncodeToString(bpc)] = ma
 		return nil
 	})
@@ -48,13 +49,24 @@ func Generate(gfilepath, associated string) (bpc []byte, err error) {
 	}
 
 	// update the mockfile
-	existingGfile := make(genesisfile.GFile)
-	err = Update(gfilepath, existingGfile, func() error {
-		for k, v := range gfile {
-			existingGfile[k] = v
-		}
-		return nil
-	})
+	// we can't use the handy "Update" function here because it needs
+	// some custom load/dump logic
+	var existingGfile genesisfile.GFile
+	existingGfile, err = genesisfile.Load(gfilepath)
+	// can't use os.IsNotExist here because it can't handle error wrapping
+	if err != nil && !strings.HasSuffix(err.Error(), "no such file or directory") {
+		err = errors.Wrap(err, "loading existing genesis file")
+		return
+	}
+	if existingGfile == nil {
+		existingGfile = make(genesisfile.GFile)
+	}
+
+	for k, v := range gfile {
+		existingGfile[k] = v
+	}
+
+	err = existingGfile.Dump(gfilepath)
 	if err != nil {
 		err = errors.Wrap(err, "updating genesis file")
 		return
@@ -71,17 +83,43 @@ func generateData(bpc []byte) (mock genesisfile.GFile, ma Associated, err error)
 	mock = make(genesisfile.GFile)
 	ma = make(Associated)
 
-	sets := func(key string, val interface{}) {
-		mock.Set(svi.Location{Namespace: bpc, Key: []byte(key)}, val)
+	// this is dumb, but required because there is no such thing as
+	// a bool pointer literal
+	tru := true
+	fals := false
+
+	sets := func(key string, val interface{}) (loc svi.Location, err error) {
+		loc = svi.Location{Namespace: bpc, Key: []byte(key)}
+		err = mock.Set(loc, val)
+		if err != nil {
+			return
+		}
+		err = mock.Edit(loc, func(v *genesisfile.Value) error {
+			v.System = &tru
+			return nil
+		})
+		if err != nil {
+			return
+		}
+
+		return
 	}
 
-	sviLoc := svi.Location{Namespace: bpc, Key: []byte("svi")}
-	mock.Set(sviLoc, "SVI stub: do not edit")
-	mock.Edit(sviLoc, func(v *genesisfile.Value) error {
-		tru := true
+	var sviLoc svi.Location
+	sviLoc, err = sets("svi", "SVI stub: will be automatically filled in")
+	if err != nil {
+		err = errors.Wrap(err, "make svi stub")
+		return
+	}
+	err = mock.Edit(sviLoc, func(v *genesisfile.Value) error {
 		v.SVIStub = &tru
+		v.System = &fals
 		return nil
 	})
+	if err != nil {
+		err = errors.Wrap(err, "fix svi stub")
+		return
+	}
 
 	// set RFE address
 	// generate ownership keys
@@ -98,36 +136,72 @@ func generateData(bpc []byte) (mock genesisfile.GFile, ma Associated, err error)
 		err = errors.Wrap(err, "generating RFE addr")
 		return
 	}
-	sets(sv.ReleaseFromEndowmentAddressName, rfeAddr)
+	_, err = sets(sv.ReleaseFromEndowmentAddressName, rfeAddr)
+	if err != nil {
+		err = errors.Wrap(err, "setting RFE addr")
+		return
+	}
 
 	// set default rate tables
-	sets(sv.UnlockedRateTableName, eai.DefaultUnlockedEAI)
-	sets(sv.LockedRateTableName, eai.DefaultLockBonusEAI)
+	_, err = sets(sv.UnlockedRateTableName, eai.DefaultUnlockedEAI)
+	if err != nil {
+		err = errors.Wrap(err, "setting unlocked eai table")
+		return
+	}
+	_, err = sets(sv.LockedRateTableName, eai.DefaultLockBonusEAI)
+	if err != nil {
+		err = errors.Wrap(err, "setting locked rate table")
+		return
+	}
 
 	// make default settlement duration
 	ded := sv.DefaultSettlementDuration{Duration: math.Day * 2}
-	sets(sv.DefaultSettlementDurationName, ded)
+	_, err = sets(sv.DefaultSettlementDurationName, ded)
+	if err != nil {
+		err = errors.Wrap(err, "setting default settlement duration")
+		return
+	}
 
 	// make default tx fee script
 	// this one is very simple: unconditionally returns numeric 0
-	sets(sv.TxFeeScriptName, vm.MiniAsm("zero").Bytes())
+	_, err = sets(sv.TxFeeScriptName, vm.MiniAsm("zero").Bytes())
+	if err != nil {
+		err = errors.Wrap(err, "setting tx fee script")
+		return
+	}
 
 	// min stake for an account to be active
-	sets(sv.MinStakeName, math.Ndau(1000*constants.QuantaPerUnit))
+	_, err = sets(sv.MinStakeName, math.Ndau(1000*constants.QuantaPerUnit))
+	if err != nil {
+		err = errors.Wrap(err, "setting min stake")
+		return
+	}
 
 	// make default node goodness script
 	// empty: returns the value on top of the stack
 	// as goodness functions have the total stake on top of the stack,
 	// that's actually not a terrible default
-	sets(sv.NodeGoodnessFuncName, vm.MiniAsm("").Bytes())
+	_, err = sets(sv.NodeGoodnessFuncName, vm.MiniAsm("").Bytes())
+	if err != nil {
+		err = errors.Wrap(err, "setting goodness func")
+		return
+	}
 
 	// make eai fee table
 	var eaiFeeTable sv.EAIFeeTable
 	eaiFeeTable, err = makeEAIFeeTable()
-	sets(sv.EAIFeeTableName, eaiFeeTable)
+	_, err = sets(sv.EAIFeeTableName, eaiFeeTable)
+	if err != nil {
+		err = errors.Wrap(err, "setting eai fee table")
+		return
+	}
 
 	// set default min duration between node rewards nominations
-	sets(sv.MinDurationBetweenNodeRewardNominationsName, math.Duration(1*math.Day))
+	_, err = sets(sv.MinDurationBetweenNodeRewardNominationsName, math.Duration(1*math.Day))
+	if err != nil {
+		err = errors.Wrap(err, "setting min duration between nnr txs")
+		return
+	}
 
 	// set nominate reward
 	// generate ownership keys
@@ -142,10 +216,18 @@ func generateData(bpc []byte) (mock genesisfile.GFile, ma Associated, err error)
 	if err != nil {
 		return
 	}
-	sets(sv.NominateNodeRewardAddressName, nnrAddr)
+	_, err = sets(sv.NominateNodeRewardAddressName, nnrAddr)
+	if err != nil {
+		err = errors.Wrap(err, "setting nnr address")
+		return
+	}
 
 	// set node reward nomination timeout
-	sets(sv.NodeRewardNominationTimeoutName, math.Duration(30*math.Second))
+	_, err = sets(sv.NodeRewardNominationTimeoutName, math.Duration(30*math.Second))
+	if err != nil {
+		err = errors.Wrap(err, "setting nnr timeout")
+		return
+	}
 
 	// set command validator change keys
 	// generate ownership keys
@@ -160,7 +242,11 @@ func generateData(bpc []byte) (mock genesisfile.GFile, ma Associated, err error)
 	if err != nil {
 		return
 	}
-	sets(sv.CommandValidatorChangeAddressName, cvcAddr)
+	_, err = sets(sv.CommandValidatorChangeAddressName, cvcAddr)
+	if err != nil {
+		err = errors.Wrap(err, "setting cvc address")
+		return
+	}
 
 	return
 }
