@@ -22,7 +22,7 @@ import:
   repo: git@github.com:oneiro-ndev/ndau
 - package: github.com/oneiro-ndev/ndaumath
   repo: git@github.com:oneiro-ndev/ndaumath.git
-  version: ~v0.7
+  version: prgn-improve-rtrow-text-serialization
 - package: github.com/oneiro-ndev/noms-util
   version: master
   repo: git@github.com:oneiro-ndev/noms-util.git

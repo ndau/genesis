@@ -62,6 +62,17 @@ func Generate(gfilepath, associated string) (bpc []byte, err error) {
 		existingGfile = make(genesisfile.GFile)
 	}
 
+	// the existing genesis file may already have a SVI stub. If true, remove
+	// that value: it can't be accurate anymore.
+	var existingSVIStub *svi.Location
+	existingSVIStub, err = existingGfile.FindSVIStub()
+	if err != nil {
+		err = errors.Wrap(err, "searching existing genesisfile for SVI stub")
+	}
+	if existingSVIStub != nil {
+		existingGfile.Unset(*existingSVIStub)
+	}
+
 	for k, v := range gfile {
 		existingGfile[k] = v
 	}
@@ -86,7 +97,6 @@ func generateData(bpc []byte) (mock genesisfile.GFile, ma Associated, err error)
 	// this is dumb, but required because there is no such thing as
 	// a bool pointer literal
 	tru := true
-	fals := false
 
 	sets := func(key string, val interface{}) (loc svi.Location, err error) {
 		loc = svi.Location{Namespace: bpc, Key: []byte(key)}
@@ -113,7 +123,7 @@ func generateData(bpc []byte) (mock genesisfile.GFile, ma Associated, err error)
 	}
 	err = mock.Edit(sviLoc, func(v *genesisfile.Value) error {
 		v.SVIStub = &tru
-		v.System = &fals
+		v.System = nil
 		return nil
 	})
 	if err != nil {
