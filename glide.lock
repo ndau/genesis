@@ -1,5 +1,5 @@
-hash: edaf59bab22f337d8df90e8c6322ebe44d11588a77b9af2faee53eef22d9cc4f
-updated: 2018-11-05T14:32:26.357028+01:00
+hash: 40b2512275c0e5bf1a93b743fd1e66506bb29aaf0b3e2a82dbb3b4966a74fda5
+updated: 2018-11-06T13:01:16.130604+01:00
 imports:
 - name: github.com/attic-labs/graphql
   version: 917f92ca24a759a0e3bfd1b135850f9b0c04682e
@@ -39,7 +39,7 @@ imports:
   - go/util/verbose
   - go/util/writers
 - name: github.com/aws/aws-sdk-go
-  version: 43cb5e9998123fb04bb1768ce27de117b2e3844b
+  version: b871657e51edce61b9a6d262698511d949f08163
   subpackages:
   - aws
   - aws/awserr
@@ -51,6 +51,7 @@ imports:
   - aws/credentials/ec2rolecreds
   - aws/credentials/endpointcreds
   - aws/credentials/stscreds
+  - aws/crr
   - aws/csm
   - aws/defaults
   - aws/ec2metadata
@@ -129,7 +130,7 @@ imports:
   - sortkeys
   - types
 - name: github.com/golang/protobuf
-  version: 1918e1ff6ffd2be7bed0553df8650672c3bfe80d
+  version: 75dceb112b174be156fa9952e66d3e99945572b4
   subpackages:
   - proto
   - ptypes
@@ -179,7 +180,7 @@ imports:
   - pkg/chain
   - pkg/vm
 - name: github.com/oneiro-ndev/chaos
-  version: 242e5fad96983509cc4c77a743ce934511987543
+  version: 616fa9ade76ac7c59c735074aefb6293c5a1a88d
   repo: git@github.com:oneiro-ndev/chaos.git
   subpackages:
   - pkg/chaos
@@ -215,7 +216,7 @@ imports:
   - pkg/query
   - pkg/version
 - name: github.com/oneiro-ndev/ndaumath
-  version: 4198c5aa046fadc77bef7fa745a79a343907ec02
+  version: a193b8c93b2ccfdc033f2bc685a99f0f020eeca7
   repo: git@github.com:oneiro-ndev/ndaumath.git
   subpackages:
   - pkg/address
@@ -403,7 +404,7 @@ imports:
   - salsa20/salsa
   - ssh/terminal
 - name: golang.org/x/net
-  version: c10e9556a7bc0e7c942242b606f0acf024ad5d6a
+  version: 10aee181995363b41f712a55844a0dd52ea04646
   subpackages:
   - context
   - http/httpguts
@@ -414,7 +415,7 @@ imports:
   - netutil
   - trace
 - name: golang.org/x/sys
-  version: 9b800f95dbbc54abff0acf7ee32d88ba4e328c89
+  version: 7155702f2d47d94b134229da97195d0130cab001
   subpackages:
   - cpu
   - unix
@@ -431,7 +432,7 @@ imports:
   subpackages:
   - googleapis/rpc/status
 - name: google.golang.org/grpc
-  version: 8f2842d4f02a3169c4ff997f95854c35175f20ba
+  version: d27440de3ff4bcac15a44957845d2b7c1042ad35
   subpackages:
   - balancer
   - balancer/base
@@ -449,6 +450,7 @@ imports:
   - internal/channelz
   - internal/envconfig
   - internal/grpcrand
+  - internal/syscall
   - internal/transport
   - keepalive
   - metadata
