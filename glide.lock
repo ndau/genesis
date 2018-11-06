@@ -1,5 +1,5 @@
 hash: 40b2512275c0e5bf1a93b743fd1e66506bb29aaf0b3e2a82dbb3b4966a74fda5
-updated: 2018-11-06T13:01:16.130604+01:00
+updated: 2018-11-06T13:49:55.931691+01:00
 imports:
 - name: github.com/attic-labs/graphql
   version: 917f92ca24a759a0e3bfd1b135850f9b0c04682e
@@ -180,7 +180,7 @@ imports:
   - pkg/chain
   - pkg/vm
 - name: github.com/oneiro-ndev/chaos
-  version: 616fa9ade76ac7c59c735074aefb6293c5a1a88d
+  version: 01f9c791efb67f8c1667c209b96e8bb6a18213b6
   repo: git@github.com:oneiro-ndev/chaos.git
   subpackages:
   - pkg/chaos

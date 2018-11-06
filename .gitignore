@@ -14,6 +14,8 @@ update_genesis_json
 !*/update_genesis_json
 chaos.generate
 !*/chaos.generate
+chaos.genesis
+!*/chaos.genesis
 
 **/.DS_Store
 .vscode/
