@@ -38,7 +38,7 @@ Address:    ndam32av92ekrqvjjzwkct4peri5c9wxyg4k9p34a3xtef3x
 Public Key: npuba8jadtbbeb9fnizk2fxcvpkathgs4bvvd8gy6swzq4tiy7hr7hwxzisjaqkgqi9zgpzc2iuw
 
 ### ndau Network Operations
-Address used to collect and distribute transaction fees and a 10% network operations fee from all accrued EAI. Will be claimed using keys assigned to ndev.
+Address used to collect any portion of the 10% network operations fee (from EAI) that will not be distributed as node rewards. These funds would be used to pay for other operations, if any. At genesis there is no plan to direct any funds to this account. Will be claimed using keys assigned to ndev.
 
 Address:    ndnhhr5kg3ku9vtaph7pwkz3mxgvizc565ec37prbkzja7ex
 
