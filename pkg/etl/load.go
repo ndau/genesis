@@ -71,6 +71,7 @@ func Load(conf *config.Config, rows []RawRow, ndauhome string) error {
 			}
 
 			st.Accounts[addr.String()] = ad
+			st.TotalRFE += ad.Balance
 
 			// we could manually compute EAI at this point, but it's
 			// better to wait for the actual delegated node to compute it.
