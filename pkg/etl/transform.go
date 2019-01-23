@@ -20,6 +20,10 @@ func TransformRow(row RawRow, logger logrus.FieldLogger) (ad backing.AccountData
 	ad.LastEAIUpdate = creation
 	ad.LastWAAUpdate = creation
 
+	if row.QtyPurchased >= 1000 {
+		ad.CurrencySeatDate = &creation
+	}
+
 	if row.UnlockDate != nil {
 		unlockDate, err := math.TimestampFrom(*row.UnlockDate)
 		if err != nil {
