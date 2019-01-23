@@ -17,6 +17,9 @@ import (
 func addressFrom(addrS string, rlogger logrus.FieldLogger) (address.Address, error) {
 	addr, err := address.Validate(addrS)
 	if err != nil {
+		if rlogger != nil {
+			rlogger = rlogger.WithField("spreadsheet address", addrS)
+		}
 		addrHash := sha256.Sum256([]byte(addrS)) // the address data may be too short
 		addr, err = address.Generate(address.KindUser, addrHash[:])
 		if err != nil {
@@ -72,6 +75,16 @@ func Load(conf *config.Config, rows []RawRow, ndauhome string) error {
 
 			st.Accounts[addr.String()] = ad
 			st.TotalRFE += ad.Balance
+
+			// update the state's delegated nodes
+			if row.DelegationNode != nil {
+				dest := st.Delegates[*row.DelegationNode]
+				if dest == nil {
+					dest = make(map[string]struct{})
+				}
+				dest[row.Address] = struct{}{}
+				st.Delegates[*row.DelegationNode] = dest
+			}
 
 			// we could manually compute EAI at this point, but it's
 			// better to wait for the actual delegated node to compute it.

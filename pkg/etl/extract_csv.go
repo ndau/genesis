@@ -62,6 +62,10 @@ func extractCSVRow(record []string, conf *config.Config) (rr RawRow, err error) 
 	if cellHasValue(rtc) {
 		rr.RewardTarget = rtc
 	}
+	dnc := getCell(config.DelegationNodeS)
+	if cellHasValue(dnc) {
+		rr.DelegationNode = dnc
+	}
 
 	return rr, nil
 }

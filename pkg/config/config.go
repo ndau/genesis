@@ -34,6 +34,7 @@ const (
 	UnlockDateS        = "unlock_date"
 	NotifyImmediatelyS = "notify_immediately"
 	RewardTargetS      = "reward_target"
+	DelegationNodeS    = "delegation_node"
 )
 
 // DefaultConfig creates a default config struct
@@ -106,7 +107,7 @@ func WithConfig(configPath string, lambda func(*Config) error) error {
 
 func (conf *Config) missingColumns() []string {
 	missing := make([]string, 0)
-	for _, header := range []string{AddressS, QtyPurchasedS, PurchaseDateS, UnlockDateS, NotifyImmediatelyS} {
+	for _, header := range []string{AddressS, QtyPurchasedS, PurchaseDateS, UnlockDateS, NotifyImmediatelyS, DelegationNodeS} {
 		_, ok := conf.Columns[header]
 		if !ok {
 			missing = append(missing, header)

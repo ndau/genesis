@@ -58,6 +58,13 @@ func extractXlsxRow(xrow *xlsx.Row, conf *config.Config, date1904 bool) (rr RawR
 			rr.RewardTarget = &rts
 		}
 	}
+	dnc := getCell(config.DelegationNodeS)
+	if dnc != nil {
+		dns := dnc.String()
+		if len(dns) > 0 && !(strings.EqualFold("false", dns) || dns == "0") {
+			rr.DelegationNode = &dns
+		}
+	}
 
 	return rr, nil
 }
