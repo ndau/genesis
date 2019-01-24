@@ -11,12 +11,13 @@ import (
 
 // RawRow encapsulates the raw data of a single row of the ndau spreadsheet
 type RawRow struct {
-	RowNumber    uint64
-	Address      string
-	QtyPurchased float64
-	PurchaseDate time.Time
-	UnlockDate   *time.Time
-	RewardTarget *string
+	RowNumber      uint64
+	Address        string
+	QtyPurchased   float64
+	PurchaseDate   time.Time
+	UnlockDate     *time.Time
+	RewardTarget   *string
+	DelegationNode *string
 }
 
 func (rr RawRow) String() string {
@@ -24,14 +25,19 @@ func (rr RawRow) String() string {
 	if rr.RewardTarget != nil {
 		rt = *rr.RewardTarget
 	}
+	rd := "nil"
+	if rr.DelegationNode != nil {
+		rd = *rr.DelegationNode
+	}
 	return fmt.Sprintf(
-		"%d %s: %f ndau on %s, unlocking %s, rewards to %s",
+		"%d %s: %f ndau on %s, unlocking %s, rewards to %s, delegated to %s",
 		rr.RowNumber,
 		rr.Address,
 		rr.QtyPurchased,
 		rr.PurchaseDate,
 		rr.UnlockDate,
 		rt,
+		rd,
 	)
 }
 
