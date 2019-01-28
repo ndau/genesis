@@ -47,7 +47,7 @@ func TransformRow(row RawRow, logger logrus.FieldLogger) (ad backing.AccountData
 	}
 
 	if row.DelegationNode != nil {
-		addr, err := addressFrom(*row.RewardTarget, logger.WithField("column", config.DelegationNodeS))
+		addr, err := addressFrom(*row.DelegationNode, logger.WithField("column", config.DelegationNodeS))
 		if err != nil {
 			return ad, err
 		}
