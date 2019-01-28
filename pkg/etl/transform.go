@@ -20,6 +20,10 @@ func TransformRow(row RawRow, logger logrus.FieldLogger) (ad backing.AccountData
 	ad.LastEAIUpdate = creation
 	ad.LastWAAUpdate = creation
 
+	if row.QtyPurchased >= 1000 {
+		ad.CurrencySeatDate = &creation
+	}
+
 	if row.UnlockDate != nil {
 		unlockDate, err := math.TimestampFrom(*row.UnlockDate)
 		if err != nil {
@@ -40,6 +44,14 @@ func TransformRow(row RawRow, logger logrus.FieldLogger) (ad backing.AccountData
 			return ad, err
 		}
 		ad.RewardsTarget = &addr
+	}
+
+	if row.DelegationNode != nil {
+		addr, err := addressFrom(*row.RewardTarget, logger.WithField("column", config.DelegationNodeS))
+		if err != nil {
+			return ad, err
+		}
+		ad.DelegationNode = &addr
 	}
 
 	return
