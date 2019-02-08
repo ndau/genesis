@@ -50,6 +50,7 @@ def main():
             print(p)
 
     # list of node addresses to be assigned to accounts
+    # these nodes come from the "data and procedures/genesis_nodes.txt" file in the genesis repo
     node_list = ['ndarw5i7rmqtqstw4mtnchmfvxnrq4k3e2ytsyvsc7nxt2y7',
         'ndaq3nqhez3vvxn8rx4m6s6n3kv7k9js8i3xw8hqnwvi2ete',
         'ndahnsxr8zh7r6u685ka865wz77wb78xcn45rgskpeyiwuza',
