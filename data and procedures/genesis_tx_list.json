@@ -1,5 +1,6 @@
 [
   {
+    "comment": "BPC Operations", 
     "txtype": "ClaimAccount", 
     "tx": {
       "validation_script": "", 
@@ -13,6 +14,7 @@
     }
   }, 
   {
+    "comment": "Axiom Release and Issuance", 
     "txtype": "ClaimAccount", 
     "tx": {
       "validation_script": "", 
@@ -26,6 +28,7 @@
     }
   }, 
   {
+    "comment": "ndau Network Operations", 
     "txtype": "ClaimAccount", 
     "tx": {
       "validation_script": "", 
@@ -39,6 +42,7 @@
     }
   }, 
   {
+    "comment": "ndev Operations", 
     "txtype": "ClaimAccount", 
     "tx": {
       "validation_script": "", 
@@ -52,6 +56,7 @@
     }
   }, 
   {
+    "comment": "ntrd Operations", 
     "txtype": "ClaimAccount", 
     "tx": {
       "validation_script": "", 
@@ -65,6 +70,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 0", 
     "txtype": "ClaimAccount", 
     "tx": {
       "validation_script": "", 
@@ -78,6 +84,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 1", 
     "txtype": "ClaimAccount", 
     "tx": {
       "validation_script": "", 
@@ -91,6 +98,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 2", 
     "txtype": "ClaimAccount", 
     "tx": {
       "validation_script": "", 
@@ -104,6 +112,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 3", 
     "txtype": "ClaimAccount", 
     "tx": {
       "validation_script": "", 
@@ -117,6 +126,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 4", 
     "txtype": "ClaimAccount", 
     "tx": {
       "validation_script": "", 
@@ -130,6 +140,7 @@
     }
   }, 
   {
+    "comment": "ndau Issuance", 
     "txtype": "Issue", 
     "tx": {
       "signatures": [
@@ -140,6 +151,7 @@
     }
   }, 
   {
+    "comment": "ndev Operations", 
     "txtype": "Delegate", 
     "tx": {
       "node": "", 
@@ -151,6 +163,7 @@
     }
   }, 
   {
+    "comment": "ntrd Operations", 
     "txtype": "Delegate", 
     "tx": {
       "node": "", 
@@ -162,6 +175,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 0", 
     "txtype": "Delegate", 
     "tx": {
       "node": "", 
@@ -173,6 +187,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 1", 
     "txtype": "Delegate", 
     "tx": {
       "node": "", 
@@ -184,6 +199,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 2", 
     "txtype": "Delegate", 
     "tx": {
       "node": "", 
@@ -195,6 +211,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 3", 
     "txtype": "Delegate", 
     "tx": {
       "node": "", 
@@ -206,6 +223,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 4", 
     "txtype": "Delegate", 
     "tx": {
       "node": "", 
@@ -217,6 +235,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 0", 
     "txtype": "CreditEAI", 
     "tx": {
       "node": "ndarw5i7rmqtqstw4mtnchmfvxnrq4k3e2ytsyvsc7nxt2y7", 
@@ -227,6 +246,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 1", 
     "txtype": "CreditEAI", 
     "tx": {
       "node": "ndaq3nqhez3vvxn8rx4m6s6n3kv7k9js8i3xw8hqnwvi2ete", 
@@ -237,6 +257,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 2", 
     "txtype": "CreditEAI", 
     "tx": {
       "node": "ndahnsxr8zh7r6u685ka865wz77wb78xcn45rgskpeyiwuza", 
@@ -247,6 +268,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 3", 
     "txtype": "CreditEAI", 
     "tx": {
       "node": "ndam75fnjn7cdues7ivi7ccfq8f534quieaccqibrvuzhqxa", 
@@ -257,6 +279,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 4", 
     "txtype": "CreditEAI", 
     "tx": {
       "node": "ndaekyty73hd56gynsswuj5q9em68tp6ed5v7tpft872hvuc", 
@@ -267,6 +290,7 @@
     }
   }, 
   {
+    "comment": "ndev Operations", 
     "txtype": "Transfer", 
     "tx": {
       "signatures": [
@@ -279,6 +303,7 @@
     }
   }, 
   {
+    "comment": "ndev Operations", 
     "txtype": "Transfer", 
     "tx": {
       "signatures": [
@@ -291,6 +316,7 @@
     }
   }, 
   {
+    "comment": "ndev Operations", 
     "txtype": "Transfer", 
     "tx": {
       "signatures": [
@@ -303,6 +329,7 @@
     }
   }, 
   {
+    "comment": "ndev Operations", 
     "txtype": "Transfer", 
     "tx": {
       "signatures": [
@@ -315,6 +342,7 @@
     }
   }, 
   {
+    "comment": "ndev Operations", 
     "txtype": "Transfer", 
     "tx": {
       "signatures": [
@@ -327,6 +355,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 0", 
     "txtype": "Lock", 
     "tx": {
       "signatures": [
@@ -338,6 +367,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 0", 
     "txtype": "SetRewardsDestination", 
     "tx": {
       "signatures": [
@@ -349,6 +379,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 1", 
     "txtype": "Lock", 
     "tx": {
       "signatures": [
@@ -360,6 +391,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 1", 
     "txtype": "SetRewardsDestination", 
     "tx": {
       "signatures": [
@@ -371,6 +403,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 2", 
     "txtype": "Lock", 
     "tx": {
       "signatures": [
@@ -382,6 +415,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 2", 
     "txtype": "SetRewardsDestination", 
     "tx": {
       "signatures": [
@@ -393,6 +427,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 3", 
     "txtype": "Lock", 
     "tx": {
       "signatures": [
@@ -404,6 +439,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 3", 
     "txtype": "SetRewardsDestination", 
     "tx": {
       "signatures": [
@@ -415,6 +451,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 4", 
     "txtype": "Lock", 
     "tx": {
       "signatures": [
@@ -426,6 +463,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 4", 
     "txtype": "SetRewardsDestination", 
     "tx": {
       "signatures": [
@@ -437,6 +475,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 0", 
     "txtype": "RegisterNode", 
     "tx": {
       "node": "ndarw5i7rmqtqstw4mtnchmfvxnrq4k3e2ytsyvsc7nxt2y7", 
@@ -449,6 +488,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 1", 
     "txtype": "RegisterNode", 
     "tx": {
       "node": "ndaq3nqhez3vvxn8rx4m6s6n3kv7k9js8i3xw8hqnwvi2ete", 
@@ -461,6 +501,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 2", 
     "txtype": "RegisterNode", 
     "tx": {
       "node": "ndahnsxr8zh7r6u685ka865wz77wb78xcn45rgskpeyiwuza", 
@@ -473,6 +514,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 3", 
     "txtype": "RegisterNode", 
     "tx": {
       "node": "ndam75fnjn7cdues7ivi7ccfq8f534quieaccqibrvuzhqxa", 
@@ -485,6 +527,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 4", 
     "txtype": "RegisterNode", 
     "tx": {
       "node": "ndaekyty73hd56gynsswuj5q9em68tp6ed5v7tpft872hvuc", 
@@ -497,6 +540,7 @@
     }
   }, 
   {
+    "comment": "ndau Network Operations", 
     "txtype": "NominateNodeRewards", 
     "tx": {
       "signatures": [
@@ -507,6 +551,7 @@
     }
   }, 
   {
+    "comment": "ndev Node 0", 
     "txtype": "ClaimReward", 
     "tx": {
       "node": "ndarw5i7rmqtqstw4mtnchmfvxnrq4k3e2ytsyvsc7nxt2y7", 

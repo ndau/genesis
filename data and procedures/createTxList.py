@@ -4,6 +4,7 @@ import json
 
 def ClaimAccount(d):
     return dict(
+        comment=d["header"],
         txtype="ClaimAccount",
         tx=dict(
             target=d["target"],
@@ -18,12 +19,15 @@ def ClaimAccount(d):
 
 def Issue(d):
     return dict(
-        txtype="Issue", tx=dict(qty=d["qty"], sequence=d["sequence"], signatures=[""])
+        comment=d["header"],
+        txtype="Issue",
+        tx=dict(qty=d["qty"], sequence=d["sequence"], signatures=[""]),
     )
 
 
 def Delegate(d):
     return dict(
+        comment=d["header"],
         txtype="Delegate",
         tx=dict(
             target=d["source"],
@@ -36,6 +40,7 @@ def Delegate(d):
 
 def CreditEAI(d):
     return dict(
+        comment=d["header"],
         txtype="CreditEAI",
         tx=dict(node=d["target"], sequence=d["sequence"], signatures=[""]),
     )
@@ -43,6 +48,7 @@ def CreditEAI(d):
 
 def Lock(d):
     return dict(
+        comment=d["header"],
         txtype="Lock",
         tx=dict(
             target=d["target"],
@@ -55,6 +61,7 @@ def Lock(d):
 
 def SetRewardsDestination(d):
     return dict(
+        comment=d["header"],
         txtype="SetRewardsDestination",
         tx=dict(
             source=d["source"],
@@ -67,6 +74,7 @@ def SetRewardsDestination(d):
 
 def Transfer(d):
     return dict(
+        comment=d["header"],
         txtype="Transfer",
         tx=dict(
             source=d["source"],
@@ -80,6 +88,7 @@ def Transfer(d):
 
 def RegisterNode(d):
     return dict(
+        comment=d["header"],
         txtype="RegisterNode",
         tx=dict(
             node=d["target"],
@@ -93,6 +102,7 @@ def RegisterNode(d):
 
 def NominateNodeRewards(d):
     return dict(
+        comment=d["header"],
         txtype="NominateNodeRewards",
         tx=dict(
             random=0, sequence=d["sequence"], signatures=[""]  # nominate the 0 node
@@ -102,6 +112,7 @@ def NominateNodeRewards(d):
 
 def ClaimReward(d):
     return dict(
+        comment=d["header"],
         txtype="ClaimReward",
         tx=dict(node=d["target"], sequence=d["sequence"], signatures=[""]),
     )

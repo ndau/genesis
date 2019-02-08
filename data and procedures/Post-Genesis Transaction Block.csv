@@ -1,4 +1,4 @@
-﻿header,txtype,sequence,qty,source,destination,period,target,ownership,,validation_keys,
+header,txtype,sequence,qty,source,destination,period,target,ownership,,validation_keys,
 Post-Genesis Transaction Block,,,,,,,,,,validation_keys,validation_url
 ,,,,,,,,,,,
 ClaimAccount,,,,,,,Claim special accounts and node accounts,,,,
