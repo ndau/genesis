@@ -1,20 +1,24 @@
 import csv
 import json
+import subprocess
 
 
 def ClaimAccount(d):
-    return dict(
+    tx = dict(
         comment=d["header"],
         txtype="ClaimAccount",
         tx=dict(
             target=d["target"],
             ownership=d["ownership"],
-            validation_keys=[d["validation_keys"]],
-            validation_script="",
+            validation_script=d["validation_script"],
             sequence=d["sequence"],
             signature="",
         ),
     )
+    keys = [d.get(f"validation_keys_{i}", "") for i in range(9)]
+    keys = [k for k in keys if k != ""]
+    tx["tx"]["validation_keys"] = keys
+    return tx
 
 
 def Issue(d):
@@ -119,6 +123,7 @@ def ClaimReward(d):
 
 
 if __name__ == "__main__":
+    ndautool = "/Users/kentquirk/go/src/github.com/oneiro-ndev/commands/ndau"
     txmap = dict(
         ClaimAccount=[ClaimAccount],
         Issue=[Issue],
@@ -136,4 +141,13 @@ if __name__ == "__main__":
         txs = []
         for row in rows:
             txs.extend([tx(row) for tx in txmap[row["txtype"]]])
-        print(json.dumps(txs, indent=2))
+        newtxs = []
+        for t in txs[10]:
+            j = json.dumps(t["tx"])
+            r = subprocess.run(
+                ndautool, "signable-bytes", t["txtype"], input=j, text=True
+            )
+            sb = r.stdout
+            t["signable_bytes"] = sb
+            newtxs.append(t)
+        print(json.dumps(newtxs, indent=2))
