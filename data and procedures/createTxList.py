@@ -1,4 +1,6 @@
+import sys
 import csv
+import copy
 import json
 import subprocess
 
@@ -11,7 +13,7 @@ def ClaimAccount(d):
             target=d["target"],
             ownership=d["ownership"],
             validation_script=d["validation_script"],
-            sequence=d["sequence"],
+            sequence=int(d["sequence"]),
             signature="",
         ),
     )
@@ -25,7 +27,11 @@ def Issue(d):
     return dict(
         comment=d["header"],
         txtype="Issue",
-        tx=dict(qty=d["qty"], sequence=d["sequence"], signatures=[""]),
+        tx=dict(
+            qty=int(d["qty"]) * 100_000_000,
+            sequence=int(d["sequence"]),
+            signatures=[""],
+        ),
     )
 
 
@@ -34,9 +40,9 @@ def Delegate(d):
         comment=d["header"],
         txtype="Delegate",
         tx=dict(
-            target=d["source"],
-            node=d["destination"],
-            sequence=d["sequence"],
+            target=d["target"],
+            node=d["ownership"],
+            sequence=int(d["sequence"]),
             signatures=[""],
         ),
     )
@@ -46,7 +52,7 @@ def CreditEAI(d):
     return dict(
         comment=d["header"],
         txtype="CreditEAI",
-        tx=dict(node=d["target"], sequence=d["sequence"], signatures=[""]),
+        tx=dict(node=d["target"], sequence=int(d["sequence"]), signatures=[""]),
     )
 
 
@@ -57,7 +63,7 @@ def Lock(d):
         tx=dict(
             target=d["target"],
             period=d["period"],
-            sequence=d["sequence"],
+            sequence=int(d["sequence"]),
             signatures=[""],
         ),
     )
@@ -70,7 +76,7 @@ def SetRewardsDestination(d):
         tx=dict(
             source=d["source"],
             destination=d["destination"],
-            sequence=d["sequence"],
+            sequence=int(d["sequence"]),
             signatures=[""],
         ),
     )
@@ -83,8 +89,8 @@ def Transfer(d):
         tx=dict(
             source=d["source"],
             destination=d["destination"],
-            qty=d["qty"],
-            sequence=d["sequence"],
+            qty=int(d["qty"]) * 100_000_000,
+            sequence=int(d["sequence"]),
             signatures=[""],
         ),
     )
@@ -98,27 +104,29 @@ def RegisterNode(d):
             node=d["target"],
             distribution_script="",
             rpc_address="",
-            sequence=d["sequence"],
+            sequence=int(d["sequence"]),
             signatures=[""],
         ),
     )
 
 
-def NominateNodeRewards(d):
+def NominateNodeReward(d):
     return dict(
         comment=d["header"],
-        txtype="NominateNodeRewards",
+        txtype="NominateNodeReward",
         tx=dict(
-            random=0, sequence=d["sequence"], signatures=[""]  # nominate the 0 node
+            random=0,
+            sequence=int(d["sequence"]),
+            signatures=[""],  # nominate the 0 node
         ),
     )
 
 
-def ClaimReward(d):
+def ClaimNodeReward(d):
     return dict(
         comment=d["header"],
-        txtype="ClaimReward",
-        tx=dict(node=d["target"], sequence=d["sequence"], signatures=[""]),
+        txtype="ClaimNodeReward",
+        tx=dict(node=d["target"], sequence=int(d["sequence"]), signatures=[""]),
     )
 
 
@@ -131,8 +139,8 @@ if __name__ == "__main__":
         CreditEAI=[CreditEAI],
         RegisterNode=[RegisterNode],
         Lock=[Lock, SetRewardsDestination],
-        NominateNodeRewards=[NominateNodeRewards],
-        ClaimReward=[ClaimReward],
+        NominateNodeReward=[NominateNodeReward],
+        ClaimNodeReward=[ClaimNodeReward],
         Transfer=[Transfer],
     )
     with open("Post-Genesis Transaction Block.csv") as csvfile:
@@ -142,12 +150,27 @@ if __name__ == "__main__":
         for row in rows:
             txs.extend([tx(row) for tx in txmap[row["txtype"]]])
         newtxs = []
-        for t in txs[10]:
-            j = json.dumps(t["tx"])
-            r = subprocess.run(
-                ndautool, "signable-bytes", t["txtype"], input=j, text=True
-            )
-            sb = r.stdout
-            t["signable_bytes"] = sb
-            newtxs.append(t)
-        print(json.dumps(newtxs, indent=2))
+
+        if len(sys.argv) > 1:
+            for t in txs:
+                tx = copy.deepcopy(t["tx"])
+                if "signature" in tx:
+                    del tx["signature"]
+                if "signatures" in tx:
+                    del tx["signatures"]
+
+                j = json.dumps(tx, indent=2)
+                r = subprocess.run(
+                    [ndautool, "signable-bytes", t["txtype"]],
+                    input=j,
+                    text=True,
+                    capture_output=True,
+                )
+                if r.returncode > 0:
+                    t["signable_bytes"] = f"ERROR: {r.stderr}"
+                else:
+                    t["signable_bytes"] = r.stdout
+                newtxs.append(t)
+            txs = newtxs
+
+        print(json.dumps(txs, indent=2))
