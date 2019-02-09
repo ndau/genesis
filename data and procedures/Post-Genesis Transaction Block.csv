@@ -1,4 +1,4 @@
-﻿header,txtype,sequence,qty,source,destination,period,target,ownership,,validation_keys_0,validation_keys_1,validation_keys_2,validation_keys_3,validation_keys_4,validation_keys_5,validation_keys_6,validation_script,pvt_key
+header,txtype,sequence,qty,source,destination,period,target,ownership,,validation_keys_0,validation_keys_1,validation_keys_2,validation_keys_3,validation_keys_4,validation_keys_5,validation_keys_6,validation_script,pvt_key
 Post-Genesis Transaction Block,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,
 ClaimAccount,,,,,,,Claim special accounts and node accounts,,,,,,,,,,,
