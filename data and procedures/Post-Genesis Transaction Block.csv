@@ -44,19 +44,19 @@ ndev Node 4,Lock,3,,ndaekyty73hd56gynsswuj5q9em68tp6ed5v7tpft872hvuc,ndaea8w9gz8
 ,,,,,,,,,,,,,,,,,,
 RegisterNode,,,,,,,Each node registers as an active node,,,,,,,,,,,
 Account,,,,,,,Address,RPC URL,Signatures,,,,,,,,,
-ndev Node 0,RegisterNode,4,,,,,ndarw5i7rmqtqstw4mtnchmfvxnrq4k3e2ytsyvsc7nxt2y7,,2 of 3 ndev Operations,,,,,,,,,npvtayjadtcbid5jfgyaxfdqmjagy3wcks2i9ugs8q37t5xy69uydj953dmjd4y3ufyrrv75vh7tfwvdbkfbds2dhdu7x85s79kuqz4hkj5wc6nuauzmszk3u74w
-ndev Node 1,RegisterNode,4,,,,,ndaq3nqhez3vvxn8rx4m6s6n3kv7k9js8i3xw8hqnwvi2ete,,2 of 3 ndev Operations,,,,,,,,,npvtayjadtcbidmztx5nhij7d4msqhjjizzrnuz8j2yjpa279kz9segh3diiyub7j8dmk7gykebpmds7ryjf4v46xebdp8ftsz7gagrpp2hdp9yizjz9dmag6mem
-ndev Node 2,RegisterNode,4,,,,,ndahnsxr8zh7r6u685ka865wz77wb78xcn45rgskpeyiwuza,,2 of 3 ndev Operations,,,,,,,,,npvtayjadtcbibcdyjat959u82s242m84phfdmrf655s8xwtewhvqx5zssc892bfukcqwumevsnguwpd4e7kgw5wici7je5mbnkh46kbv534kaytrszb3u2yi35y
-ndev Node 3,RegisterNode,4,,,,,ndam75fnjn7cdues7ivi7ccfq8f534quieaccqibrvuzhqxa,,2 of 3 ndev Operations,,,,,,,,,npvtayjadtcbic5m757sf4vr6v7bxjdysjf2htib7bs9uua23nmsxkgx93ybgs422r8stm7j6bpditgi476tdey396d2bf97vdnf8iyi4miakkxadxicr8nq57gx
-ndev Node 4,RegisterNode,4,,,,,ndaekyty73hd56gynsswuj5q9em68tp6ed5v7tpft872hvuc,,2 of 3 ndev Operations,,,,,,,,,npvtayjadtcbid77ujrn4atvry38ukaqxk6g4a54nw3tcf8ukktn4gi7ecvg35jswmywgp6g3mxbwmdw2nftf4ewqd3fxvw4mqws3gsumwyaiystnqse5tbz4c96
+ndev Node 0,RegisterNode,4,,,,,ndarw5i7rmqtqstw4mtnchmfvxnrq4k3e2ytsyvsc7nxt2y7,https://107.23.197.181:30104,2 of 3 ndev Operations,,,,,,,,,npvtayjadtcbid5jfgyaxfdqmjagy3wcks2i9ugs8q37t5xy69uydj953dmjd4y3ufyrrv75vh7tfwvdbkfbds2dhdu7x85s79kuqz4hkj5wc6nuauzmszk3u74w
+ndev Node 1,RegisterNode,4,,,,,ndaq3nqhez3vvxn8rx4m6s6n3kv7k9js8i3xw8hqnwvi2ete,https://107.23.197.181:30108,2 of 3 ndev Operations,,,,,,,,,npvtayjadtcbidmztx5nhij7d4msqhjjizzrnuz8j2yjpa279kz9segh3diiyub7j8dmk7gykebpmds7ryjf4v46xebdp8ftsz7gagrpp2hdp9yizjz9dmag6mem
+ndev Node 2,RegisterNode,4,,,,,ndahnsxr8zh7r6u685ka865wz77wb78xcn45rgskpeyiwuza,https://107.23.197.181:30112,2 of 3 ndev Operations,,,,,,,,,npvtayjadtcbibcdyjat959u82s242m84phfdmrf655s8xwtewhvqx5zssc892bfukcqwumevsnguwpd4e7kgw5wici7je5mbnkh46kbv534kaytrszb3u2yi35y
+ndev Node 3,RegisterNode,4,,,,,ndam75fnjn7cdues7ivi7ccfq8f534quieaccqibrvuzhqxa,https://107.23.197.181:30116,2 of 3 ndev Operations,,,,,,,,,npvtayjadtcbic5m757sf4vr6v7bxjdysjf2htib7bs9uua23nmsxkgx93ybgs422r8stm7j6bpditgi476tdey396d2bf97vdnf8iyi4miakkxadxicr8nq57gx
+ndev Node 4,RegisterNode,4,,,,,ndaekyty73hd56gynsswuj5q9em68tp6ed5v7tpft872hvuc,https://107.23.197.181:30120,2 of 3 ndev Operations,,,,,,,,,npvtayjadtcbid77ujrn4atvry38ukaqxk6g4a54nw3tcf8ukktn4gi7ecvg35jswmywgp6g3mxbwmdw2nftf4ewqd3fxvw4mqws3gsumwyaiystnqse5tbz4c96
 ,,,,,,,,,,,,,,,,,,
 NominateNodeRewards,,,,,,,Collect accrued node rewards - nominate node 0,,,,,,,,,,,
-Account,,,,,,,Address,Node Address,Signature,,,,,,,,,
-ndau Network Operations,NominateNodeRewards,2,,,,,ndnf9ffbzhyf8mk7z5vvqc4quzz5i2exp5zgsmhyhc9cuwr4,ndarw5i7rmqtqstw4mtnchmfvxnrq4k3e2ytsyvsc7nxt2y7,1 ndau Network Operations,,,,,,,,,
+Account,,,,,,,Address,Node Address,Signatures,,,,,,,,,
+ndau Network Operations,NominateNodeReward,2,,,,,ndnf9ffbzhyf8mk7z5vvqc4quzz5i2exp5zgsmhyhc9cuwr4,ndarw5i7rmqtqstw4mtnchmfvxnrq4k3e2ytsyvsc7nxt2y7,1 ndau Network Operations,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,
-ClaimReward,,,,,,,Node 0 claims its rewards,,,,,,,,,,,
+ClaimNodeReward,,,,,,,Node 0 claims its rewards,,,,,,,,,,,
 Account,,,,,,,Address,,Signatures,,,,,,,,,
-ndev Node 0,ClaimReward,5,,,,,ndarw5i7rmqtqstw4mtnchmfvxnrq4k3e2ytsyvsc7nxt2y7,,ndev Node 0,,,,,,,,,
+ndev Node 0,ClaimNodeReward,5,,,,,ndarw5i7rmqtqstw4mtnchmfvxnrq4k3e2ytsyvsc7nxt2y7,,ndev Node 0,,,,,,,,,npvtayjadtcbid5jfgyaxfdqmjagy3wcks2i9ugs8q37t5xy69uydj953dmjd4y3ufyrrv75vh7tfwvdbkfbds2dhdu7x85s79kuqz4hkj5wc6nuauzmszk3u74w
 ,,,,,,,,,,,,,,,,,,
 Delegate,,,,,,,Regular operating accounts o node 0,,,,,,,,,,,
 Account,,,,,,,Address,Node,Signatures,,,,,,,,,
