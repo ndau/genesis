@@ -4,6 +4,9 @@ import copy
 import json
 import subprocess
 
+ndautool = "/Users/kentquirk/go/src/github.com/oneiro-ndev/commands/ndau"
+keytool = "/Users/kentquirk/go/src/github.com/oneiro-ndev/commands/cmd/keytool/keytool"
+
 
 def ClaimAccount(d):
     tx = dict(
@@ -14,6 +17,7 @@ def ClaimAccount(d):
             ownership=d["ownership"],
             validation_script=d["validation_script"],
             sequence=int(d["sequence"]),
+            pvt_key=d["pvt_key"],
             signature="",
         ),
     )
@@ -43,6 +47,7 @@ def Delegate(d):
             target=d["target"],
             node=d["ownership"],
             sequence=int(d["sequence"]),
+            pvt_key=d["pvt_key"],
             signatures=[""],
         ),
     )
@@ -52,7 +57,12 @@ def CreditEAI(d):
     return dict(
         comment=d["header"],
         txtype="CreditEAI",
-        tx=dict(node=d["target"], sequence=int(d["sequence"]), signatures=[""]),
+        tx=dict(
+            node=d["target"],
+            sequence=int(d["sequence"]),
+            pvt_key=d["pvt_key"],
+            signatures=[""],
+        ),
     )
 
 
@@ -64,6 +74,7 @@ def Lock(d):
             target=d["target"],
             period=d["period"],
             sequence=int(d["sequence"]),
+            pvt_key=d["pvt_key"],
             signatures=[""],
         ),
     )
@@ -105,6 +116,7 @@ def RegisterNode(d):
             distribution_script="",
             rpc_address="",
             sequence=int(d["sequence"]),
+            pvt_key=d["pvt_key"],
             signatures=[""],
         ),
     )
@@ -130,8 +142,54 @@ def ClaimNodeReward(d):
     )
 
 
+def generateSignableBytes(obj):
+    tx = copy.deepcopy(obj)
+    if "signature" in tx:
+        del tx["signature"]
+    if "signatures" in tx:
+        del tx["signatures"]
+    if "pvt_key" in tx:
+        del tx["pvt_key"]
+
+    j = json.dumps(tx, indent=2)
+    r = subprocess.run(
+        [ndautool, "signable-bytes", t["txtype"]],
+        input=j,
+        text=True,
+        capture_output=True,
+    )
+    if r.returncode > 0:
+        return f"ERROR: {r.stderr}"
+    return r.stdout.strip()
+
+
+def tryToSign(t):
+    pk = t["tx"].get("pvt_key", None)
+    tx = copy.deepcopy(t["tx"])
+    if pk is not None:
+        del tx["pvt_key"]
+    if not pk:
+        t["tx"] = tx
+        return t
+
+    sb = t["signable_bytes"]
+
+    args = [keytool, "sign", pk, sb, "-b"]
+    r = subprocess.run(args, text=True, capture_output=True)
+    if r.returncode > 0:
+        sig = f"ERROR: {r.stderr}"
+    else:
+        sig = r.stdout.strip()
+
+    if "signature" in tx:
+        tx["signature"] = sig
+    else:
+        tx["signatures"] = [sig]
+    t["tx"] = tx
+    return t
+
+
 if __name__ == "__main__":
-    ndautool = "/Users/kentquirk/go/src/github.com/oneiro-ndev/commands/ndau"
     txmap = dict(
         ClaimAccount=[ClaimAccount],
         Issue=[Issue],
@@ -153,23 +211,10 @@ if __name__ == "__main__":
 
         if len(sys.argv) > 1:
             for t in txs:
-                tx = copy.deepcopy(t["tx"])
-                if "signature" in tx:
-                    del tx["signature"]
-                if "signatures" in tx:
-                    del tx["signatures"]
-
-                j = json.dumps(tx, indent=2)
-                r = subprocess.run(
-                    [ndautool, "signable-bytes", t["txtype"]],
-                    input=j,
-                    text=True,
-                    capture_output=True,
-                )
-                if r.returncode > 0:
-                    t["signable_bytes"] = f"ERROR: {r.stderr}"
-                else:
-                    t["signable_bytes"] = r.stdout
+                sb = generateSignableBytes(t["tx"])
+                t["signable_bytes"] = sb
+                if not sb.startswith("ERROR"):
+                    t = tryToSign(t)
                 newtxs.append(t)
             txs = newtxs
 
