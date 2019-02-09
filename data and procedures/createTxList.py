@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 import sys
 import csv
 import copy
@@ -24,11 +26,11 @@ def ClaimAccount(d):
     keys = [d.get(f"validation_keys_{i}", "") for i in range(9)]
     keys = [k for k in keys if k != ""]
     tx["tx"]["validation_keys"] = keys
-    return tx
+    return [tx]
 
 
 def Issue(d):
-    return dict(
+    tx = dict(
         comment=d["header"],
         txtype="Issue",
         tx=dict(
@@ -37,10 +39,11 @@ def Issue(d):
             signatures=[""],
         ),
     )
+    return [tx]
 
 
 def Delegate(d):
-    return dict(
+    tx = dict(
         comment=d["header"],
         txtype="Delegate",
         tx=dict(
@@ -51,10 +54,11 @@ def Delegate(d):
             signatures=[""],
         ),
     )
+    return [tx]
 
 
 def CreditEAI(d):
-    return dict(
+    tx = dict(
         comment=d["header"],
         txtype="CreditEAI",
         tx=dict(
@@ -64,10 +68,11 @@ def CreditEAI(d):
             signatures=[""],
         ),
     )
+    return [tx]
 
 
 def Lock(d):
-    return dict(
+    tx = dict(
         comment=d["header"],
         txtype="Lock",
         tx=dict(
@@ -78,10 +83,11 @@ def Lock(d):
             signatures=[""],
         ),
     )
+    return [tx]
 
 
 def SetRewardsDestination(d):
-    return dict(
+    tx = dict(
         comment=d["header"],
         txtype="SetRewardsDestination",
         tx=dict(
@@ -91,10 +97,17 @@ def SetRewardsDestination(d):
             signatures=[""],
         ),
     )
+    return [tx]
+
+
+def LockAndSet(d):
+    tx1 = Lock(d)[0]
+    tx2 = SetRewardsDestination(d)[0]
+    return [tx1, tx2]
 
 
 def Transfer(d):
-    return dict(
+    tx = dict(
         comment=d["header"],
         txtype="Transfer",
         tx=dict(
@@ -105,10 +118,11 @@ def Transfer(d):
             signatures=[""],
         ),
     )
+    return [tx]
 
 
 def RegisterNode(d):
-    return dict(
+    tx = dict(
         comment=d["header"],
         txtype="RegisterNode",
         tx=dict(
@@ -120,10 +134,11 @@ def RegisterNode(d):
             signatures=[""],
         ),
     )
+    return [tx]
 
 
 def NominateNodeReward(d):
-    return dict(
+    tx = dict(
         comment=d["header"],
         txtype="NominateNodeReward",
         tx=dict(
@@ -132,14 +147,16 @@ def NominateNodeReward(d):
             signatures=[""],  # nominate the 0 node
         ),
     )
+    return [tx]
 
 
 def ClaimNodeReward(d):
-    return dict(
+    tx = dict(
         comment=d["header"],
         txtype="ClaimNodeReward",
         tx=dict(node=d["target"], sequence=int(d["sequence"]), signatures=[""]),
     )
+    return [tx]
 
 
 def generateSignableBytes(obj):
@@ -191,22 +208,22 @@ def tryToSign(t):
 
 if __name__ == "__main__":
     txmap = dict(
-        ClaimAccount=[ClaimAccount],
-        Issue=[Issue],
-        Delegate=[Delegate],
-        CreditEAI=[CreditEAI],
-        RegisterNode=[RegisterNode],
-        Lock=[Lock, SetRewardsDestination],
-        NominateNodeReward=[NominateNodeReward],
-        ClaimNodeReward=[ClaimNodeReward],
-        Transfer=[Transfer],
+        ClaimAccount=ClaimAccount,
+        Issue=Issue,
+        Delegate=Delegate,
+        CreditEAI=CreditEAI,
+        RegisterNode=RegisterNode,
+        Lock=LockAndSet,
+        NominateNodeReward=NominateNodeReward,
+        ClaimNodeReward=ClaimNodeReward,
+        Transfer=Transfer,
     )
     with open("Post-Genesis Transaction Block.csv") as csvfile:
         rdr = csv.DictReader(csvfile)
         rows = [r for r in rdr if r["txtype"] != ""]
         txs = []
         for row in rows:
-            txs.extend([tx(row) for tx in txmap[row["txtype"]]])
+            txs.extend(txmap[row["txtype"]](row))
         newtxs = []
 
         if len(sys.argv) > 1:
