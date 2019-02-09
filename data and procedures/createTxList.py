@@ -1,6 +1,5 @@
 #! /usr/bin/env python3
 
-import sys
 import csv
 import copy
 import json
@@ -114,6 +113,7 @@ def Transfer(d):
             destination=d["destination"],
             qty=int(d["qty"]) * 100_000_000,
             sequence=int(d["sequence"]),
+            pvt_key=d["pvt_key"],
             signatures=[""],
         ),
     )
@@ -143,6 +143,7 @@ def NominateNodeReward(d):
         tx=dict(
             random=0,
             sequence=int(d["sequence"]),
+            pvt_key=d["pvt_key"],
             signatures=[""],  # nominate the 0 node
         ),
     )
@@ -153,7 +154,12 @@ def ClaimNodeReward(d):
     tx = dict(
         comment=d["header"],
         txtype="ClaimNodeReward",
-        tx=dict(node=d["target"], sequence=int(d["sequence"]), signatures=[""]),
+        tx=dict(
+            node=d["target"],
+            sequence=int(d["sequence"]),
+            pvt_key=d["pvt_key"],
+            signatures=[""],
+        ),
     )
     return [tx]
 
