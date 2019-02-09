@@ -94,6 +94,7 @@ def SetRewardsDestination(d):
             source=d["source"],
             destination=d["destination"],
             sequence=int(d["sequence"]),
+            pvt_key=d["pvt_key"],
             signatures=[""],
         ),
     )
