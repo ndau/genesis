@@ -4,10 +4,8 @@ import sys
 import csv
 import copy
 import json
+import argparse
 import subprocess
-
-ndautool = "/Users/kentquirk/go/src/github.com/oneiro-ndev/commands/ndau"
-keytool = "/Users/kentquirk/go/src/github.com/oneiro-ndev/commands/cmd/keytool/keytool"
 
 
 def ClaimAccount(d):
@@ -160,7 +158,7 @@ def ClaimNodeReward(d):
     return [tx]
 
 
-def generateSignableBytes(obj):
+def generateSignableBytes(obj, ndautool):
     tx = copy.deepcopy(obj)
     if "signature" in tx:
         del tx["signature"]
@@ -181,7 +179,7 @@ def generateSignableBytes(obj):
     return r.stdout.strip()
 
 
-def tryToSign(t):
+def tryToSign(t, keytool):
     pk = t["tx"].get("pvt_key", None)
     tx = copy.deepcopy(t["tx"])
     if pk is not None:
@@ -208,6 +206,26 @@ def tryToSign(t):
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--sign",
+        action="store_true",
+        help="attempt to sign all transactions for which keys are present",
+    )
+    parser.add_argument(
+        "--keytool",
+        action="store",
+        default="../../commands/cmd/keytool/keytool",
+        help="location of keytool",
+    )
+    parser.add_argument(
+        "--ndautool",
+        action="store",
+        default="../../commands/ndau",
+        help="location of ndautool",
+    )
+    args = parser.parse_args()
+
     txmap = dict(
         ClaimAccount=ClaimAccount,
         Issue=Issue,
@@ -227,12 +245,12 @@ if __name__ == "__main__":
             txs.extend(txmap[row["txtype"]](row))
         newtxs = []
 
-        if len(sys.argv) > 1:
+        if args.sign:
             for t in txs:
-                sb = generateSignableBytes(t["tx"])
+                sb = generateSignableBytes(t["tx"], args.ndautool)
                 t["signable_bytes"] = sb
                 if not sb.startswith("ERROR"):
-                    t = tryToSign(t)
+                    t = tryToSign(t, args.keytool)
                 newtxs.append(t)
             txs = newtxs
 
