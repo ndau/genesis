@@ -196,12 +196,15 @@ def tryToSign(t, keytool):
 
     sb = t["signable_bytes"]
 
-    args = [keytool, "sign", pk, sb, "-b"]
-    r = subprocess.run(args, text=True, capture_output=True)
-    if r.returncode > 0:
-        sig = f"ERROR: {r.stderr}"
+    if not pk.startswith("npvt"):
+        sig = pk
     else:
-        sig = r.stdout.strip()
+        args = [keytool, "sign", pk, sb, "-b"]
+        r = subprocess.run(args, text=True, capture_output=True)
+        if r.returncode > 0:
+            sig = f"ERROR: {r.stderr}"
+        else:
+            sig = r.stdout.strip()
 
     if "signature" in tx:
         tx["signature"] = sig
