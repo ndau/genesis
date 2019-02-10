@@ -98,12 +98,6 @@ def SetRewardsDestination(d):
     return [tx]
 
 
-def LockAndSet(d):
-    tx1 = Lock(d)[0]
-    tx2 = SetRewardsDestination(d)[0]
-    return [tx1, tx2]
-
-
 def Transfer(d):
     tx = dict(
         comment=d["header"],
@@ -241,7 +235,8 @@ if __name__ == "__main__":
         Delegate=Delegate,
         CreditEAI=CreditEAI,
         RegisterNode=RegisterNode,
-        Lock=LockAndSet,
+        Lock=Lock,
+        SetRewardsDestination=SetRewardsDestination,
         NominateNodeReward=NominateNodeReward,
         ClaimNodeReward=ClaimNodeReward,
         Transfer=Transfer,
