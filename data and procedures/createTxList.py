@@ -88,7 +88,7 @@ def SetRewardsDestination(d):
         comment=d["header"],
         txtype="SetRewardsDestination",
         tx=dict(
-            source=d["source"],
+            target=d["target"],
             destination=d["destination"],
             sequence=int(d["sequence"]),
             pvt_key=d["pvt_key"],
@@ -126,8 +126,8 @@ def RegisterNode(d):
         txtype="RegisterNode",
         tx=dict(
             node=d["target"],
-            distribution_script="",
-            rpc_address="",
+            distribution_script=d["distribution"],
+            rpc_address=d["rpc_address"],
             sequence=int(d["sequence"]),
             pvt_key=d["pvt_key"],
             signatures=[""],
