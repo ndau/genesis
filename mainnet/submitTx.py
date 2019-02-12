@@ -6,15 +6,13 @@ import requests
 
 
 def load(filename, host, delay, action, startAt):
-    f = open(filename)
-    data = json.load(f)
+    with open(filename) as f:
+        data = json.load(f)
     print(
         f"Will {action} {len(data)} objects to {host} with a delay of {delay} seconds."
     )
 
-    counter = 0
-    for obj in data:
-        counter += 1
+    for counter, obj in enumerate(data):
         txtype = obj["txtype"]
         tx = obj["tx"]
         comment = obj["comment"]
@@ -41,9 +39,13 @@ def load(filename, host, delay, action, startAt):
                     )
                     print(json.dumps(tx, indent=2))
         else:
+            try:
+                contents = presult.json()
+            except Exception:
+                contents = presult.content
             print(
                 f"     Prevalidate for {txtype} ({comment}) got {presult.status_code} "
-                f"because {presult.reason}\n({presult.content})"
+                f"because {presult.reason}\n({contents})"
             )
             print(json.dumps(tx, indent=2))
         time.sleep(delay)
