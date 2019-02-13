@@ -77,13 +77,13 @@ func Load(conf *config.Config, rows []RawRow, ndauhome string) error {
 			st.TotalRFE += ad.Balance
 
 			// update the state's delegated nodes
-			if row.DelegationNode != nil {
-				dest := st.Delegates[*row.DelegationNode]
+			if ad.DelegationNode != nil {
+				dest := st.Delegates[ad.DelegationNode.String()]
 				if dest == nil {
 					dest = make(map[string]struct{})
 				}
-				dest[row.Address] = struct{}{}
-				st.Delegates[*row.DelegationNode] = dest
+				dest[addr.String()] = struct{}{}
+				st.Delegates[ad.DelegationNode.String()] = dest
 			}
 
 			// we could manually compute EAI at this point, but it's
