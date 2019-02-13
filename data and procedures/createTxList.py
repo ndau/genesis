@@ -31,7 +31,7 @@ def Issue(d):
         comment=d["header"],
         txtype="Issue",
         tx=dict(
-            qty=int(d["qty"]) * 100_000_000,
+            qty=int(d["qty"]),
             sequence=int(d["sequence"]),
             signatures=[""],
         ),

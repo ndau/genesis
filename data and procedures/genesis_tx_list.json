@@ -97,9 +97,9 @@
     "tx": {
       "target": "ndarw5i7rmqtqstw4mtnchmfvxnrq4k3e2ytsyvsc7nxt2y7",
       "ownership": "npuba8jadtbbed4u4nfq6m84k6ssy34sjmeef47qwfcanv7fsc468gyitrb3f7pfhd37w7e6qpes",
-      "validation_script": "oAARiKACDgYgiKAIEwwIBQkHAQIOAgEhDiECgQCJEY+IgAADDwKxvMGI",
+      "validation_script": "oAARiKACDgYgiKAIEwwIBQkHAQIOAgEhDiECgQCJEY9IiIAAAw8CsbzBiA==",
       "sequence": 1,
-      "signature": "a4jadtcanujw6xv2fr5a96iqkctghe7jmb7u5fb6vhc7hisyjwkxszqwh22effwvj6dnkt557ziasap33xnrfmhwpazd5xhz8g9jas9nfzmhidimwekep9sm",
+      "signature": "a4jadtca39v34dqqkgypf38xnuxvq467kcqfatmj8w8grgshkt5wq8u348zb5wehympkpds59qv5yw9jdx826hb57dbuxnkkh8w9fygix4evaac2k6t67umt",
       "validation_keys": [
         "npuba8jadtbbeamn89h5zgr5cmjggcwkchbsgqhf5m7zb58xe7rwqwvzif23ebfqz4wh224ve2qw",
         "npuba8jadtbbeb3g3i49ykaixksccbtj6w7kqvsd6mqfbh22ghr8wn62cytts6cxcwuecaavm6si",
@@ -107,7 +107,7 @@
         "npuba8jadtbbeashid394pg6jhmwnamvxx8s3gghi2xjhx6iqiegnxekwpc3y5brfmwpm8vdth8b"
       ]
     },
-    "signable_bytes": "bnB1YmE4amFkdGJiZWQ0dTRuZnE2bTg0azZzc3kzNHNqbWVlZjQ3cXdmY2Fudjdmc2M0NjhneWl0cmIzZjdwZmhkMzd3N2U2cXBlcwAAAAAAAAABbmRhcnc1aTdybXF0cXN0dzRtdG5jaG1mdnhucnE0azNlMnl0c3l2c2M3bnh0Mnk3bnB1YmE4amFkdGJiZWFtbjg5aDV6Z3I1Y21qZ2djd2tjaGJzZ3FoZjVtN3piNTh4ZTdyd3F3dnppZjIzZWJmcXo0d2gyMjR2ZTJxd25wdWJhOGphZHRiYmViM2czaTQ5eWthaXhrc2NjYnRqNnc3a3F2c2Q2bXFmYmgyMmdocjh3bjYyY3l0dHM2Y3hjd3VlY2Fhdm02c2lucHViYThqYWR0YmJlZGI3NmZkenBjcDR2dzl4NGVpMm4yNjdzZm5yYjd5NDJpanZyOHVhYWRmMnhmdXd0MnprYjc2OXAzajJtc2J5bnB1YmE4amFkdGJiZWFzaGlkMzk0cGc2amhtd25hbXZ4eDhzM2dnaGkyeGpoeDZpcWllZ254ZWt3cGMzeTVicmZtd3BtOHZkdGg4Ym9BQVJpS0FDRGdZZ2lLQUlFd3dJQlFrSEFRSU9BZ0VoRGlFQ2dRQ0pFWStJZ0FBRER3S3h2TUdJ"
+    "signable_bytes": "bnB1YmE4amFkdGJiZWQ0dTRuZnE2bTg0azZzc3kzNHNqbWVlZjQ3cXdmY2Fudjdmc2M0NjhneWl0cmIzZjdwZmhkMzd3N2U2cXBlcwAAAAAAAAABbmRhcnc1aTdybXF0cXN0dzRtdG5jaG1mdnhucnE0azNlMnl0c3l2c2M3bnh0Mnk3bnB1YmE4amFkdGJiZWFtbjg5aDV6Z3I1Y21qZ2djd2tjaGJzZ3FoZjVtN3piNTh4ZTdyd3F3dnppZjIzZWJmcXo0d2gyMjR2ZTJxd25wdWJhOGphZHRiYmViM2czaTQ5eWthaXhrc2NjYnRqNnc3a3F2c2Q2bXFmYmgyMmdocjh3bjYyY3l0dHM2Y3hjd3VlY2Fhdm02c2lucHViYThqYWR0YmJlZGI3NmZkenBjcDR2dzl4NGVpMm4yNjdzZm5yYjd5NDJpanZyOHVhYWRmMnhmdXd0MnprYjc2OXAzajJtc2J5bnB1YmE4amFkdGJiZWFzaGlkMzk0cGc2amhtd25hbXZ4eDhzM2dnaGkyeGpoeDZpcWllZ254ZWt3cGMzeTVicmZtd3BtOHZkdGg4Ym9BQVJpS0FDRGdZZ2lLQUlFd3dJQlFrSEFRSU9BZ0VoRGlFQ2dRQ0pFWTlJaUlBQUF3OENzYnpCaUE9PQ=="
   },
   {
     "comment": "ndev Node 1",
@@ -115,9 +115,9 @@
     "tx": {
       "target": "ndaq3nqhez3vvxn8rx4m6s6n3kv7k9js8i3xw8hqnwvi2ete",
       "ownership": "npuba8jadtbbecqe9tri3xyrdde4tzbnaxcf7m5gw39u7j6feegukw2intajpu3u846rpnwadajs",
-      "validation_script": "oAARiKACDgYgiKAIEgwIBQkHAQIOAgEhDiECgQCJEY+IgAADDwKxvMGI",
+      "validation_script": "oAARiKACDgYgiKAIEwwIBQkHAQIOAgEhDiECgQCJEY9IiIAAAw8CsbzBiA==",
       "sequence": 1,
-      "signature": "a4jadtcau3qq83wigkra4y6epzsyfcghpmbcvit2b3g8dhrny4c8bgxszc9c8fmkrb4eijcfb6cr4iwkmmgnisdvwa9mfbkxnzk6r49fdg4fcdw7vw77wu9s",
+      "signature": "a4jadtcaatj25yv877b2tntwwsiz6qmr6pqtvz2jwppbj6j8uwv5jnqtgf4iuhhewh4p3uuj8adpmzxtdaqdqyp2gikq3fmxvugt7jbn5nm8wc553ftkb846",
       "validation_keys": [
         "npuba8jadtbbed6gyx4pnwic4yhb49numxhx3kicg56mdbr4nan845sqg59ntqvr8h3559gnupuw",
         "npuba8jadtbbeb3g3i49ykaixksccbtj6w7kqvsd6mqfbh22ghr8wn62cytts6cxcwuecaavm6si",
@@ -125,7 +125,7 @@
         "npuba8jadtbbeashid394pg6jhmwnamvxx8s3gghi2xjhx6iqiegnxekwpc3y5brfmwpm8vdth8b"
       ]
     },
-    "signable_bytes": "bnB1YmE4amFkdGJiZWNxZTl0cmkzeHlyZGRlNHR6Ym5heGNmN201Z3czOXU3ajZmZWVndWt3MmludGFqcHUzdTg0NnJwbndhZGFqcwAAAAAAAAABbmRhcTNucWhlejN2dnhuOHJ4NG02czZuM2t2N2s5anM4aTN4dzhocW53dmkyZXRlbnB1YmE4amFkdGJiZWQ2Z3l4NHBud2ljNHloYjQ5bnVteGh4M2tpY2c1Nm1kYnI0bmFuODQ1c3FnNTludHF2cjhoMzU1OWdudXB1d25wdWJhOGphZHRiYmViM2czaTQ5eWthaXhrc2NjYnRqNnc3a3F2c2Q2bXFmYmgyMmdocjh3bjYyY3l0dHM2Y3hjd3VlY2Fhdm02c2lucHViYThqYWR0YmJlZGI3NmZkenBjcDR2dzl4NGVpMm4yNjdzZm5yYjd5NDJpanZyOHVhYWRmMnhmdXd0MnprYjc2OXAzajJtc2J5bnB1YmE4amFkdGJiZWFzaGlkMzk0cGc2amhtd25hbXZ4eDhzM2dnaGkyeGpoeDZpcWllZ254ZWt3cGMzeTVicmZtd3BtOHZkdGg4Ym9BQVJpS0FDRGdZZ2lLQUlFZ3dJQlFrSEFRSU9BZ0VoRGlFQ2dRQ0pFWStJZ0FBRER3S3h2TUdJ"
+    "signable_bytes": "bnB1YmE4amFkdGJiZWNxZTl0cmkzeHlyZGRlNHR6Ym5heGNmN201Z3czOXU3ajZmZWVndWt3MmludGFqcHUzdTg0NnJwbndhZGFqcwAAAAAAAAABbmRhcTNucWhlejN2dnhuOHJ4NG02czZuM2t2N2s5anM4aTN4dzhocW53dmkyZXRlbnB1YmE4amFkdGJiZWQ2Z3l4NHBud2ljNHloYjQ5bnVteGh4M2tpY2c1Nm1kYnI0bmFuODQ1c3FnNTludHF2cjhoMzU1OWdudXB1d25wdWJhOGphZHRiYmViM2czaTQ5eWthaXhrc2NjYnRqNnc3a3F2c2Q2bXFmYmgyMmdocjh3bjYyY3l0dHM2Y3hjd3VlY2Fhdm02c2lucHViYThqYWR0YmJlZGI3NmZkenBjcDR2dzl4NGVpMm4yNjdzZm5yYjd5NDJpanZyOHVhYWRmMnhmdXd0MnprYjc2OXAzajJtc2J5bnB1YmE4amFkdGJiZWFzaGlkMzk0cGc2amhtd25hbXZ4eDhzM2dnaGkyeGpoeDZpcWllZ254ZWt3cGMzeTVicmZtd3BtOHZkdGg4Ym9BQVJpS0FDRGdZZ2lLQUlFd3dJQlFrSEFRSU9BZ0VoRGlFQ2dRQ0pFWTlJaUlBQUF3OENzYnpCaUE9PQ=="
   },
   {
     "comment": "ndev Node 2",
@@ -133,9 +133,9 @@
     "tx": {
       "target": "ndahnsxr8zh7r6u685ka865wz77wb78xcn45rgskpeyiwuza",
       "ownership": "npuba8jadtbbec4dkww2agihg55j7uawj83fsfn5g4ezwgah48i8f4juqi4gc8ham8b9jicnbk2f",
-      "validation_script": "oAARiKACDgYgiKAIEgwIBQkHAQIOAgEhDiECgQCJEY+IgAADDwKxvMGI",
+      "validation_script": "oAARiKACDgYgiKAIEwwIBQkHAQIOAgEhDiECgQCJEY9IiIAAAw8CsbzBiA==",
       "sequence": 1,
-      "signature": "a4jadtca9ucwkf4fp9if53y7rfnnatf45ykhugessztbzcwv6m3avkn7vj2xqemceunx84gqhbm99eq5gpkh49fqtv8buvx2vj7p325euftd4crcmaejb5df",
+      "signature": "a4jadtca8gkb9iu53mu4unm5bvddyzywuzbkynr7j28vvy4uhf24aib89c76zqv7tr3ep78kmxddkyku84w5ttav4pekedmpn6qcan23afbakawct3dexh66",
       "validation_keys": [
         "npuba8jadtbbeawe7jeyjha2pfi4hwj4wpjziset4ujyyc2wrx2wdhzvwwbpc9bqda3av6tw9c25",
         "npuba8jadtbbeb3g3i49ykaixksccbtj6w7kqvsd6mqfbh22ghr8wn62cytts6cxcwuecaavm6si",
@@ -143,7 +143,7 @@
         "npuba8jadtbbeashid394pg6jhmwnamvxx8s3gghi2xjhx6iqiegnxekwpc3y5brfmwpm8vdth8b"
       ]
     },
-    "signable_bytes": "bnB1YmE4amFkdGJiZWM0ZGt3dzJhZ2loZzU1ajd1YXdqODNmc2ZuNWc0ZXp3Z2FoNDhpOGY0anVxaTRnYzhoYW04YjlqaWNuYmsyZgAAAAAAAAABbmRhaG5zeHI4emg3cjZ1Njg1a2E4NjV3ejc3d2I3OHhjbjQ1cmdza3BleWl3dXphbnB1YmE4amFkdGJiZWF3ZTdqZXlqaGEycGZpNGh3ajR3cGp6aXNldDR1anl5YzJ3cngyd2RoenZ3d2JwYzlicWRhM2F2NnR3OWMyNW5wdWJhOGphZHRiYmViM2czaTQ5eWthaXhrc2NjYnRqNnc3a3F2c2Q2bXFmYmgyMmdocjh3bjYyY3l0dHM2Y3hjd3VlY2Fhdm02c2lucHViYThqYWR0YmJlZGI3NmZkenBjcDR2dzl4NGVpMm4yNjdzZm5yYjd5NDJpanZyOHVhYWRmMnhmdXd0MnprYjc2OXAzajJtc2J5bnB1YmE4amFkdGJiZWFzaGlkMzk0cGc2amhtd25hbXZ4eDhzM2dnaGkyeGpoeDZpcWllZ254ZWt3cGMzeTVicmZtd3BtOHZkdGg4Ym9BQVJpS0FDRGdZZ2lLQUlFZ3dJQlFrSEFRSU9BZ0VoRGlFQ2dRQ0pFWStJZ0FBRER3S3h2TUdJ"
+    "signable_bytes": "bnB1YmE4amFkdGJiZWM0ZGt3dzJhZ2loZzU1ajd1YXdqODNmc2ZuNWc0ZXp3Z2FoNDhpOGY0anVxaTRnYzhoYW04YjlqaWNuYmsyZgAAAAAAAAABbmRhaG5zeHI4emg3cjZ1Njg1a2E4NjV3ejc3d2I3OHhjbjQ1cmdza3BleWl3dXphbnB1YmE4amFkdGJiZWF3ZTdqZXlqaGEycGZpNGh3ajR3cGp6aXNldDR1anl5YzJ3cngyd2RoenZ3d2JwYzlicWRhM2F2NnR3OWMyNW5wdWJhOGphZHRiYmViM2czaTQ5eWthaXhrc2NjYnRqNnc3a3F2c2Q2bXFmYmgyMmdocjh3bjYyY3l0dHM2Y3hjd3VlY2Fhdm02c2lucHViYThqYWR0YmJlZGI3NmZkenBjcDR2dzl4NGVpMm4yNjdzZm5yYjd5NDJpanZyOHVhYWRmMnhmdXd0MnprYjc2OXAzajJtc2J5bnB1YmE4amFkdGJiZWFzaGlkMzk0cGc2amhtd25hbXZ4eDhzM2dnaGkyeGpoeDZpcWllZ254ZWt3cGMzeTVicmZtd3BtOHZkdGg4Ym9BQVJpS0FDRGdZZ2lLQUlFd3dJQlFrSEFRSU9BZ0VoRGlFQ2dRQ0pFWTlJaUlBQUF3OENzYnpCaUE9PQ=="
   },
   {
     "comment": "ndev Node 3",
@@ -151,9 +151,9 @@
     "tx": {
       "target": "ndam75fnjn7cdues7ivi7ccfq8f534quieaccqibrvuzhqxa",
       "ownership": "npuba8jadtbbedynz3ndxpckrp9nv9y7wta8biq9ssbv39rm8wkuupny8bv2xcw7jv6ffk955fkz",
-      "validation_script": "oAARiKACDgYgiKAIEgwIBQkHAQIOAgEhDiECgQCJEY+IgAADDwKxvMGI",
+      "validation_script": "oAARiKACDgYgiKAIEwwIBQkHAQIOAgEhDiECgQCJEY9IiIAAAw8CsbzBiA==",
       "sequence": 1,
-      "signature": "a4jadtcag9neghp3gvwn2ys4w2wrkgvvdd84s675r7b6ixj74qpxkb2bndx4srjss7x359zszkwzpsupbb82c8u9f86bqad9m8yppw2kpq766bmxvwxid9jh",
+      "signature": "a4jadtcaxggjrca6nggcvk3ryc5kbccs5qfy93byq82548sfiqz7zh3tib8q97fw25evte6c8t3fy8tffi6sbr8n32rh5n6aehbjc8crqt74sdumifrwpaq2",
       "validation_keys": [
         "npuba8jadtbbea97bcz4v2c4gtcntx53cgjpv92hscm95gg2m6tntwysawxkahkse4bcdpp5dm24",
         "npuba8jadtbbeb3g3i49ykaixksccbtj6w7kqvsd6mqfbh22ghr8wn62cytts6cxcwuecaavm6si",
@@ -161,7 +161,7 @@
         "npuba8jadtbbeashid394pg6jhmwnamvxx8s3gghi2xjhx6iqiegnxekwpc3y5brfmwpm8vdth8b"
       ]
     },
-    "signable_bytes": "bnB1YmE4amFkdGJiZWR5bnozbmR4cGNrcnA5bnY5eTd3dGE4YmlxOXNzYnYzOXJtOHdrdXVwbnk4YnYyeGN3N2p2NmZmazk1NWZregAAAAAAAAABbmRhbTc1Zm5qbjdjZHVlczdpdmk3Y2NmcThmNTM0cXVpZWFjY3FpYnJ2dXpocXhhbnB1YmE4amFkdGJiZWE5N2JjejR2MmM0Z3RjbnR4NTNjZ2pwdjkyaHNjbTk1Z2cybTZ0bnR3eXNhd3hrYWhrc2U0YmNkcHA1ZG0yNG5wdWJhOGphZHRiYmViM2czaTQ5eWthaXhrc2NjYnRqNnc3a3F2c2Q2bXFmYmgyMmdocjh3bjYyY3l0dHM2Y3hjd3VlY2Fhdm02c2lucHViYThqYWR0YmJlZGI3NmZkenBjcDR2dzl4NGVpMm4yNjdzZm5yYjd5NDJpanZyOHVhYWRmMnhmdXd0MnprYjc2OXAzajJtc2J5bnB1YmE4amFkdGJiZWFzaGlkMzk0cGc2amhtd25hbXZ4eDhzM2dnaGkyeGpoeDZpcWllZ254ZWt3cGMzeTVicmZtd3BtOHZkdGg4Ym9BQVJpS0FDRGdZZ2lLQUlFZ3dJQlFrSEFRSU9BZ0VoRGlFQ2dRQ0pFWStJZ0FBRER3S3h2TUdJ"
+    "signable_bytes": "bnB1YmE4amFkdGJiZWR5bnozbmR4cGNrcnA5bnY5eTd3dGE4YmlxOXNzYnYzOXJtOHdrdXVwbnk4YnYyeGN3N2p2NmZmazk1NWZregAAAAAAAAABbmRhbTc1Zm5qbjdjZHVlczdpdmk3Y2NmcThmNTM0cXVpZWFjY3FpYnJ2dXpocXhhbnB1YmE4amFkdGJiZWE5N2JjejR2MmM0Z3RjbnR4NTNjZ2pwdjkyaHNjbTk1Z2cybTZ0bnR3eXNhd3hrYWhrc2U0YmNkcHA1ZG0yNG5wdWJhOGphZHRiYmViM2czaTQ5eWthaXhrc2NjYnRqNnc3a3F2c2Q2bXFmYmgyMmdocjh3bjYyY3l0dHM2Y3hjd3VlY2Fhdm02c2lucHViYThqYWR0YmJlZGI3NmZkenBjcDR2dzl4NGVpMm4yNjdzZm5yYjd5NDJpanZyOHVhYWRmMnhmdXd0MnprYjc2OXAzajJtc2J5bnB1YmE4amFkdGJiZWFzaGlkMzk0cGc2amhtd25hbXZ4eDhzM2dnaGkyeGpoeDZpcWllZ254ZWt3cGMzeTVicmZtd3BtOHZkdGg4Ym9BQVJpS0FDRGdZZ2lLQUlFd3dJQlFrSEFRSU9BZ0VoRGlFQ2dRQ0pFWTlJaUlBQUF3OENzYnpCaUE9PQ=="
   },
   {
     "comment": "ndev Node 4",
@@ -169,9 +169,9 @@
     "tx": {
       "target": "ndaekyty73hd56gynsswuj5q9em68tp6ed5v7tpft872hvuc",
       "ownership": "npuba8jadtbbedxgn6bcm5v72mvnqgffzbxdsvdgaqs2y2wvsqbps88572vtkgixr685xft9iguw",
-      "validation_script": "oAARiKACDgYgiKAIEgwIBQkHAQIOAgEhDiECgQCJEY+IgAADDwKxvMGI",
+      "validation_script": "oAARiKACDgYgiKAIEwwIBQkHAQIOAgEhDiECgQCJEY9IiIAAAw8CsbzBiA==",
       "sequence": 1,
-      "signature": "a4jadtcafz36sa8icz58i45ikg6jbbuucktkmhua4ufimynw949be7qbmdjce5yht4c7eueark5j673ii6ikdwmdkdrf9xu6uh39jmvngq9rsasargkg72cr",
+      "signature": "a4jadtcaa56sx3zcv73bmub2hkg3qu4ufmtv5ktj8iphysjkhn9y2bwvgpmnx73sekg4qqg3jbk69yfs5j2hc8vnekc7t9dxpuqq49z47un3sb6a9yyhxdmw",
       "validation_keys": [
         "npuba8jadtbbeazpin52puzkdiyhjs2mcmwji6hummhjwy7jbupbezjnatpbc27ajqwvr2fr3xgr",
         "npuba8jadtbbeb3g3i49ykaixksccbtj6w7kqvsd6mqfbh22ghr8wn62cytts6cxcwuecaavm6si",
@@ -179,19 +179,19 @@
         "npuba8jadtbbeashid394pg6jhmwnamvxx8s3gghi2xjhx6iqiegnxekwpc3y5brfmwpm8vdth8b"
       ]
     },
-    "signable_bytes": "bnB1YmE4amFkdGJiZWR4Z242YmNtNXY3Mm12bnFnZmZ6Ynhkc3ZkZ2FxczJ5Mnd2c3FicHM4ODU3MnZ0a2dpeHI2ODV4ZnQ5aWd1dwAAAAAAAAABbmRhZWt5dHk3M2hkNTZneW5zc3d1ajVxOWVtNjh0cDZlZDV2N3RwZnQ4NzJodnVjbnB1YmE4amFkdGJiZWF6cGluNTJwdXprZGl5aGpzMm1jbXdqaTZodW1taGp3eTdqYnVwYmV6am5hdHBiYzI3YWpxd3ZyMmZyM3hncm5wdWJhOGphZHRiYmViM2czaTQ5eWthaXhrc2NjYnRqNnc3a3F2c2Q2bXFmYmgyMmdocjh3bjYyY3l0dHM2Y3hjd3VlY2Fhdm02c2lucHViYThqYWR0YmJlZGI3NmZkenBjcDR2dzl4NGVpMm4yNjdzZm5yYjd5NDJpanZyOHVhYWRmMnhmdXd0MnprYjc2OXAzajJtc2J5bnB1YmE4amFkdGJiZWFzaGlkMzk0cGc2amhtd25hbXZ4eDhzM2dnaGkyeGpoeDZpcWllZ254ZWt3cGMzeTVicmZtd3BtOHZkdGg4Ym9BQVJpS0FDRGdZZ2lLQUlFZ3dJQlFrSEFRSU9BZ0VoRGlFQ2dRQ0pFWStJZ0FBRER3S3h2TUdJ"
+    "signable_bytes": "bnB1YmE4amFkdGJiZWR4Z242YmNtNXY3Mm12bnFnZmZ6Ynhkc3ZkZ2FxczJ5Mnd2c3FicHM4ODU3MnZ0a2dpeHI2ODV4ZnQ5aWd1dwAAAAAAAAABbmRhZWt5dHk3M2hkNTZneW5zc3d1ajVxOWVtNjh0cDZlZDV2N3RwZnQ4NzJodnVjbnB1YmE4amFkdGJiZWF6cGluNTJwdXprZGl5aGpzMm1jbXdqaTZodW1taGp3eTdqYnVwYmV6am5hdHBiYzI3YWpxd3ZyMmZyM3hncm5wdWJhOGphZHRiYmViM2czaTQ5eWthaXhrc2NjYnRqNnc3a3F2c2Q2bXFmYmgyMmdocjh3bjYyY3l0dHM2Y3hjd3VlY2Fhdm02c2lucHViYThqYWR0YmJlZGI3NmZkenBjcDR2dzl4NGVpMm4yNjdzZm5yYjd5NDJpanZyOHVhYWRmMnhmdXd0MnprYjc2OXAzajJtc2J5bnB1YmE4amFkdGJiZWFzaGlkMzk0cGc2amhtd25hbXZ4eDhzM2dnaGkyeGpoeDZpcWllZ254ZWt3cGMzeTVicmZtd3BtOHZkdGg4Ym9BQVJpS0FDRGdZZ2lLQUlFd3dJQlFrSEFRSU9BZ0VoRGlFQ2dRQ0pFWTlJaUlBQUF3OENzYnpCaUE9PQ=="
   },
   {
     "comment": "ndau Issuance",
     "txtype": "Issue",
     "tx": {
-      "qty": 291501900000000,
+      "qty": 291501922963188,
       "sequence": 2,
       "signatures": [
-        "01-Issue.sigs"
+        ""
       ]
     },
-    "signable_bytes": "AAEJHpMzawAAAAAAAAAAAg=="
+    "signable_bytes": "AAEJHpSRzvQAAAAAAAAAAg=="
   },
   {
     "comment": "ndev Node 0",
@@ -259,13 +259,13 @@
     "tx": {
       "source": "ndaea8w9gz84ncxrytepzxgkg9ymi4k7c9p427i6b57xw3r4",
       "destination": "ndarw5i7rmqtqstw4mtnchmfvxnrq4k3e2ytsyvsc7nxt2y7",
-      "qty": 105000000000,
+      "qty": 105100000000,
       "sequence": 2,
       "signatures": [
         "02-Transfer-00.sigs"
       ]
     },
-    "signable_bytes": "bmRhcnc1aTdybXF0cXN0dzRtdG5jaG1mdnhucnE0azNlMnl0c3l2c2M3bnh0Mnk3AAAAGHJ82gAAAAAAAAAAAm5kYWVhOHc5Z3o4NG5jeHJ5dGVwenhna2c5eW1pNGs3YzlwNDI3aTZiNTd4dzNyNA=="
+    "signable_bytes": "bmRhcnc1aTdybXF0cXN0dzRtdG5jaG1mdnhucnE0azNlMnl0c3l2c2M3bnh0Mnk3AAAAGHhyuwAAAAAAAAAAAm5kYWVhOHc5Z3o4NG5jeHJ5dGVwenhna2c5eW1pNGs3YzlwNDI3aTZiNTd4dzNyNA=="
   },
   {
     "comment": "ndev Operations",
@@ -399,7 +399,7 @@
         "04-SetRewardsDestination-00.sigs"
       ]
     },
-    "signable_bytes": "bmRhZWE4dzlnejg0bmN4cnl0ZXB6eGdrZzl5bWk0azdjOXA0MjdpNmI1N3h3M3I0AAAAAAAAAAQ="
+    "signable_bytes": "bmRhZWE4dzlnejg0bmN4cnl0ZXB6eGdrZzl5bWk0azdjOXA0MjdpNmI1N3h3M3I0AAAAAAAAAARuZGFydzVpN3JtcXRxc3R3NG10bmNobWZ2eG5ycTRrM2UyeXRzeXZzYzdueHQyeTc="
   },
   {
     "comment": "ndev Node 1",
@@ -412,7 +412,7 @@
         "04-SetRewardsDestination-01.sigs"
       ]
     },
-    "signable_bytes": "bmRhZWE4dzlnejg0bmN4cnl0ZXB6eGdrZzl5bWk0azdjOXA0MjdpNmI1N3h3M3I0AAAAAAAAAAQ="
+    "signable_bytes": "bmRhZWE4dzlnejg0bmN4cnl0ZXB6eGdrZzl5bWk0azdjOXA0MjdpNmI1N3h3M3I0AAAAAAAAAARuZGFxM25xaGV6M3Z2eG44cng0bTZzNm4za3Y3azlqczhpM3h3OGhxbnd2aTJldGU="
   },
   {
     "comment": "ndev Node 2",
@@ -425,7 +425,7 @@
         "04-SetRewardsDestination-02.sigs"
       ]
     },
-    "signable_bytes": "bmRhZWE4dzlnejg0bmN4cnl0ZXB6eGdrZzl5bWk0azdjOXA0MjdpNmI1N3h3M3I0AAAAAAAAAAQ="
+    "signable_bytes": "bmRhZWE4dzlnejg0bmN4cnl0ZXB6eGdrZzl5bWk0azdjOXA0MjdpNmI1N3h3M3I0AAAAAAAAAARuZGFobnN4cjh6aDdyNnU2ODVrYTg2NXd6Nzd3Yjc4eGNuNDVyZ3NrcGV5aXd1emE="
   },
   {
     "comment": "ndev Node 3",
@@ -438,7 +438,7 @@
         "04-SetRewardsDestination-03.sigs"
       ]
     },
-    "signable_bytes": "bmRhZWE4dzlnejg0bmN4cnl0ZXB6eGdrZzl5bWk0azdjOXA0MjdpNmI1N3h3M3I0AAAAAAAAAAQ="
+    "signable_bytes": "bmRhZWE4dzlnejg0bmN4cnl0ZXB6eGdrZzl5bWk0azdjOXA0MjdpNmI1N3h3M3I0AAAAAAAAAARuZGFtNzVmbmpuN2NkdWVzN2l2aTdjY2ZxOGY1MzRxdWllYWNjcWlicnZ1emhxeGE="
   },
   {
     "comment": "ndev Node 4",
@@ -451,7 +451,7 @@
         "04-SetRewardsDestination-04.sigs"
       ]
     },
-    "signable_bytes": "bmRhZWE4dzlnejg0bmN4cnl0ZXB6eGdrZzl5bWk0azdjOXA0MjdpNmI1N3h3M3I0AAAAAAAAAAQ="
+    "signable_bytes": "bmRhZWE4dzlnejg0bmN4cnl0ZXB6eGdrZzl5bWk0azdjOXA0MjdpNmI1N3h3M3I0AAAAAAAAAARuZGFla3l0eTczaGQ1Nmd5bnNzd3VqNXE5ZW02OHRwNmVkNXY3dHBmdDg3Mmh2dWM="
   },
   {
     "comment": "ndev Node 0",
@@ -536,16 +536,16 @@
     "signable_bytes": "AAAAAAAAAAAAAAAAAAAAAg=="
   },
   {
-    "comment": "ndev Node 0",
+    "comment": "ndev Node 4",
     "txtype": "ClaimNodeReward",
     "tx": {
-      "node": "ndarw5i7rmqtqstw4mtnchmfvxnrq4k3e2ytsyvsc7nxt2y7",
+      "node": "ndaekyty73hd56gynsswuj5q9em68tp6ed5v7tpft872hvuc",
       "sequence": 6,
       "signatures": [
-        "a4jadtcaq6bai39hhazcynhrmxe8uji4s6a9k8mdwe6bwmeef97jhr954f5xd4g9z887b3wpxv5fidhgjk7v9a4r7wd95pu39bfasdcbt3fyacku3n5xvj2e"
+        "a4jadtca4bjnt9fnv6ki4redamujgyn7hvk33cc3yehrhh639bkx6ebkyz4d3ca83zvt6hph4wxu7d2ns3pvvt8vj84sawty9sciwytka8fdydsad9vng9ur"
       ]
     },
-    "signable_bytes": "bmRhcnc1aTdybXF0cXN0dzRtdG5jaG1mdnhucnE0azNlMnl0c3l2c2M3bnh0Mnk3AAAAAAAAAAY="
+    "signable_bytes": "bmRhZWt5dHk3M2hkNTZneW5zc3d1ajVxOWVtNjh0cDZlZDV2N3RwZnQ4NzJodnVjAAAAAAAAAAY="
   },
   {
     "comment": "ndev Operations",
@@ -578,64 +578,64 @@
     "txtype": "Delegate",
     "tx": {
       "target": "ndarw5i7rmqtqstw4mtnchmfvxnrq4k3e2ytsyvsc7nxt2y7",
-      "node": "ndarw5i7rmqtqstw4mtnchmfvxnrq4k3e2ytsyvsc7nxt2y7",
-      "sequence": 7,
+      "node": "ndaekyty73hd56gynsswuj5q9em68tp6ed5v7tpft872hvuc",
+      "sequence": 6,
       "signatures": [
         "07-Delegate-00.sigs"
       ]
     },
-    "signable_bytes": "bmRhcnc1aTdybXF0cXN0dzRtdG5jaG1mdnhucnE0azNlMnl0c3l2c2M3bnh0Mnk3AAAAAAAAAAduZGFydzVpN3JtcXRxc3R3NG10bmNobWZ2eG5ycTRrM2UyeXRzeXZzYzdueHQyeTc="
+    "signable_bytes": "bmRhZWt5dHk3M2hkNTZneW5zc3d1ajVxOWVtNjh0cDZlZDV2N3RwZnQ4NzJodnVjAAAAAAAAAAZuZGFydzVpN3JtcXRxc3R3NG10bmNobWZ2eG5ycTRrM2UyeXRzeXZzYzdueHQyeTc="
   },
   {
     "comment": "ndev Node 1",
     "txtype": "Delegate",
     "tx": {
       "target": "ndaq3nqhez3vvxn8rx4m6s6n3kv7k9js8i3xw8hqnwvi2ete",
-      "node": "ndaq3nqhez3vvxn8rx4m6s6n3kv7k9js8i3xw8hqnwvi2ete",
+      "node": "ndarw5i7rmqtqstw4mtnchmfvxnrq4k3e2ytsyvsc7nxt2y7",
       "sequence": 6,
       "signatures": [
         "07-Delegate-01.sigs"
       ]
     },
-    "signable_bytes": "bmRhcTNucWhlejN2dnhuOHJ4NG02czZuM2t2N2s5anM4aTN4dzhocW53dmkyZXRlAAAAAAAAAAZuZGFxM25xaGV6M3Z2eG44cng0bTZzNm4za3Y3azlqczhpM3h3OGhxbnd2aTJldGU="
+    "signable_bytes": "bmRhcnc1aTdybXF0cXN0dzRtdG5jaG1mdnhucnE0azNlMnl0c3l2c2M3bnh0Mnk3AAAAAAAAAAZuZGFxM25xaGV6M3Z2eG44cng0bTZzNm4za3Y3azlqczhpM3h3OGhxbnd2aTJldGU="
   },
   {
     "comment": "ndev Node 2",
     "txtype": "Delegate",
     "tx": {
       "target": "ndahnsxr8zh7r6u685ka865wz77wb78xcn45rgskpeyiwuza",
-      "node": "ndahnsxr8zh7r6u685ka865wz77wb78xcn45rgskpeyiwuza",
+      "node": "ndaq3nqhez3vvxn8rx4m6s6n3kv7k9js8i3xw8hqnwvi2ete",
       "sequence": 6,
       "signatures": [
         "07-Delegate-02.sigs"
       ]
     },
-    "signable_bytes": "bmRhaG5zeHI4emg3cjZ1Njg1a2E4NjV3ejc3d2I3OHhjbjQ1cmdza3BleWl3dXphAAAAAAAAAAZuZGFobnN4cjh6aDdyNnU2ODVrYTg2NXd6Nzd3Yjc4eGNuNDVyZ3NrcGV5aXd1emE="
+    "signable_bytes": "bmRhcTNucWhlejN2dnhuOHJ4NG02czZuM2t2N2s5anM4aTN4dzhocW53dmkyZXRlAAAAAAAAAAZuZGFobnN4cjh6aDdyNnU2ODVrYTg2NXd6Nzd3Yjc4eGNuNDVyZ3NrcGV5aXd1emE="
   },
   {
     "comment": "ndev Node 3",
     "txtype": "Delegate",
     "tx": {
       "target": "ndam75fnjn7cdues7ivi7ccfq8f534quieaccqibrvuzhqxa",
-      "node": "ndam75fnjn7cdues7ivi7ccfq8f534quieaccqibrvuzhqxa",
+      "node": "ndahnsxr8zh7r6u685ka865wz77wb78xcn45rgskpeyiwuza",
       "sequence": 6,
       "signatures": [
         "07-Delegate-03.sigs"
       ]
     },
-    "signable_bytes": "bmRhbTc1Zm5qbjdjZHVlczdpdmk3Y2NmcThmNTM0cXVpZWFjY3FpYnJ2dXpocXhhAAAAAAAAAAZuZGFtNzVmbmpuN2NkdWVzN2l2aTdjY2ZxOGY1MzRxdWllYWNjcWlicnZ1emhxeGE="
+    "signable_bytes": "bmRhaG5zeHI4emg3cjZ1Njg1a2E4NjV3ejc3d2I3OHhjbjQ1cmdza3BleWl3dXphAAAAAAAAAAZuZGFtNzVmbmpuN2NkdWVzN2l2aTdjY2ZxOGY1MzRxdWllYWNjcWlicnZ1emhxeGE="
   },
   {
     "comment": "ndev Node 4",
     "txtype": "Delegate",
     "tx": {
       "target": "ndaekyty73hd56gynsswuj5q9em68tp6ed5v7tpft872hvuc",
-      "node": "ndaekyty73hd56gynsswuj5q9em68tp6ed5v7tpft872hvuc",
-      "sequence": 6,
+      "node": "ndam75fnjn7cdues7ivi7ccfq8f534quieaccqibrvuzhqxa",
+      "sequence": 10,
       "signatures": [
         "07-Delegate-04.sigs"
       ]
     },
-    "signable_bytes": "bmRhZWt5dHk3M2hkNTZneW5zc3d1ajVxOWVtNjh0cDZlZDV2N3RwZnQ4NzJodnVjAAAAAAAAAAZuZGFla3l0eTczaGQ1Nmd5bnNzd3VqNXE5ZW02OHRwNmVkNXY3dHBmdDg3Mmh2dWM="
+    "signable_bytes": "bmRhbTc1Zm5qbjdjZHVlczdpdmk3Y2NmcThmNTM0cXVpZWFjY3FpYnJ2dXpocXhhAAAAAAAAAApuZGFla3l0eTczaGQ1Nmd5bnNzd3VqNXE5ZW02OHRwNmVkNXY3dHBmdDg3Mmh2dWM="
   }
 ]
