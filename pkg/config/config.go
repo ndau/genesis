@@ -5,19 +5,18 @@ import (
 	"io/ioutil"
 	"os"
 	"strings"
-	"time"
 
 	"github.com/BurntSushi/toml"
 )
 
 // Config is the configuration data used by ETL
 type Config struct {
-	Path     string    `toml:"path"`
-	Sheet    string    `toml:"sheet"`
-	Columns  ColumnMap `toml:"columns"`
-	FirstRow int       `toml:"first_row"`
-	NomsPath string    `toml:"noms_path"`
-	Genesis  time.Time `toml:"genesis"`
+	Path        string    `toml:"path"`
+	Sheet       string    `toml:"sheet"`
+	Columns     ColumnMap `toml:"columns"`
+	FirstRow    int       `toml:"first_row"`
+	NomsPath    string    `toml:"noms_path"`
+	GenesisToml string    `toml:"genesis_toml"`
 }
 
 // ColumnMap is the map of column names to indices
