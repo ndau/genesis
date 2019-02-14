@@ -135,7 +135,7 @@ def NominateNodeReward(d):
         comment=d["header"],
         txtype="NominateNodeReward",
         tx=dict(
-            random=0,
+            random=1,
             sequence=int(d["sequence"]),
             pvt_key=d["pvt_key"],
             signatures=[""],  # nominate the 0 node

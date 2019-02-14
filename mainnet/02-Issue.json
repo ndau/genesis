@@ -1,0 +1,15 @@
+[
+  {
+    "comment": "ndau Issuance",
+    "txtype": "Issue",
+    "tx": {
+      "qty": 291501922963188,
+      "sequence": 2,
+      "signatures": [
+        "a4jadtcaqmznv9faquu2uiheu5485yr6vj8p384fqap89gm4r5qb774fwprksk3i9ebtyxmac9f7whf6n6m39jrv9vggxggi3wtg4n9bj4utyc933t8prna2",
+        "a4jadtca36f3qqwie74d4s6ry3whmxn34w6gud2ib7g3rqan526x666zwch44xpq49gj5x2uupfb8h3tkq9x7v68k3ne9z8uqxr8aigh8uraidy25z3kz4td"
+      ]
+    },
+    "signable_bytes": "AAEJHpSRzvQAAAAAAAAAAg=="
+  }
+]

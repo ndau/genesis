@@ -1,0 +1,77 @@
+[
+  {
+    "comment": "ndev Node 0",
+    "txtype": "RegisterNode",
+    "tx": {
+      "node": "ndarw5i7rmqtqstw4mtnchmfvxnrq4k3e2ytsyvsc7nxt2y7",
+      "distribution_script": "oAANAlIJIVAhZEYJBXA9kAmCAAoFURpBIAlUiIAAAmA9CUaI",
+      "rpc_address": "https://107.23.197.181:30104",
+      "sequence": 5,
+      "signatures": [
+        "a4jadtca4e7gqnb2efakwvgjcer4aiz9rxyzzum3r9ind7ztavpdwczaz6w9hcvkrnnredgtwhp42tjmmubuy7ixdh25gruw6h94vvcfsy3p8cxqqbwmjx4g",
+        "a4jadtcaas67md62s4u6v7k5snq6thp9iu8sww7uwn4tjzrmcnxbmsu36gzc77bk77xmnakikhkk39dthnpzfgkhe4sm84de5hzit2wnqyie8byfdj6zdavm"
+      ]
+    },
+    "signable_bytes": "b0FBTkFsSUpJVkFoWkVZSkJYQTlrQW1DQUFvRlVScEJJQWxVaUlBQUFtQTlDVWFJbmRhcnc1aTdybXF0cXN0dzRtdG5jaG1mdnhucnE0azNlMnl0c3l2c2M3bnh0Mnk3aHR0cHM6Ly8xMDcuMjMuMTk3LjE4MTozMDEwNAAAAAAAAAAF"
+  },
+  {
+    "comment": "ndev Node 1",
+    "txtype": "RegisterNode",
+    "tx": {
+      "node": "ndaq3nqhez3vvxn8rx4m6s6n3kv7k9js8i3xw8hqnwvi2ete",
+      "distribution_script": "oAANAlIJIVAhZEYJBXA9kAmCAAoFURpBIAlUiIAAAmA9CUaI",
+      "rpc_address": "https://107.23.197.181:30108",
+      "sequence": 5,
+      "signatures": [
+        "a4jadtcak64bd6ir3frummkgg5yxqgwvc35md2he6auatqr5qu39nr4tumfyztedyfptrxk8pmebmretfandt92esd6gyhws5827c6k4chmncaa2huktuayn",
+        "a4jadtcafnn4s8dziubrrmfh7ae37tixqrcuku9q2x23kuz2wz9arvdgakz8ziqqdrw7efyb92tzcdbkktacuw74d2r4arap7dwd4iairf8i4dxy8wkcguf8"
+      ]
+    },
+    "signable_bytes": "b0FBTkFsSUpJVkFoWkVZSkJYQTlrQW1DQUFvRlVScEJJQWxVaUlBQUFtQTlDVWFJbmRhcTNucWhlejN2dnhuOHJ4NG02czZuM2t2N2s5anM4aTN4dzhocW53dmkyZXRlaHR0cHM6Ly8xMDcuMjMuMTk3LjE4MTozMDEwOAAAAAAAAAAF"
+  },
+  {
+    "comment": "ndev Node 2",
+    "txtype": "RegisterNode",
+    "tx": {
+      "node": "ndahnsxr8zh7r6u685ka865wz77wb78xcn45rgskpeyiwuza",
+      "distribution_script": "oAANAlIJIVAhZEYJBXA9kAmCAAoFURpBIAlUiIAAAmA9CUaI",
+      "rpc_address": "https://107.23.197.181:30112",
+      "sequence": 5,
+      "signatures": [
+        "a4jadtcak7rzgishhqmprbztdyykj5wnvmjf5x6harv846g924wahmrmkhsryi7mf24bdcvay9knkvcty3cb8b5acru28rb6myvh5k2hpzi3ua22tq7am55n",
+        "a4jadtcadhe4pue2zziae3pvzrmegucgwddkzneedk4xxpxd8dz6cii32662aywfhgdpva743eejwa76ejfxj8qta4k6uyyptjth3sjyv3742chsta7pndiy"
+      ]
+    },
+    "signable_bytes": "b0FBTkFsSUpJVkFoWkVZSkJYQTlrQW1DQUFvRlVScEJJQWxVaUlBQUFtQTlDVWFJbmRhaG5zeHI4emg3cjZ1Njg1a2E4NjV3ejc3d2I3OHhjbjQ1cmdza3BleWl3dXphaHR0cHM6Ly8xMDcuMjMuMTk3LjE4MTozMDExMgAAAAAAAAAF"
+  },
+  {
+    "comment": "ndev Node 3",
+    "txtype": "RegisterNode",
+    "tx": {
+      "node": "ndam75fnjn7cdues7ivi7ccfq8f534quieaccqibrvuzhqxa",
+      "distribution_script": "oAANAlIJIVAhZEYJBXA9kAmCAAoFURpBIAlUiIAAAmA9CUaI",
+      "rpc_address": "https://107.23.197.181:30116",
+      "sequence": 5,
+      "signatures": [
+        "a4jadtca93ve22ratn6pi3gnj5huxzvbk7ah4wfyu4i4vrm3mggnbmrpm3zpaxvxcbv6zufd5h463e33i9gi5ayu7xpskwca4sj9isa4rraq8bm4zy68b3s9",
+        "a4jadtcaa2vnxky4gbynmuug8wajpn4xszyd6aqvsaibimhdv23x4zqa5qavqe42xwqhpjdc27wkhwuq7q7c8kpex9g9fsxfr5532dxgzhzdga9i9jdj6hfa"
+      ]
+    },
+    "signable_bytes": "b0FBTkFsSUpJVkFoWkVZSkJYQTlrQW1DQUFvRlVScEJJQWxVaUlBQUFtQTlDVWFJbmRhbTc1Zm5qbjdjZHVlczdpdmk3Y2NmcThmNTM0cXVpZWFjY3FpYnJ2dXpocXhhaHR0cHM6Ly8xMDcuMjMuMTk3LjE4MTozMDExNgAAAAAAAAAF"
+  },
+  {
+    "comment": "ndev Node 4",
+    "txtype": "RegisterNode",
+    "tx": {
+      "node": "ndaekyty73hd56gynsswuj5q9em68tp6ed5v7tpft872hvuc",
+      "distribution_script": "oAANAlIJIVAhZEYJBXA9kAmCAAoFURpBIAlUiIAAAmA9CUaI",
+      "rpc_address": "https://107.23.197.181:30120",
+      "sequence": 5,
+      "signatures": [
+        "a4jadtcapkzcqj4pggjtpiawwkwgux49d56cvgqjeq3qrfrics6tm3iptrky57u2tyyh26zcc535inm29fb9h2veita9wawi7tqu8rw6j77uyckutaqknkh2",
+        "a4jadtcaa7b7n2vyimy6sxwse95dmnw3ybq6k36yrqizx2a6i93zeeftrdgt5rce7f4tubmg45vf9gmujvwbggmt8vsysgh42kx3bpmcbrhqcciw4dw472df"
+      ]
+    },
+    "signable_bytes": "b0FBTkFsSUpJVkFoWkVZSkJYQTlrQW1DQUFvRlVScEJJQWxVaUlBQUFtQTlDVWFJbmRhZWt5dHk3M2hkNTZneW5zc3d1ajVxOWVtNjh0cDZlZDV2N3RwZnQ4NzJodnVjaHR0cHM6Ly8xMDcuMjMuMTk3LjE4MTozMDEyMAAAAAAAAAAF"
+  }
+]

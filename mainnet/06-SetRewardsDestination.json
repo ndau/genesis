@@ -1,0 +1,72 @@
+[
+  {
+    "comment": "ndev Node 0",
+    "txtype": "SetRewardsDestination",
+    "tx": {
+      "target": "ndarw5i7rmqtqstw4mtnchmfvxnrq4k3e2ytsyvsc7nxt2y7",
+      "destination": "ndaea8w9gz84ncxrytepzxgkg9ymi4k7c9p427i6b57xw3r4",
+      "sequence": 4,
+      "signatures": [
+        "a4jadtcapa7spxsvfyns7f7hz84z7hzdst67d24xhs82hyx5tqx23y6xqhpuub9224avh5a4yub5yhprhk58eed7jnbh7w3qbz5f59s9b6e2qcw4ikaq9ntq",
+        "a4jadtca77p2v4mzic5u8swtekgpvnmsfpyjqskvqen7hcu5znru8j85bevjay7amx9yyh5v2uch298exh2px5z38cubjs4hpevkd77vrid9ady3ugsmecch"
+      ]
+    },
+    "signable_bytes": "bmRhZWE4dzlnejg0bmN4cnl0ZXB6eGdrZzl5bWk0azdjOXA0MjdpNmI1N3h3M3I0AAAAAAAAAARuZGFydzVpN3JtcXRxc3R3NG10bmNobWZ2eG5ycTRrM2UyeXRzeXZzYzdueHQyeTc="
+  },
+  {
+    "comment": "ndev Node 1",
+    "txtype": "SetRewardsDestination",
+    "tx": {
+      "target": "ndaq3nqhez3vvxn8rx4m6s6n3kv7k9js8i3xw8hqnwvi2ete",
+      "destination": "ndaea8w9gz84ncxrytepzxgkg9ymi4k7c9p427i6b57xw3r4",
+      "sequence": 4,
+      "signatures": [
+        "a4jadtcah859z3pggvvs8s9et5zjd2fc6655e3h2krsj36rra6xatumdsvmtjx9qpuhhif3knxqthb5uahdfsn59vnnqc5knqayz5ks7dvwysd6fhrqcgjcs",
+        "a4jadtca4cva6yb8rugdi9tyemv3ge9axjmb5d3afxazaa9mcucc37b6hkktzzyytmqkyuu4phpwjya3r7bs6r6jxd9yzj7buvcqvvgj32pp2du8hscrps66"
+      ]
+    },
+    "signable_bytes": "bmRhZWE4dzlnejg0bmN4cnl0ZXB6eGdrZzl5bWk0azdjOXA0MjdpNmI1N3h3M3I0AAAAAAAAAARuZGFxM25xaGV6M3Z2eG44cng0bTZzNm4za3Y3azlqczhpM3h3OGhxbnd2aTJldGU="
+  },
+  {
+    "comment": "ndev Node 2",
+    "txtype": "SetRewardsDestination",
+    "tx": {
+      "target": "ndahnsxr8zh7r6u685ka865wz77wb78xcn45rgskpeyiwuza",
+      "destination": "ndaea8w9gz84ncxrytepzxgkg9ymi4k7c9p427i6b57xw3r4",
+      "sequence": 4,
+      "signatures": [
+        "a4jadtca5yfuqvs2gbgpwk68mr9tqakj4hmbzgc5jy5k8vnrj4222tm4pmw9yrjpdqhz59cfjjg5fi3c85y6z2q72vrcyy97jgg2y9qhrpx46axbickmdcn9",
+        "a4jadtcag52x3zbfax3qtpe3k2hsqdhxgz6jy83m5r2yap34c46pjv3v7jxxu22mef66pp2fesxpy3tbbfkwamaf5uhy5q57p2yvprbe8emn6atzwd8eqs7k"
+      ]
+    },
+    "signable_bytes": "bmRhZWE4dzlnejg0bmN4cnl0ZXB6eGdrZzl5bWk0azdjOXA0MjdpNmI1N3h3M3I0AAAAAAAAAARuZGFobnN4cjh6aDdyNnU2ODVrYTg2NXd6Nzd3Yjc4eGNuNDVyZ3NrcGV5aXd1emE="
+  },
+  {
+    "comment": "ndev Node 3",
+    "txtype": "SetRewardsDestination",
+    "tx": {
+      "target": "ndam75fnjn7cdues7ivi7ccfq8f534quieaccqibrvuzhqxa",
+      "destination": "ndaea8w9gz84ncxrytepzxgkg9ymi4k7c9p427i6b57xw3r4",
+      "sequence": 4,
+      "signatures": [
+        "a4jadtcat867yhudmutvwqj4y3hytfjyu93gqjs62f46qyfthtfddnzzrjedn29qj9q568rmg8tqqmwenu58gvdhj49yq9ztezc3j7q2duyyqdzmzv6g5cuz",
+        "a4jadtcacdhnx8yqmc7xju4e8sf9shd9vxq66jfh7nyvgw4b9use8pqh2xg6rdt2nsq9d52xbmcaxk7ew3jggftxq66ihqbccitrncrsjycsedjwvxbnxdz9"
+      ]
+    },
+    "signable_bytes": "bmRhZWE4dzlnejg0bmN4cnl0ZXB6eGdrZzl5bWk0azdjOXA0MjdpNmI1N3h3M3I0AAAAAAAAAARuZGFtNzVmbmpuN2NkdWVzN2l2aTdjY2ZxOGY1MzRxdWllYWNjcWlicnZ1emhxeGE="
+  },
+  {
+    "comment": "ndev Node 4",
+    "txtype": "SetRewardsDestination",
+    "tx": {
+      "target": "ndaekyty73hd56gynsswuj5q9em68tp6ed5v7tpft872hvuc",
+      "destination": "ndaea8w9gz84ncxrytepzxgkg9ymi4k7c9p427i6b57xw3r4",
+      "sequence": 4,
+      "signatures": [
+        "a4jadtca8527ya326hz3u8puu4f2yrknqgxez2vayc4ni2c2fkhxs89xp5r9bvjjingqt4wcumyn5y3s4w4766yvmw8wu76qhnqaenvt9nm2ea25rbm2bqaf",
+        "a4jadtcan6zzjxci8pt6k4ryq7jmmsikcwr26czrfsgnc7qahe78c8dafnnjxvq4hu65b4y2bckteypjnfvx4a98gcxycrf6uprv7nwyspdjecpjycntnk5p"
+      ]
+    },
+    "signable_bytes": "bmRhZWE4dzlnejg0bmN4cnl0ZXB6eGdrZzl5bWk0azdjOXA0MjdpNmI1N3h3M3I0AAAAAAAAAARuZGFla3l0eTczaGQ1Nmd5bnNzd3VqNXE5ZW02OHRwNmVkNXY3dHBmdDg3Mmh2dWM="
+  }
+]

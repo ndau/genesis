@@ -1,0 +1,72 @@
+[  
+  {
+    "comment": "ndev Node 0",
+    "txtype": "Lock",
+    "tx": {
+      "target": "ndarw5i7rmqtqstw4mtnchmfvxnrq4k3e2ytsyvsc7nxt2y7",
+      "period": "1m",
+      "sequence": 3,
+      "signatures": [
+        "a4jadtcam38d4wmgh9jwrciv5vb3ykbm7nv6h4ktq5y4ai2ukdbg862v9jsvs88mnjtg3b7tjgyup63xi996xtja6jq4r7j78hvqm3c7m9fs6cmtu89uanhx",
+        "a4jadtcaa33qm9vwig3t88c6fbaumdiz4er229ywx6zicjhi5qmuk4mq5fzkhweac2gmzumjbtrqikvitjc9hav43vv3t58ss6frgapkpvs5ca3id6z7cd7n"
+      ]
+    },
+    "signable_bytes": "MW0AAAAAAAAAA25kYXJ3NWk3cm1xdHFzdHc0bXRuY2htZnZ4bnJxNGszZTJ5dHN5dnNjN254dDJ5Nw=="
+  },
+  {
+    "comment": "ndev Node 1",
+    "txtype": "Lock",
+    "tx": {
+      "target": "ndaq3nqhez3vvxn8rx4m6s6n3kv7k9js8i3xw8hqnwvi2ete",
+      "period": "1m",
+      "sequence": 3,
+      "signatures": [
+        "a4jadtca6c7wu8w2j6m8impkvayx2bis7e2nq9ypv6gzrxty53489edhi9myjjtdkjcjuptrwhfwxh7fbhpkg3zeajjmszi5epwmkrrvfyewady5jit6ka7q",
+        "a4jadtca854m84fpbdki4yz4ndbs3hz8fmmp293ac3iiht4kwiyy36b6qkkk4er49u7cfjv4wigrg3w9x465kpmn3nzj2fi5k6rq2b3bicx9ebi7henxjg4g"
+      ]
+    },
+    "signable_bytes": "MW0AAAAAAAAAA25kYXEzbnFoZXozdnZ4bjhyeDRtNnM2bjNrdjdrOWpzOGkzeHc4aHFud3ZpMmV0ZQ=="
+  },
+  {
+    "comment": "ndev Node 2",
+    "txtype": "Lock",
+    "tx": {
+      "target": "ndahnsxr8zh7r6u685ka865wz77wb78xcn45rgskpeyiwuza",
+      "period": "1m",
+      "sequence": 3,
+      "signatures": [
+        "a4jadtca7m9p267dua5phephzyrncxjy3bi5hd9zspiqxrpjya89dkef9zfqcehv8vhhwrn7v8n6sfmjcxijjfkc2jz25um29cuchb6dh2wsaaxtef5bp7ci",
+        "a4jadtcaxnqjb9yartyijakztuahzbqu7w5yyvfp5nxfj9r233ahyu4hr7gamiv6yuk2ynrqs4sscauppms36znzs25vfs5y4d7gmq7ibj7qibm2tcsd89n5"
+      ]
+    },
+    "signable_bytes": "MW0AAAAAAAAAA25kYWhuc3hyOHpoN3I2dTY4NWthODY1d3o3N3diNzh4Y240NXJnc2twZXlpd3V6YQ=="
+  },
+  {
+    "comment": "ndev Node 3",
+    "txtype": "Lock",
+    "tx": {
+      "target": "ndam75fnjn7cdues7ivi7ccfq8f534quieaccqibrvuzhqxa",
+      "period": "1m",
+      "sequence": 3,
+      "signatures": [
+        "a4jadtca3eqwenbxa65yz32pxv8e5h2s5fvuraadj3h9ff4maxszqqs27fhjd5dkyaazpsiu4rk5i9ced9nfb92d9mgyy6ghuixuv45w9eaeedrmc3vafp5y",
+        "a4jadtcatzn6y3wfes6tptrmrn4e7u7spw5u6burschfpznex324sthjw3sznnrxdsjcr7iuew2yx98pf5uzigns75k62m3ukt2as86egnczqdcyktye54h5"
+      ]
+    },
+    "signable_bytes": "MW0AAAAAAAAAA25kYW03NWZuam43Y2R1ZXM3aXZpN2NjZnE4ZjUzNHF1aWVhY2NxaWJydnV6aHF4YQ=="
+  },
+  {
+    "comment": "ndev Node 4",
+    "txtype": "Lock",
+    "tx": {
+      "target": "ndaekyty73hd56gynsswuj5q9em68tp6ed5v7tpft872hvuc",
+      "period": "1m",
+      "sequence": 3,
+      "signatures": [
+        "a4jadtca3t295dqh9vdvnacwdw7rgsg4955vzk3q2fs8jq7t2rui2mzs4c2kh2vidcba46dgu7a2kr5si6q6rjkzj8g2r2abzmcyfe7smvpmnapmi3v4q4bz",
+        "a4jadtca3wm4t4jyk2f4kjsh2ks6z9s7zrfmf9dmpjwpv8uztt5h3uwgxwi4rt23pstrefznf4jwqfpafhkkpi4zbhjetagzp5vdnrh3bxah4dkeukqsygcf"
+      ]
+    },
+    "signable_bytes": "MW0AAAAAAAAAA25kYWVreXR5NzNoZDU2Z3luc3N3dWo1cTllbTY4dHA2ZWQ1djd0cGZ0ODcyaHZ1Yw=="
+  }
+]

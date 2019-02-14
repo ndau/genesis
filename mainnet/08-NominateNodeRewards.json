@@ -1,0 +1,14 @@
+[  
+  {
+    "comment": "ndau Network Operations",
+    "txtype": "NominateNodeReward",
+    "tx": {
+      "random": 1,
+      "sequence": 2,
+      "signatures": [
+        "a4jadtcapt9vswz8kt488f5ndsirsy5x8h9cks3qhp5ab8cueqa3qwhdwpzr89ppnernheab4sxkvwcbfgashfu94psbgj9icc6vigtjes64ude3uqh4349g"
+      ]
+    },
+    "signable_bytes": "AAAAAAAAAAAAAAAAAAAAAg=="
+  }
+]
