@@ -32,6 +32,7 @@ func TransformRow(row RawRow, logger logrus.FieldLogger, bonusTable eai.RateTabl
 		}
 
 		ad.Lock = backing.NewLock(unlockDate.Since(creation), bonusTable)
+		ad.Lock.Notify(creation, 0)
 	}
 
 	if row.RewardTarget != nil {
