@@ -16,7 +16,7 @@ The `etl/config.toml` file **must be updated** to use the correct `noms_path`. C
 At this point, load the ETL data:
 
 1. `cd ./etl`
-1. `../../../commands/cmd/etl/etl`
+1. `../../../commands/etl`
 
 Start the blockchain:
 

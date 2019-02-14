@@ -2,12 +2,12 @@ path = "./output-rel48.csv"
 sheet = ""
 first_row = 6
 noms_path = "$HOME/.localnet/data/noms-ndau-0"
-genesis = 0001-01-01T00:00:00Z
+genesis_toml = "/Users/edmcnierney/.localnet/genesis_files/genesis.toml"
 
 [columns]
   address = 2
   delegation_node = 5
-  notify_immediately = 8
+  notify_immediately = 6
   purchase_date = 0
   qty_purchased = 1
   reward_target = 4
