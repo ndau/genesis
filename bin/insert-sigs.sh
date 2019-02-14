@@ -1,0 +1,30 @@
+sed -e '/01-Issue.sigs/{r 01-Issue.sigs' -e 'd' -e '}' ../genesis_tx_list.json >01-Issue.temp
+sed -e '/02-Transfer-00.sigs/{r 02-Transfer-00.sigs' -e 'd' -e '}' 01-Issue.temp > 02--00.temp
+sed -e '/02-Transfer-01.sigs/{r 02-Transfer-01.sigs' -e 'd' -e '}' 02--00.temp > 02--01.temp
+sed -e '/02-Transfer-02.sigs/{r 02-Transfer-02.sigs' -e 'd' -e '}' 02--01.temp > 02--02.temp
+sed -e '/02-Transfer-03.sigs/{r 02-Transfer-03.sigs' -e 'd' -e '}' 02--02.temp > 02--03.temp
+sed -e '/02-Transfer-04.sigs/{r 02-Transfer-04.sigs' -e 'd' -e '}' 02--03.temp > 02--04.temp
+sed -e '/03-Lock-00.sigs/{r 03-Lock-00.sigs' -e 'd' -e '}' 02--04.temp > 03--00.temp
+sed -e '/03-Lock-01.sigs/{r 03-Lock-01.sigs' -e 'd' -e '}' 03--00.temp > 03--01.temp
+sed -e '/03-Lock-02.sigs/{r 03-Lock-02.sigs' -e 'd' -e '}' 03--01.temp > 03--02.temp
+sed -e '/03-Lock-03.sigs/{r 03-Lock-03.sigs' -e 'd' -e '}' 03--02.temp > 03--03.temp
+sed -e '/03-Lock-04.sigs/{r 03-Lock-04.sigs' -e 'd' -e '}' 03--03.temp > 03--04.temp
+sed -e '/04-SetRewardsDestination-00.sigs/{r 04-SetRewardsDestination-00.sigs' -e 'd' -e '}' 03--04.temp > 04--00.temp
+sed -e '/04-SetRewardsDestination-01.sigs/{r 04-SetRewardsDestination-01.sigs' -e 'd' -e '}' 04--00.temp > 04--01.temp
+sed -e '/04-SetRewardsDestination-02.sigs/{r 04-SetRewardsDestination-02.sigs' -e 'd' -e '}' 04--01.temp > 04--02.temp
+sed -e '/04-SetRewardsDestination-03.sigs/{r 04-SetRewardsDestination-03.sigs' -e 'd' -e '}' 04--02.temp > 04--03.temp
+sed -e '/04-SetRewardsDestination-04.sigs/{r 04-SetRewardsDestination-04.sigs' -e 'd' -e '}' 04--03.temp > 04--04.temp
+sed -e '/05-RegisterNode-00.sigs/{r 05-RegisterNode-00.sigs' -e 'd' -e '}' 04--04.temp > 05--00.temp
+sed -e '/05-RegisterNode-01.sigs/{r 05-RegisterNode-01.sigs' -e 'd' -e '}' 05--00.temp > 05--01.temp
+sed -e '/05-RegisterNode-02.sigs/{r 05-RegisterNode-02.sigs' -e 'd' -e '}' 05--01.temp > 05--02.temp
+sed -e '/05-RegisterNode-03.sigs/{r 05-RegisterNode-03.sigs' -e 'd' -e '}' 05--02.temp > 05--03.temp
+sed -e '/05-RegisterNode-04.sigs/{r 05-RegisterNode-04.sigs' -e 'd' -e '}' 05--03.temp > 05--04.temp
+sed -e '/06-NNR.sigs/{r 06-NNR.sigs' -e 'd' -e '}' 05--04.temp > 06-NNR.temp
+sed -e '/07-Delegate-00.sigs/{r 07-Delegate-00.sigs' -e 'd' -e '}' 06-NNR.temp > 07--00.temp
+sed -e '/07-Delegate-01.sigs/{r 07-Delegate-01.sigs' -e 'd' -e '}' 07--00.temp > 07--01.temp
+sed -e '/07-Delegate-02.sigs/{r 07-Delegate-02.sigs' -e 'd' -e '}' 07--01.temp > 07--02.temp
+sed -e '/07-Delegate-03.sigs/{r 07-Delegate-03.sigs' -e 'd' -e '}' 07--02.temp > 07--03.temp
+sed -e '/07-Delegate-04.sigs/{r 07-Delegate-04.sigs' -e 'd' -e '}' 07--03.temp > 07--04.temp
+sed -e '/07-Delegate-ndev.sigs/{r 07-Delegate-ndev.sigs' -e 'd' -e '}' 07--04.temp > 07--ndev.temp
+sed -e '/07-Delegate-ntrd.sigs/{r 07-Delegate-ntrd.sigs' -e 'd' -e '}' 07--ndev.temp > ../genesis_tx_list_signed.json
+rm -f *.temp

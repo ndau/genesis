@@ -2,6 +2,10 @@
 
 All of oneiro's blockchains need to be initialized in a variety of ways. For simple cases, we can simply define configuration files and copy the data in those files into the appropriate places, but for other cases, we need something more complex. `genesis` has the following responsibilities:
 
+## For mainnet genesis
+
+All mainnet genesis data, tools, and instructions are in `mainnet-genesis`
+
 ## Existing Features
 # `etl`: process spreadsheet .csv file and populate ndau noms database
 
