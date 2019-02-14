@@ -27,7 +27,6 @@ func ProcessGenesisJSON(conf *config.Config, chainName, path string) error {
 	}
 
 	// update genesis data
-	genesis["genesis_time"] = conf.Genesis
 	genesis["chain_id"] = chainName
 
 	// write back to genesis.json

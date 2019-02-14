@@ -4,13 +4,14 @@ import (
 	"github.com/oneiro-ndev/genesis/pkg/config"
 	"github.com/oneiro-ndev/ndau/pkg/ndau/backing"
 	"github.com/oneiro-ndev/ndaumath/pkg/constants"
+	"github.com/oneiro-ndev/ndaumath/pkg/eai"
 	math "github.com/oneiro-ndev/ndaumath/pkg/types"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 )
 
 // TransformRow creates an AccountData struct given a RawRow from the spreadsheet
-func TransformRow(row RawRow, logger logrus.FieldLogger) (ad backing.AccountData, err error) {
+func TransformRow(row RawRow, logger logrus.FieldLogger, bonusTable eai.RateTable) (ad backing.AccountData, err error) {
 	ad.Balance = math.Ndau(constants.QuantaPerUnit * row.QtyPurchased)
 
 	creation, err := math.TimestampFrom(row.PurchaseDate)
@@ -30,12 +31,7 @@ func TransformRow(row RawRow, logger logrus.FieldLogger) (ad backing.AccountData
 			return ad, errors.Wrap(err, "Creating ndau timestamp from row.UnlockDate")
 		}
 
-		lock := backing.Lock{
-			NoticePeriod: unlockDate.Since(creation),
-			UnlocksOn:    &unlockDate,
-		}
-
-		ad.Lock = &lock
+		ad.Lock = backing.NewLock(unlockDate.Since(creation), bonusTable)
 	}
 
 	if row.RewardTarget != nil {

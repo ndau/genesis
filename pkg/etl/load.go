@@ -4,6 +4,9 @@ import (
 	"crypto/sha256"
 	"os"
 
+	"github.com/oneiro-ndev/chaos/pkg/genesisfile"
+	"github.com/oneiro-ndev/ndaumath/pkg/eai"
+
 	"github.com/oneiro-ndev/genesis/pkg/config"
 	metast "github.com/oneiro-ndev/metanode/pkg/meta/state"
 	"github.com/oneiro-ndev/ndau/pkg/ndau"
@@ -35,6 +38,48 @@ func addressFrom(addrS string, rlogger logrus.FieldLogger) (address.Address, err
 	return addr, nil
 }
 
+func rateTable(config *config.Config) (*eai.RateTable, error) {
+	gfile, err := genesisfile.Load(config.GenesisToml)
+	if err != nil {
+		return nil, err
+	}
+
+	if len(gfile) != 1 {
+		return nil, errors.New("ambiguous genesis.toml: more than one namespace present")
+	}
+
+	var namespace genesisfile.Namespace
+	for _, ns := range gfile {
+		namespace = ns
+	}
+
+	var value genesisfile.Value
+	for _, v := range namespace {
+		if v.Comment != nil && *v.Comment == "LockedRateTable" {
+			value = v
+			break
+		}
+	}
+
+	if value.Comment == nil {
+		// never copied the value
+		return nil, errors.New("LockedRateTable not found in genesis.toml")
+	}
+
+	rti, err := value.Unpack()
+	if err != nil {
+		return nil, errors.Wrap(err, "unpacking LockedRateTable")
+	}
+
+	if rt, ok := rti.(eai.RateTable); ok {
+		return &rt, nil
+	} else if rt, ok := rti.(*eai.RateTable); ok {
+		return rt, nil
+	}
+
+	return nil, errors.New("LockedRateTable didn't unpack to eai.RateTable")
+}
+
 // Load the given rows into the noms configuration
 func Load(conf *config.Config, rows []RawRow, ndauhome string) error {
 	nconf, err := nconfig.LoadDefault(nconfig.DefaultConfigPath(ndauhome))
@@ -52,8 +97,13 @@ func Load(conf *config.Config, rows []RawRow, ndauhome string) error {
 	logger := logrus.StandardLogger()
 	app.SetLogger(logger)
 
-	logger.WithField("noms_path", nomsPath).Info("Initialized temporary app for state update")
+	rt, err := rateTable(conf)
+	if err != nil || rt == nil {
+		logger.WithError(err).Error("failed to load rate table")
+		return errors.Wrap(err, "failed to load rate table")
+	}
 
+	logger.WithField("noms_path", nomsPath).Info("Initialized temporary app for state update")
 	err = app.UpdateStateImmediately(func(stI metast.State) (metast.State, error) {
 		st := stI.(*backing.State)
 
@@ -67,7 +117,7 @@ func Load(conf *config.Config, rows []RawRow, ndauhome string) error {
 				return st, err
 			}
 
-			ad, err := TransformRow(row, logger.WithField("column", config.AddressS))
+			ad, err := TransformRow(row, logger.WithField("column", config.AddressS), *rt)
 			if err != nil {
 				rlogger.WithError(err).Error("failed to transform row")
 				return st, errors.Wrap(err, "failed to transform row")
