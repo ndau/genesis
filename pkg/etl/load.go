@@ -2,17 +2,18 @@ package etl
 
 import (
 	"crypto/sha256"
+	"fmt"
 	"os"
+	"reflect"
 
 	"github.com/oneiro-ndev/chaos/pkg/genesisfile"
-	"github.com/oneiro-ndev/ndaumath/pkg/eai"
-
 	"github.com/oneiro-ndev/genesis/pkg/config"
 	metast "github.com/oneiro-ndev/metanode/pkg/meta/state"
 	"github.com/oneiro-ndev/ndau/pkg/ndau"
 	"github.com/oneiro-ndev/ndau/pkg/ndau/backing"
 	nconfig "github.com/oneiro-ndev/ndau/pkg/ndau/config"
 	"github.com/oneiro-ndev/ndaumath/pkg/address"
+	"github.com/oneiro-ndev/ndaumath/pkg/eai"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 )
@@ -71,13 +72,27 @@ func rateTable(config *config.Config) (*eai.RateTable, error) {
 		return nil, errors.Wrap(err, "unpacking LockedRateTable")
 	}
 
-	if rt, ok := rti.(eai.RateTable); ok {
-		return &rt, nil
-	} else if rt, ok := rti.(*eai.RateTable); ok {
-		return rt, nil
+	vals, ok := rti.([]genesisfile.Valuable)
+	if !ok {
+		return nil, fmt.Errorf(
+			"LockedRateTable didn't unpack to []genesisfile.Value, instead: %s",
+			reflect.ValueOf(rti).Type(),
+		)
 	}
-
-	return nil, errors.New("LockedRateTable didn't unpack to eai.RateTable")
+	rows := make([]eai.RTRow, len(vals))
+	for i := range vals {
+		rtr, ok := vals[i].(*eai.RTRow)
+		if !ok {
+			return nil, fmt.Errorf(
+				"LockedRateTable row %d didn't unpack to *eai.RTRow, instead: %s",
+				i,
+				reflect.ValueOf(vals[i]).Type(),
+			)
+		}
+		rows[i] = *rtr
+	}
+	rt := eai.RateTable(rows)
+	return &rt, nil
 }
 
 // Load the given rows into the noms configuration
