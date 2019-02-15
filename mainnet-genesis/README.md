@@ -17,17 +17,18 @@ At this point, load the ETL data:
 
 1. `cd ./etl`
 1. `../../../commands/etl`
+2. `cd ..`
 
 Start the blockchain:
 
 1. Run `../bin/run-nofinalize.sh`: this is the standard `./bin/run.sh` script without the ndau and chaos finalize steps.
-1. Run `./bin/ndauapi.sh`
+1. Run `../..commands/bin/ndauapi.sh`
 
 You should now have a running blockchain and API with no accounts defined and a complete set of system variables properly loaded.
 
 ## Submit post-genesis transactions
 
-The `../bin/submitTx.py` script processes an input JSON file, prevalidating and (optionally) submitting the transactions it specifies. 10 separate JSON files for each set of genesis transactions are included in `../transactions`. The script `../bin/transactions.sh` will run `../bin/submitTx.py` to submit all post-genesis transactions in order.
+Prep: the `../bin/submitTx.py` script processes an input JSON file, prevalidating and (optionally) submitting the transactions it specifies. 10 separate JSON files for each set of genesis transactions are included in `../transactions`. The script `../bin/transactions.sh` will run `../bin/submitTx.py` to submit all post-genesis transactions in order.
 
 1. `../bin/transactions.sh`
 
