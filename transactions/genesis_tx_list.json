@@ -185,13 +185,13 @@
     "comment": "ndau Issuance",
     "txtype": "Issue",
     "tx": {
-      "qty": 291501922963188,
+      "qty": 291501930228936,
       "sequence": 2,
       "signatures": [
         ""
       ]
     },
-    "signable_bytes": "AAEJHpSRzvQAAAAAAAAAAg=="
+    "signable_bytes": "AAEJHpUArMgAAAAAAAAAAg=="
   },
   {
     "comment": "ndev Node 0",
