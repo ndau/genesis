@@ -66,6 +66,13 @@ func extractCSVRow(record []string, conf *config.Config) (rr RawRow, err error) 
 	if cellHasValue(dnc) {
 		rr.DelegationNode = dnc
 	}
+	spc := getCell(config.SettlementS)
+	if cellHasValue(spc) {
+		rr.SettlementPeriod, err = time.ParseDuration(*spc)
+		if err != nil {
+			return RawRow{}, err
+		}
+	}
 
 	return rr, nil
 }

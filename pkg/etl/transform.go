@@ -51,5 +51,7 @@ func TransformRow(row RawRow, logger logrus.FieldLogger, bonusTable eai.RateTabl
 		ad.DelegationNode = &addr
 	}
 
+	ad.SettlementSettings.Period = math.DurationFrom(row.SettlementPeriod)
+
 	return
 }
