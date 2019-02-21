@@ -73,6 +73,10 @@ func extractCSVRow(record []string, conf *config.Config) (rr RawRow, err error) 
 			return RawRow{}, err
 		}
 	}
+	rsc := getCell(config.RewardSourceS)
+	if cellHasValue(rsc) {
+		rr.RewardSource = rsc
+	}
 
 	return rr, nil
 }

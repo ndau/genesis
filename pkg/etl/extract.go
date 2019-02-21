@@ -19,6 +19,7 @@ type RawRow struct {
 	RewardTarget     *string
 	DelegationNode   *string
 	SettlementPeriod time.Duration
+	RewardSource     *string
 }
 
 func (rr RawRow) String() string {

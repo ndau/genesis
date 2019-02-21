@@ -10,6 +10,7 @@ genesis_toml = "/Users/edmcnierney/.localnet/genesis_files/genesis.toml"
   notify_immediately = 6
   purchase_date = 0
   qty_purchased = 1
+  reward_source = 8
   reward_target = 4
   settlement_period = 7
   unlock_date = 3
