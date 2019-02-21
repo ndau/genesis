@@ -6,6 +6,7 @@ import (
 	"os"
 	"reflect"
 
+	"github.com/mitchellh/go-homedir"
 	"github.com/oneiro-ndev/chaos/pkg/genesisfile"
 	"github.com/oneiro-ndev/genesis/pkg/config"
 	metast "github.com/oneiro-ndev/metanode/pkg/meta/state"
@@ -40,7 +41,11 @@ func addressFrom(addrS string, rlogger logrus.FieldLogger) (address.Address, err
 }
 
 func rateTable(config *config.Config) (*eai.RateTable, error) {
-	gfile, err := genesisfile.Load(config.GenesisToml)
+	gfilePath, err := homedir.Expand(os.ExpandEnv(config.GenesisToml))
+	if err != nil {
+		return nil, errors.Wrap(err, "expanding genesisfile path")
+	}
+	gfile, err := genesisfile.Load(gfilePath)
 	if err != nil {
 		return nil, err
 	}
