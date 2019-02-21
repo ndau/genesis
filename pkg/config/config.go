@@ -34,6 +34,8 @@ const (
 	NotifyImmediatelyS = "notify_immediately"
 	RewardTargetS      = "reward_target"
 	DelegationNodeS    = "delegation_node"
+	SettlementS        = "settlement_period"
+	RewardSourceS      = "reward_source"
 )
 
 // DefaultConfig creates a default config struct

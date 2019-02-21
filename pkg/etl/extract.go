@@ -11,13 +11,15 @@ import (
 
 // RawRow encapsulates the raw data of a single row of the ndau spreadsheet
 type RawRow struct {
-	RowNumber      uint64
-	Address        string
-	QtyPurchased   float64
-	PurchaseDate   time.Time
-	UnlockDate     *time.Time
-	RewardTarget   *string
-	DelegationNode *string
+	RowNumber        uint64
+	Address          string
+	QtyPurchased     float64
+	PurchaseDate     time.Time
+	UnlockDate       *time.Time
+	RewardTarget     *string
+	DelegationNode   *string
+	SettlementPeriod time.Duration
+	RewardSource     *string
 }
 
 func (rr RawRow) String() string {
