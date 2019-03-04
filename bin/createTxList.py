@@ -6,6 +6,10 @@ import json
 import argparse
 import subprocess
 
+def getPvtKeys(d):
+    pvtkeys = [d.get(f"pvt_key{i}", "") for i in range(9)]
+    pvtkeys = [k for k in pvtkeys if k != ""]
+    return pvtkeys
 
 def ClaimAccount(d):
     tx = dict(
@@ -16,8 +20,8 @@ def ClaimAccount(d):
             ownership=d["ownership"],
             validation_script=d["validation_script"],
             sequence=int(d["sequence"]),
-            pvt_key=d["pvt_key"],
-            signature="",
+            pvt_keys=getPvtKeys(d),
+            signatures=[],
         ),
     )
     keys = [d.get(f"validation_keys_{i}", "") for i in range(9)]
@@ -33,7 +37,8 @@ def Issue(d):
         tx=dict(
             qty=int(d["qty"]),
             sequence=int(d["sequence"]),
-            signatures=[""],
+            pvt_keys=getPvtKeys(d),
+            signatures=[],
         ),
     )
     return [tx]
@@ -47,8 +52,8 @@ def Delegate(d):
             target=d["target"],
             node=d["ownership"],
             sequence=int(d["sequence"]),
-            pvt_key=d["pvt_key"],
-            signatures=[""],
+            pvt_keys=getPvtKeys(d),
+            signatures=[],
         ),
     )
     return [tx]
@@ -61,8 +66,9 @@ def CreditEAI(d):
         tx=dict(
             node=d["target"],
             sequence=int(d["sequence"]),
-            pvt_key=d["pvt_key"],
-            signatures=[""],
+#            pvt_key=d["pvt_key"],
+            pvt_keys=getPvtKeys(d),
+            signatures=[],
         ),
     )
     return [tx]
@@ -76,8 +82,8 @@ def Lock(d):
             target=d["target"],
             period=d["period"],
             sequence=int(d["sequence"]),
-            pvt_key=d["pvt_key"],
-            signatures=[""],
+            pvt_keys=getPvtKeys(d),
+            signatures=[],
         ),
     )
     return [tx]
@@ -91,8 +97,8 @@ def SetRewardsDestination(d):
             target=d["target"],
             destination=d["destination"],
             sequence=int(d["sequence"]),
-            pvt_key=d["pvt_key"],
-            signatures=[""],
+            pvt_keys=getPvtKeys(d),
+            signatures=[],
         ),
     )
     return [tx]
@@ -107,8 +113,8 @@ def Transfer(d):
             destination=d["destination"],
             qty=int(d["qty"]) * 100_000_000,
             sequence=int(d["sequence"]),
-            pvt_key=d["pvt_key"],
-            signatures=[""],
+            pvt_keys=getPvtKeys(d),
+            signatures=[],
         ),
     )
     return [tx]
@@ -123,8 +129,8 @@ def RegisterNode(d):
             distribution_script=d["distribution"],
             rpc_address=d["rpc_address"],
             sequence=int(d["sequence"]),
-            pvt_key=d["pvt_key"],
-            signatures=[""],
+            pvt_keys=getPvtKeys(d),
+            signatures=[],
         ),
     )
     return [tx]
@@ -137,8 +143,8 @@ def NominateNodeReward(d):
         tx=dict(
             random=1,
             sequence=int(d["sequence"]),
-            pvt_key=d["pvt_key"],
-            signatures=[""],  # nominate the 0 node
+            pvt_keys=getPvtKeys(d),
+            signatures=[],  # nominate the 0 node
         ),
     )
     return [tx]
@@ -151,8 +157,8 @@ def ClaimNodeReward(d):
         tx=dict(
             node=d["target"],
             sequence=int(d["sequence"]),
-            pvt_key=d["pvt_key"],
-            signatures=[""],
+            pvt_keys=getPvtKeys(d),
+            signatures=[],
         ),
     )
     return [tx]
@@ -160,12 +166,10 @@ def ClaimNodeReward(d):
 
 def generateSignableBytes(obj, ndautool):
     tx = copy.deepcopy(obj)
-    if "signature" in tx:
-        del tx["signature"]
     if "signatures" in tx:
         del tx["signatures"]
-    if "pvt_key" in tx:
-        del tx["pvt_key"]
+    if "pvt_keys" in tx:
+        del tx["pvt_keys"]
 
     j = json.dumps(tx, indent=2)
     r = subprocess.run(
@@ -180,30 +184,33 @@ def generateSignableBytes(obj, ndautool):
 
 
 def tryToSign(t, keytool):
-    pk = t["tx"].get("pvt_key", None)
+    pks = t["tx"].get("pvt_keys", None)
     tx = copy.deepcopy(t["tx"])
-    if pk is not None:
-        del tx["pvt_key"]
-    if not pk:
+    if pks is not None:
+        del tx["pvt_keys"]
+    if not pks:
         t["tx"] = tx
         return t
 
     sb = t["signable_bytes"]
 
-    if not pk.startswith("npvt"):
-        sig = pk
-    else:
-        args = [keytool, "sign", pk, sb, "-b"]
-        r = subprocess.run(args, text=True, capture_output=True)
-        if r.returncode > 0:
-            sig = f"ERROR: {r.stderr}"
+    for pk in pks:
+        if not pk.startswith("npvt"):
+            sig = pk
         else:
-            sig = r.stdout.strip()
+            args = [keytool, "sign", pk, sb, "-b"]
+            r = subprocess.run(args, text=True, capture_output=True)
+            if r.returncode > 0:
+                sig = f"ERROR: {r.stderr}"
+            else:
+                sig = r.stdout.strip()
 
-    if "signature" in tx:
-        tx["signature"] = sig
-    else:
-        tx["signatures"] = [sig]
+        tx["signatures"].append(sig)
+
+    if t["txtype"] == "ClaimAccount":
+        tx["signature"] = tx["signatures"][0]
+        del tx["signatures"]
+
     t["tx"] = tx
     return t
 
@@ -218,7 +225,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--keytool",
         action="store",
-        default="../../commands/cmd/keytool/keytool",
+        default="../../commands/keytool",
         help="location of keytool",
     )
     parser.add_argument(
@@ -227,6 +234,13 @@ if __name__ == "__main__":
         default="../../commands/ndau",
         help="location of ndautool",
     )
+    parser.add_argument(
+        "--input",
+        action="store",
+        default="",
+        help="input csv file",
+    )
+
     args = parser.parse_args()
 
     txmap = dict(
@@ -241,7 +255,7 @@ if __name__ == "__main__":
         ClaimNodeReward=ClaimNodeReward,
         Transfer=Transfer,
     )
-    with open("Post-Genesis Transaction Block.csv") as csvfile:
+    with open(args.input) as csvfile:
         rdr = csv.DictReader(csvfile)
         rows = [r for r in rdr if r["txtype"] != ""]
         txs = []
