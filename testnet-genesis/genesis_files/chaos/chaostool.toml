@@ -1,0 +1,10 @@
+node = "http://100.24.11.77:30052"
+ndau_address = "http://100.24.11.77:30054"
+
+[[identities]]
+  name = "sysvar"
+  [identities.chaos]
+    public = "npuba8jadtbbeaxuga2i8sc3t9hr6t8c9wnv6z6zxi693w3xthiurq6mnyxye2zd6iyh3ppy9ywp"
+    private = "npvtayjadtcbidnizwetc9k7tnmqzn7drw5vpaxkaquaw2rj3gkmtt7yrgrqn84wyk3daneribn29vz8i9br4gj8m8m4wqr64n42vwjhzqfymk5cnmt8rf33yty8"
+  [identities.ndau]
+    address = "ndbmgby86qw9bds9f8wrzut5zrbxuehum5kvgz9sns9hgknh"

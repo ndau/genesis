@@ -4,9 +4,16 @@ These procedures can be used for any non-mainnet application: they're all called
 
 The complete set of post-genesis transactions is defined in **Post-Genesis Transaction List - testnet.csv** and the `../bin/createTxList.py` script is used to generate a JSON file with a signed list of transactions from it. That CSV file contains all public and private keys required to sign these (and any other) transactions. The account addresses and keypairs are the only things that differ between this file and the mainnet version.
 
-`../bin/createTxList.py --sign --input Post-Genesis\ Transaction\ List\ -\ testnet.csv` was used to create `testnet-genesis.json`. That file of 45 transactions can be submitted as:
+```
+cd transactions
+../bin/createTxList.py --sign --input Post-Genesis\ Transaction\ List\ -\ testnet.csv
+```
+was used to create `transactions/testnet-genesis.json`. That file of 45 transactions can be submitted as:
 
-`../bin/submitTx.pv --<netname> --submit --delay 0 --input testnet-genesis.json`
+```
+cd transactions
+../bin/submitTx.pv --<netname> --submit --delay 0 --input testnet-genesis.json
+```
 
 ## Post-Genesis Keypairs
 
