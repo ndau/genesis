@@ -27,9 +27,23 @@ def ClaimAccount(d):
     keys = [d.get(f"validation_keys_{i}", "") for i in range(9)]
     keys = [k for k in keys if k != ""]
     tx["tx"]["validation_keys"] = keys
+
     return [tx]
 
-
+def ReleaseFromEndowment(d):
+    tx = dict(
+        comment=d["header"],
+        txtype="ReleaseFromEndowment",
+        tx=dict(
+            destination=d["destination"],
+            qty=int(d["qty"]),
+            sequence=int(d["sequence"]),
+            pvt_keys=getPvtKeys(d),
+            signatures=[],
+        ),
+    )
+    return [tx]
+  
 def Issue(d):
     tx = dict(
         comment=d["header"],
@@ -42,7 +56,6 @@ def Issue(d):
         ),
     )
     return [tx]
-
 
 def Delegate(d):
     tx = dict(
@@ -66,7 +79,6 @@ def CreditEAI(d):
         tx=dict(
             node=d["target"],
             sequence=int(d["sequence"]),
-#            pvt_key=d["pvt_key"],
             pvt_keys=getPvtKeys(d),
             signatures=[],
         ),
@@ -245,6 +257,7 @@ if __name__ == "__main__":
 
     txmap = dict(
         ClaimAccount=ClaimAccount,
+        ReleaseFromEndowment=ReleaseFromEndowment,
         Issue=Issue,
         Delegate=Delegate,
         CreditEAI=CreditEAI,
@@ -267,6 +280,7 @@ if __name__ == "__main__":
             for t in txs:
                 sb = generateSignableBytes(t["tx"], args.ndautool)
                 t["signable_bytes"] = sb
+            
                 if not sb.startswith("ERROR"):
                     t = tryToSign(t, args.keytool)
                 newtxs.append(t)

@@ -1,0 +1,16 @@
+[
+  {
+    "comment": "Axiom Foundation",
+    "txtype": "ReleaseFromEndowment",
+    "tx": {
+      "destination": "ndeeh86uun6us9cenuck2uur679e37uczsmys33794gnvtfz",
+      "qty": 1000,
+      "sequence": 10,
+      "signatures": [
+        "a4jadtcazppx3bdpkn5x5k48xu3ggnir248mq6sd98zz876p9qstjazwdj499p3b3kyxwtn5c44wvc8acdfz9q8atmzdt4errstrk5sn4r2scb6zg6s43zqb",
+        "a4jadtcaepsxb7qq6h2arutdfdb5zfby48sux2p9h7xt4hw62qy7w9fih2w4ijby67wqcx2vxg3vpy9ammfe4rz2dsvpqpkb4afj3p943mfpiacdjfnkzznh"
+      ]
+    },
+    "signable_bytes": "bmRlZWg4NnV1bjZ1czljZW51Y2sydXVyNjc5ZTM3dWN6c215czMzNzk0Z252dGZ6AAAAAAAAA+gAAAAAAAAACg=="
+  }
+]
