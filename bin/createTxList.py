@@ -36,7 +36,7 @@ def ReleaseFromEndowment(d):
         txtype="ReleaseFromEndowment",
         tx=dict(
             destination=d["destination"],
-            qty=int(d["qty"]),
+            qty=int(d["qty"]) * 100_000_000,
             sequence=int(d["sequence"]),
             pvt_keys=getPvtKeys(d),
             signatures=[],
