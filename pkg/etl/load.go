@@ -7,7 +7,6 @@ import (
 	"reflect"
 
 	"github.com/mitchellh/go-homedir"
-	"github.com/oneiro-ndev/chaos/pkg/genesisfile"
 	"github.com/oneiro-ndev/genesis/pkg/config"
 	metast "github.com/oneiro-ndev/metanode/pkg/meta/state"
 	"github.com/oneiro-ndev/ndau/pkg/ndau"
@@ -15,6 +14,7 @@ import (
 	nconfig "github.com/oneiro-ndev/ndau/pkg/ndau/config"
 	"github.com/oneiro-ndev/ndaumath/pkg/address"
 	"github.com/oneiro-ndev/ndaumath/pkg/eai"
+	"github.com/oneiro-ndev/system_vars/pkg/genesisfile"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 )
