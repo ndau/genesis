@@ -54,22 +54,12 @@ func rateTable(config *config.Config) (*eai.RateTable, error) {
 		return nil, errors.New("ambiguous genesis.toml: more than one namespace present")
 	}
 
-	var namespace genesisfile.Namespace
-	for _, ns := range gfile {
-		namespace = ns
-	}
-
 	var value genesisfile.Value
-	for _, v := range namespace {
-		if v.Comment != nil && *v.Comment == "LockedRateTable" {
+	for k, v := range gfile {
+		if k == "LockedRateTable" {
 			value = v
 			break
 		}
-	}
-
-	if value.Comment == nil {
-		// never copied the value
-		return nil, errors.New("LockedRateTable not found in genesis.toml")
 	}
 
 	rti, err := value.Unpack()
