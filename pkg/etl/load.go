@@ -50,10 +50,6 @@ func rateTable(config *config.Config) (*eai.RateTable, error) {
 		return nil, err
 	}
 
-	if len(gfile) != 1 {
-		return nil, errors.New("ambiguous genesis.toml: more than one namespace present")
-	}
-
 	var value genesisfile.Value
 	for k, v := range gfile {
 		if k == "LockedRateTable" {
