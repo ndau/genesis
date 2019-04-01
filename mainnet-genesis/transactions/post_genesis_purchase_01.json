@@ -1,0 +1,42 @@
+[
+  {
+    "comment": "Axiom Foundation",
+    "txtype": "ReleaseFromEndowment",
+    "tx": {
+      "destination": "ndeeh86uun6us9cenuck2uur679e37uczsmys33794gnvtfz",
+      "qty": 141804012200,
+      "sequence": 104,
+      "signatures": [
+        "104-RFE.sb"
+      ]
+    },
+    "signable_bytes": "bmRlZWg4NnV1bjZ1czljZW51Y2sydXVyNjc5ZTM3dWN6c215czMzNzk0Z252dGZ6AAAAIQQtgqgAAAAAAAAAaA=="
+  },
+  {
+    "comment": "Axiom Foundation",
+    "txtype": "TransferAndLock",
+    "tx": {
+      "source": "ndeeh86uun6us9cenuck2uur679e37uczsmys33794gnvtfz",
+      "destination": "ndaisr2cfvux4ccmwzbs9z3kepszazmxmthixp55h82eab7r",
+      "qty": 141804012200,
+      "period": "1y",
+      "sequence": 105,
+      "signatures": [
+        "105-TandL.sb"
+      ]
+    },
+    "signable_bytes": "bmRhaXNyMmNmdnV4NGNjbXd6YnM5ejNrZXBzemF6bXhtdGhpeHA1NWg4MmVhYjdyMXkAAAAhBC2CqAAAAAAAAABpbmRlZWg4NnV1bjZ1czljZW51Y2sydXVyNjc5ZTM3dWN6c215czMzNzk0Z252dGZ6"
+  },
+  {
+    "comment": "Axiom Foundation",
+    "txtype": "Issue",
+    "tx": {
+      "qty": 141804012200,
+      "sequence": 106,
+      "signatures": [
+        "106-Issue.sb"
+      ]
+    },
+    "signable_bytes": "AAAAIQQtgqgAAAAAAAAAag=="
+  }
+]

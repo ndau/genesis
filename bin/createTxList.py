@@ -36,7 +36,7 @@ def ReleaseFromEndowment(d):
         txtype="ReleaseFromEndowment",
         tx=dict(
             destination=d["destination"],
-            qty=int(d["qty"]) * 100_000_000,
+            qty=int(float(d["qty"]) * 100_000_000),
             sequence=int(d["sequence"]),
             pvt_keys=getPvtKeys(d),
             signatures=[],
@@ -49,7 +49,7 @@ def Issue(d):
         comment=d["header"],
         txtype="Issue",
         tx=dict(
-            qty=int(d["qty"]),
+            qty=int(float(d["qty"]) * 100_000_000),
             sequence=int(d["sequence"]),
             pvt_keys=getPvtKeys(d),
             signatures=[],
@@ -124,6 +124,22 @@ def Transfer(d):
             source=d["source"],
             destination=d["destination"],
             qty=int(d["qty"]) * 100_000_000,
+            sequence=int(d["sequence"]),
+            pvt_keys=getPvtKeys(d),
+            signatures=[],
+        ),
+    )
+    return [tx]
+
+def TransferAndLock(d):
+    tx = dict(
+        comment=d["header"],
+        txtype="TransferAndLock",
+        tx=dict(
+            source=d["source"],
+            destination=d["destination"],
+            qty=int(float(d["qty"]) * 100_000_000),
+            period=d["period"],
             sequence=int(d["sequence"]),
             pvt_keys=getPvtKeys(d),
             signatures=[],
@@ -267,6 +283,7 @@ if __name__ == "__main__":
         NominateNodeReward=NominateNodeReward,
         ClaimNodeReward=ClaimNodeReward,
         Transfer=Transfer,
+        TransferAndLock=TransferAndLock,
     )
     with open(args.input) as csvfile:
         rdr = csv.DictReader(csvfile)

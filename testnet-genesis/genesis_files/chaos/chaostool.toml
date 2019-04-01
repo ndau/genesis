@@ -4,7 +4,11 @@ ndau_address = "http://100.24.11.77:30054"
 [[identities]]
   name = "sysvar"
   [identities.chaos]
-    public = "npuba8jadtbbeaxuga2i8sc3t9hr6t8c9wnv6z6zxi693w3xthiurq6mnyxye2zd6iyh3ppy9ywp"
-    private = "npvtayjadtcbidnizwetc9k7tnmqzn7drw5vpaxkaquaw2rj3gkmtt7yrgrqn84wyk3daneribn29vz8i9br4gj8m8m4wqr64n42vwjhzqfymk5cnmt8rf33yty8"
+    public = "npubaujabtabad7ev6eq"
+    private = "npvtaujabtabad7ev6eq"
   [identities.ndau]
     address = "ndbmgby86qw9bds9f8wrzut5zrbxuehum5kvgz9sns9hgknh"
+
+    [[identities.ndau.keys]]
+      public = "npuba8jadtbbecqu6ehdvi3ag2m5x5cghbrzjb9r5h9ptmnnau6kfsmzdjtvkpep7tqavqbk2yb4"
+      private = "npvtayjadtcbibku43344uqmrn9kaifw4nf3szuue8gep73zcdqrpq3tab3qqxw8rhjqcdt3wnsdnf747tddsz5ws9z7v9y2xygajqfc2f5tw23xgug8xjzz2nru"

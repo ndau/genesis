@@ -1,1 +1,31 @@
-node = "http://100.24.11.77:30054"
+node = "http://100.24.11.77:30104"
+
+[[accounts]]
+  name = "demo"
+  address = "ndafjim5ytr2tk86a3pugwe2rnfgpnhiypfts56iniqsqg5c"
+  [accounts.ownership]
+    public = "npuba8jadtbbecvnb9zgwgncfyjaysusttxasut8n7r677ytbzyfh2eysajdg448e2yqjcdt7tp7"
+    private = "npvtayjadtcbianfv6k9h7ra2i4u8y49vukq2hd9r9uqnqtid5m4ji49e73kdj83zjya95vkdgbc5esmijii24siji9gqz8q85is55cv6cmiaetvpprctwmc8qw2"
+
+  [[accounts.transfer]]
+    public = "npuba8jadtbbededqjp3r64ap57p2tcy8au9utvbcrujfczhcyudprtqpybbsicig32nkzjit3te"
+    private = "npvtayjadtcbia9a8c2rgn8qm5tfrrpyyh5c69wuhvbz2xauy8hqprk3zvtbzj7e3ubzey6z8pag78y6itmrajr3i3sth3eutmvtmjbyz2zg5as2ebedndd7xtdj"
+
+[[accounts]]
+  name = "bpc-operations"
+  address = "ndbmgby86qw9bds9f8wrzut5zrbxuehum5kvgz9sns9hgknh"
+  [[accounts.transfer]]
+  public = "npuba8jadtbbecqu6ehdvi3ag2m5x5cghbrzjb9r5h9ptmnnau6kfsmzdjtvkpep7tqavqbk2yb4"
+  private = "npvtayjadtcbibku43344uqmrn9kaifw4nf3szuue8gep73zcdqrpq3tab3qqxw8rhjqcdt3wnsdnf747tddsz5ws9z7v9y2xygajqfc2f5tw23xgug8xjzz2nru"
+
+[rfe]
+  address = "ndeeh86uun6us9cenuck2uur679e37uczsmys33794gnvtfz"
+  keys = ["npvtayjadtcbib2u2rnem47vgqqifsbt8r8y2ktdygtfkaw98imgpjw25mqztt72b7k2scgjyhypk4twibph5m88sw3xmg3xe77m9vmsyfhq32ywn7z63bmm4zix","npvtayjadtcbian9xk7kr3cvik7h56ez5i3fwzab3pivkbb5deaka5cdqy5e7ydx59wfejb3wkjmuki9mtmgxwytwwwy4p2s4zxyrbq5fw8sphuzak76yskvjkig","npvtayjadtcbibdffjpz8btfrrxtaynhpckt5aycqievx6atk5ni7kn8f65ypw9gathwu5w6mmryfg2iavci3fs3puhaespn2wujg6se2qf6vjnhgy8hcckbhqud","npvtayjadtcbiak2ehfqixe8mq4qkfs9cm3pmk6i9muy2epud22eeyc4fr4g6bessbc3zfq9x2q3v5xbxmf9tijvfmaet7vvx4e2ew6n6zairkrmctzfjiufqpw8"]
+
+[nnr]
+  address = "ndnf9ffbzhyf8mk7z5vvqc4quzz5i2exp5zgsmhyhc9cuwr4"
+  keys = ["npvtayjadtcbicjrtcnf64umrrukbzfarpka7b5kkm74fufq3n6fmmtn8cp8cbaqms8kgj383vkgzesa3hrwbjeaq8b5q7dxg75webmwjc4ahf3wjr3rxvdvvfwz","npvtayjadtcbicy2dz5fexykde23wytipi8ydnhvazxqu927zrcsh8uy2ztpghhh2m2w5pnvz2e9iig682hq9z2zmc2kbgtyrdvbww952ditp7d8ifa899hj9d6v","npvtayjadtcbid48pwtyq5ygrwcsiah5966a4xsa5pyhxacayz8wemtjp4riivv8jmrgagfnaz54g9gdavh9dw4u8c5wrz7223h85y253ie4q9attdqwuk2835cf"]
+
+[cvc]
+  address = "ndnf9ffbzhyf8mk7z5vvqc4quzz5i2exp5zgsmhyhc9cuwr4"
+  keys = ["npvtayjadtcbicjrtcnf64umrrukbzfarpka7b5kkm74fufq3n6fmmtn8cp8cbaqms8kgj383vkgzesa3hrwbjeaq8b5q7dxg75webmwjc4ahf3wjr3rxvdvvfwz","npvtayjadtcbicy2dz5fexykde23wytipi8ydnhvazxqu927zrcsh8uy2ztpghhh2m2w5pnvz2e9iig682hq9z2zmc2kbgtyrdvbww952ditp7d8ifa899hj9d6v","npvtayjadtcbid48pwtyq5ygrwcsiah5966a4xsa5pyhxacayz8wemtjp4riivv8jmrgagfnaz54g9gdavh9dw4u8c5wrz7223h85y253ie4q9attdqwuk2835cf"]

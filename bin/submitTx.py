@@ -23,29 +23,34 @@ def load(filename, host, delay, action, startAt):
             print(f"{counter}) Skipping {txtype} ({comment})")
             continue
 
-        print(f"{counter}) Prevalidating {txtype} ({comment})")
-        presult = requests.post(f"{host}/tx/prevalidate/{txtype}", json=tx)
-        if presult.status_code == 200:
-            print(f"     Prevalidate OK on {txtype} ({comment})")
-            if action == "submit":
-                print("Submitting.")
-                time.sleep(delay)
-                sresult = requests.post(f"{host}/tx/submit/{txtype}", json=tx)
-                if sresult.status_code == 200:
-                    print("     Transaction succeeded.")
-                else:
-                    print(
-                        f"     Submit for {txtype} ({comment}) "
-                        f"got {sresult.status_code} "
-                        f"because {sresult.reason}\n({sresult.content})"
-                    )
-                    print(json.dumps(tx, indent=2))
-        else:
-            print(
-                f"     Prevalidate for {txtype} ({comment}) got {presult.status_code} "
-                f"because {presult.reason}\n({presult.content})"
-            )
-            print(json.dumps(tx, indent=2))
+        print(action)
+        
+        if action == "prevalidate" or action == "both":
+            print(f"{counter}) Prevalidating {txtype} ({comment})")
+            presult = requests.post(f"{host}/tx/prevalidate/{txtype}", json=tx)
+            if presult.status_code == 200:
+                print(f"     Prevalidate OK on {txtype} ({comment})")
+            else:
+                print(
+                    f"     Prevalidate for {txtype} ({comment}) got {presult.status_code} "
+                    f"because {presult.reason}\n({presult.content})"
+                )
+                print(json.dumps(tx, indent=2))
+
+        if action == "submit" or action == "both":
+            print("Submitting.")
+            time.sleep(delay)
+            sresult = requests.post(f"{host}/tx/submit/{txtype}", json=tx)
+            if sresult.status_code == 200:
+                print("     Transaction succeeded.")
+            else:
+                print(
+                    f"     Submit for {txtype} ({comment}) "
+                    f"got {sresult.status_code} "
+                    f"because {sresult.reason}\n({sresult.content})"
+                )
+                print(json.dumps(tx, indent=2))
+
         time.sleep(delay)
 
     print(f"finished")
@@ -102,11 +107,10 @@ if __name__ == "__main__":
         help="the amount of time (in seconds) to wait between submissions",
     )
     parser.add_argument(
-        "--submit",
-        action="store_const",
-        const="submit",
+        "--action",
+        action="store",
         default="prevalidate",
-        help="submit each transaction after prevalidating it",
+        help="[submit|prevalidate|both]",
     )
     parser.add_argument(
         "--startAt",
@@ -117,4 +121,4 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    load(args.input, args.host, args.delay, args.submit, args.startAt)
+    load(args.input, args.host, args.delay, args.action, args.startAt)

@@ -3,14 +3,14 @@
     "comment": "Axiom Foundation",
     "txtype": "ReleaseFromEndowment",
     "tx": {
-      "destination": "ndeeh86uun6us9cenuck2uur679e37uczsmys33794gnvtfz",
+      "destination": "ndabkbma835qgvbvs6mr5wdq584imbcttxq8ersf63wv6uui",
       "qty": 1000,
       "sequence": 10,
       "signatures": [
-        "a4jadtcazppx3bdpkn5x5k48xu3ggnir248mq6sd98zz876p9qstjazwdj499p3b3kyxwtn5c44wvc8acdfz9q8atmzdt4errstrk5sn4r2scb6zg6s43zqb",
-        "a4jadtcaepsxb7qq6h2arutdfdb5zfby48sux2p9h7xt4hw62qy7w9fih2w4ijby67wqcx2vxg3vpy9ammfe4rz2dsvpqpkb4afj3p943mfpiacdjfnkzznh"
+        "a4jadtcauwdm7cs38bd82g3nxkj35c6t5ex8c4y334htuar5n9rc4gegs7i9p9irurvexbikj6jwtjr4f332ya48cjzpfn2753zjt5ddiw7b2d7292yazcmm",
+        "a4jadtcasrumnas8zkmfb3ad5wpddt6pdv2jg6wt5g7hsfq9xtn9vv7qqydc8rz2ch7wvcx3kwxhyfnzcwkskf3hedmnrzftgdf8kkdx2mbjuccyy25ypgw7"
       ]
     },
-    "signable_bytes": "bmRlZWg4NnV1bjZ1czljZW51Y2sydXVyNjc5ZTM3dWN6c215czMzNzk0Z252dGZ6AAAAAAAAA+gAAAAAAAAACg=="
+    "signable_bytes": "bmRhYmtibWE4MzVxZ3ZidnM2bXI1d2RxNTg0aW1iY3R0eHE4ZXJzZjYzd3Y2dXVpAAAAAAAAA+gAAAAAAAAACg=="
   }
 ]
