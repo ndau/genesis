@@ -6,13 +6,13 @@ The complete set of post-genesis transactions is defined in **Post-Genesis Trans
 
 ```
 cd transactions
-../bin/createTxList.py --sign --input Post-Genesis\ Transaction\ List\ -\ testnet.csv
+../../bin/createTxList.py --sign --input "Post-Genesis Transaction Block - testnet.csv > testnet-genesis.json"
 ```
 was used to create `transactions/testnet-genesis.json`. That file of 45 transactions can be submitted as:
 
 ```
 cd transactions
-../bin/submitTx.pv --<netname> --submit --delay 0 --input testnet-genesis.json
+../../bin/submitTx.py --[main|test|dev|local] --action=[submit|prevalidate|both] --delay 0 --input testnet-genesis.json
 ```
 
 ## Post-Genesis Keypairs

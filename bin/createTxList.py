@@ -253,13 +253,13 @@ if __name__ == "__main__":
     parser.add_argument(
         "--keytool",
         action="store",
-        default="../../commands/keytool",
+        default="../../../commands/keytool",
         help="location of keytool",
     )
     parser.add_argument(
         "--ndautool",
         action="store",
-        default="../../commands/ndau",
+        default="../../../commands/ndau",
         help="location of ndautool",
     )
     parser.add_argument(
