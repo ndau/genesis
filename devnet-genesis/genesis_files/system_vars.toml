@@ -1,0 +1,42 @@
+[CommandValidatorChangeAddress]
+  go_type = "address.Address"
+  data = "ndnpdz38s29pre6dnpmn8tnaexfbf6mjqexz4wdf37m42p8n"
+[DefaultSettlementDuration]
+  go_type = "math.Duration"
+  data = "2d"
+[EAIFeeTable]
+  go_type = "[]sv.EAIFee"
+  data = ["4000000:ndnf3bife8ri2sym932gjndvk6wwbq263hkkx9nx7ybnrfgg", "1000000:ndnjhhn5nka6cnuhzr73zx3k4d2jafr5yq5mp9m84j5ftsvr", "100000:ndni8iqcxgavzuznm36vj6vkgpdq5tzszny5ppqk52fe4dqk", "100000:ndnitv6sh52g5j36n95v68zwe6fxuuvvjz84yn2nfcvh6qgr", "9800000:"]
+[LockedRateTable]
+  go_type = "[]eai.RTRow"
+  data = ["3m:1%", "6m:2%", "1y:3%", "2y:4%", "3y:5%"]
+[MinDurationBetweenNodeRewardNominations]
+  go_type = "math.Duration"
+  data = "1d"
+[MinNodeRegistrationStakeAmount]
+  go_type = "math.Ndau"
+  data = 100000000000
+[NodeGoodnessFunction]
+  go_type = "[]uint8"
+  data = "oACI"
+[NodeRewardNominationTimeout]
+  go_type = "math.Duration"
+  data = "t30s"
+[NominateNodeRewardAddress]
+  go_type = "address.Address"
+  data = "ndnakdruaz8stkmjrw9axqe5zt2ptgbg5sqx3u6a937xvzhw"
+[RecordPriceAddress]
+  go_type = "address.Address"
+  data = "ndnk2ucu2qpeajxp6yvq2qjs4i33nhxkryysimgwa7gzucc6"
+[ReleaseFromEndowmentAddress]
+  go_type = "address.Address"
+  data = "ndnbk3z55e8tz4zit8um4gfs7uwn9pm9qhhbssv6h5xi4gce"
+[SetSysvarAddress]
+  go_type = "address.Address"
+  data = "ndnqccagas6vys68zzj345shxdwdgjq2vc93viajkrryb3ic"
+[TransactionFeeScript]
+  go_type = "[]uint8"
+  data = "oAAgiA=="
+[UnlockedRateTable]
+  go_type = "[]eai.RTRow"
+  data = ["1m:2%", "2m:3%", "3m:4%", "4m:5%", "5m:6%", "6m:7%", "7m:8%", "8m:9%", "9m:10%"]
