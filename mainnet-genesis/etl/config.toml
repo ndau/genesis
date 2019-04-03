@@ -2,7 +2,7 @@ path = "./output-rel48.csv"
 sheet = ""
 first_row = 6
 noms_path = "$HOME/.localnet/data/noms-ndau-0"
-genesis_toml = "$HOME/.localnet/genesis_files/genesis.toml"
+genesis_toml = "$HOME/.localnet/genesis_files/system_vars.toml"
 
 [columns]
   address = 2
