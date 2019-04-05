@@ -15,6 +15,24 @@ cd transactions
 ../../bin/submitTx.py --[main|test|dev|local] --action=[submit|prevalidate|both] --delay 0 --input testnet-genesis.json
 ```
 
+## Example with ETL
+
+Here are some commands that can be used to generate an ETL snapshot with post-genesis transactions for testnet:
+
+1. Set up a localnet (see the [commands](https://github.com/oneiro-ndev/commands) README for that)
+1. Get `genesis_files_testnet_mainnet.tar` from 1password and extract it into `~/.localnet/genesis_files`
+1. `cd ~/go/src/github.com/oneiro-ndev/commands/bin`
+1. `export RUN_ETL=1`
+1. `./setup.sh 5 testnet` (or you can run `./reset.sh 5 testnet` if you're already up-to-date there)
+1. `./run.sh nofinalize`
+1. `cd ../../genesis/testnet-genesis/transactions`
+1. `../../bin/createTxList.py --sign --input "Post-Genesis Transaction Block - testnet.csv" > testnet-genesis.json`
+1. `../../bin/submitTx.py --local --action=both --delay 0 --input testnet-genesis.json`
+1. `cd ../../commands/bin`
+1. `./snapshot.sh`
+
+Then follow the instructions printed to upload the snapshot to S3 and to keep the 5 `node-identity-*.tgz` files secure.
+
 ## Post-Genesis Keypairs
 
 All testnet keypairs are stored as plaintext files in the *keys* directory.
