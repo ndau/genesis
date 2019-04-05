@@ -28,7 +28,7 @@ Here are some commands that can be used to generate an ETL snapshot with post-ge
 1. `cd ../../genesis/testnet-genesis/transactions`
 1. `../../bin/createTxList.py --sign --input "Post-Genesis Transaction Block - testnet.csv" > testnet-genesis.json`
 1. `../../bin/submitTx.py --local --action=both --delay 0 --input testnet-genesis.json`
-1. `cd ../../commands/bin`
+1. `cd ../../../commands/bin`
 1. `./snapshot.sh`
 
 Then follow the instructions printed to upload the snapshot to S3 and to keep the 5 `node-identity-*.tgz` files secure.
