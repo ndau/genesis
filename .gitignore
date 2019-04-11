@@ -14,7 +14,7 @@ update_genesis_json
 !*/update_genesis_json
 
 # temp files created by following steps in READMEs
-testnet-genesis/transactions/testnet-genesis.json
+**/*-genesis.json
 
 **/.DS_Store
 .vscode/
