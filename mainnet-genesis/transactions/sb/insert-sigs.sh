@@ -1,0 +1,15 @@
+sed -e '/201-RFE.sig/{r 201-RFE.sig' -e 'd' -e '}' ../post-genesis-purchases-1.json >201-RFE.sig.temp
+sed -e '/202-TandL.sig/{r 202-TandL.sig' -e 'd' -e '}' 201-RFE.sig.temp >202-TandL.sig.temp
+sed -e '/203-Issue.sig/{r 203-Issue.sig' -e 'd' -e '}' 202-TandL.sig.temp >203-Issue.sig.temp
+sed -e '/204-RFE.sig/{r 204-RFE.sig' -e 'd' -e '}' 203-Issue.sig.temp >204-RFE.sig.temp
+sed -e '/205-TandL.sig/{r 205-TandL.sig' -e 'd' -e '}' 204-RFE.sig.temp >205-TandL.sig.temp
+sed -e '/206-Issue.sig/{r 206-Issue.sig' -e 'd' -e '}' 205-TandL.sig.temp >206-Issue.sig.temp
+sed -e '/207-RFE.sig/{r 207-RFE.sig' -e 'd' -e '}' 206-Issue.sig.temp >207-RFE.sig.temp
+sed -e '/208-TandL.sig/{r 208-TandL.sig' -e 'd' -e '}' 207-RFE.sig.temp >208-TandL.sig.temp
+sed -e '/209-Issue.sig/{r 209-Issue.sig' -e 'd' -e '}' 208-TandL.sig.temp >209-Issue.sig.temp
+sed -e '/210-RFE.sig/{r 210-RFE.sig' -e 'd' -e '}' 209-Issue.sig.temp >210-RFE.sig.temp
+sed -e '/211-TandL.sig/{r 211-TandL.sig' -e 'd' -e '}' 210-RFE.sig.temp >211-TandL.sig.temp
+sed -e '/212-Issue.sig/{r 212-Issue.sig' -e 'd' -e '}' 211-TandL.sig.temp >212-Issue.sig.temp
+sed -e '/213-RFE.sig/{r 213-RFE.sig' -e 'd' -e '}' 212-Issue.sig.temp >213-RFE.sig.temp
+sed -e '/214-TandL.sig/{r 214-TandL.sig' -e 'd' -e '}' 213-RFE.sig.temp >214-TandL.sig.temp
+sed -e '/215-Issue.sig/{r 215-Issue.sig' -e 'd' -e '}' 214-TandL.sig.temp >post-genesis-purchases-1-signed.json
