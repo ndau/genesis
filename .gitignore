@@ -20,63 +20,7 @@ update_genesis_json
 .vscode/
 
 **/debug
-data and procedures/yubihsm/01-Issue.sb
-data and procedures/yubihsm/01-Issue.sigs
-data and procedures/yubihsm/02-Transfer-00.sb
-data and procedures/yubihsm/02-Transfer-00.sigs
-data and procedures/yubihsm/02-Transfer-01.sb
-data and procedures/yubihsm/02-Transfer-01.sigs
-data and procedures/yubihsm/02-Transfer-02.sb
-data and procedures/yubihsm/02-Transfer-02.sigs
-data and procedures/yubihsm/02-Transfer-03.sb
-data and procedures/yubihsm/02-Transfer-03.sigs
-data and procedures/yubihsm/02-Transfer-04.sb
-data and procedures/yubihsm/02-Transfer-04.sigs
-data and procedures/yubihsm/03-Lock-00.sb
-data and procedures/yubihsm/03-Lock-00.sigs
-data and procedures/yubihsm/03-Lock-01.sb
-data and procedures/yubihsm/03-Lock-01.sigs
-data and procedures/yubihsm/03-Lock-02.sb
-data and procedures/yubihsm/03-Lock-02.sigs
-data and procedures/yubihsm/03-Lock-03.sb
-data and procedures/yubihsm/03-Lock-03.sigs
-data and procedures/yubihsm/03-Lock-04.sb
-data and procedures/yubihsm/03-Lock-04.sigs
-data and procedures/yubihsm/04-SetRewardDest-00.sb
-data and procedures/yubihsm/04-SetRewardDest-00.sigs
-data and procedures/yubihsm/04-SetRewardDest-01.sb
-data and procedures/yubihsm/04-SetRewardDest-01.sigs
-data and procedures/yubihsm/04-SetRewardDest-02.sb
-data and procedures/yubihsm/04-SetRewardDest-02.sigs
-data and procedures/yubihsm/04-SetRewardDest-03.sb
-data and procedures/yubihsm/04-SetRewardDest-03.sigs
-data and procedures/yubihsm/04-SetRewardDest-04.sb
-data and procedures/yubihsm/04-SetRewardDest-04.sigs
-data and procedures/yubihsm/05-RegisterNode-00.sb
-data and procedures/yubihsm/05-RegisterNode-00.sigs
-data and procedures/yubihsm/05-RegisterNode-01.sb
-data and procedures/yubihsm/05-RegisterNode-01.sigs
-data and procedures/yubihsm/05-RegisterNode-02.sb
-data and procedures/yubihsm/05-RegisterNode-02.sigs
-data and procedures/yubihsm/05-RegisterNode-03.sb
-data and procedures/yubihsm/05-RegisterNode-03.sigs
-data and procedures/yubihsm/05-RegisterNode-04.sb
-data and procedures/yubihsm/05-RegisterNode-04.sigs
-data and procedures/yubihsm/06-NNR.sb
-data and procedures/yubihsm/06-NNR.sigs
-data and procedures/yubihsm/07-Delegate-00.sb
-data and procedures/yubihsm/07-Delegate-00.sigs
-data and procedures/yubihsm/07-Delegate-01.sb
-data and procedures/yubihsm/07-Delegate-01.sigs
-data and procedures/yubihsm/07-Delegate-02.sb
-data and procedures/yubihsm/07-Delegate-02.sigs
-data and procedures/yubihsm/07-Delegate-03.sb
-data and procedures/yubihsm/07-Delegate-03.sigs
-data and procedures/yubihsm/07-Delegate-04.sb
-data and procedures/yubihsm/07-Delegate-04.sigs
-data and procedures/yubihsm/07-Delegate-ndev.sb
-data and procedures/yubihsm/07-Delegate-ndev.sigs
-data and procedures/yubihsm/07-Delegate-ntrd.sb
-data and procedures/yubihsm/07-Delegate-ntrd.sigs
-data and procedures/yubihsm/insert-sigs.sh
-data and procedures/yubihsm/yubihsm-sign.sh
+
+localnet-genesis/
+localnet-genesis/etl
+mainnet-genesis/yubihsm/

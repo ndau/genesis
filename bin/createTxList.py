@@ -36,7 +36,8 @@ def ReleaseFromEndowment(d):
         txtype="ReleaseFromEndowment",
         tx=dict(
             destination=d["destination"],
-            qty=int(float(d["qty"]) * 100_000_000),
+            qty=int(d["qty"]),
+#            qty=int(float(d["qty"]) * 100_000_000),
             sequence=int(d["sequence"]),
             pvt_keys=getPvtKeys(d),
             signatures=[],
@@ -57,6 +58,20 @@ def Issue(d):
     )
     return [tx]
 
+def RecordPrice(d):
+    tx = dict(
+        comment=d["header"],
+        txtype="RecordPrice",
+        tx=dict(
+            market_price=int(d["market_price"]),
+#            market_price=int(float(d["market_price"]) * 100_000_000_000),
+            sequence=int(d["sequence"]),
+            pvt_keys=getPvtKeys(d),
+            signatures=[],
+        ),
+    )
+    return [tx]
+
 def Delegate(d):
     tx = dict(
         comment=d["header"],
@@ -70,7 +85,6 @@ def Delegate(d):
         ),
     )
     return [tx]
-
 
 def CreditEAI(d):
     tx = dict(
@@ -100,7 +114,6 @@ def Lock(d):
     )
     return [tx]
 
-
 def SetRewardsDestination(d):
     tx = dict(
         comment=d["header"],
@@ -115,7 +128,6 @@ def SetRewardsDestination(d):
     )
     return [tx]
 
-
 def Transfer(d):
     tx = dict(
         comment=d["header"],
@@ -123,7 +135,7 @@ def Transfer(d):
         tx=dict(
             source=d["source"],
             destination=d["destination"],
-            qty=int(d["qty"]) * 100_000_000,
+            qty=int(float(d["qty"]) * 100_000_000),
             sequence=int(d["sequence"]),
             pvt_keys=getPvtKeys(d),
             signatures=[],
@@ -147,7 +159,6 @@ def TransferAndLock(d):
     )
     return [tx]
 
-
 def RegisterNode(d):
     tx = dict(
         comment=d["header"],
@@ -163,7 +174,6 @@ def RegisterNode(d):
     )
     return [tx]
 
-
 def NominateNodeReward(d):
     tx = dict(
         comment=d["header"],
@@ -176,7 +186,6 @@ def NominateNodeReward(d):
         ),
     )
     return [tx]
-
 
 def ClaimNodeReward(d):
     tx = dict(
@@ -191,6 +200,19 @@ def ClaimNodeReward(d):
     )
     return [tx]
 
+def SetSysvar(d):
+    tx = dict(
+        comment=d["header"],
+        txtype="SetSysvar",
+        tx=dict(
+            name=d["sysvar_name"],
+            value=d["sysvar_value"],
+            sequence=int(d["sequence"]),
+            pvt_keys=getPvtKeys(d),
+            signatures=[],
+        ),
+    )
+    return [tx]
 
 def generateSignableBytes(obj, ndautool):
     tx = copy.deepcopy(obj)
@@ -209,7 +231,6 @@ def generateSignableBytes(obj, ndautool):
     if r.returncode > 0:
         return f"ERROR: {r.stderr}"
     return r.stdout.strip()
-
 
 def tryToSign(t, keytool):
     pks = t["tx"].get("pvt_keys", None)
@@ -241,7 +262,6 @@ def tryToSign(t, keytool):
 
     t["tx"] = tx
     return t
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -284,7 +304,10 @@ if __name__ == "__main__":
         ClaimNodeReward=ClaimNodeReward,
         Transfer=Transfer,
         TransferAndLock=TransferAndLock,
+        RecordPrice=RecordPrice,
+        SetSysvar=SetSysvar,
     )
+
     with open(args.input) as csvfile:
         rdr = csv.DictReader(csvfile)
         rows = [r for r in rdr if r["txtype"] != ""]

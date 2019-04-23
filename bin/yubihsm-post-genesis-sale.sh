@@ -23,9 +23,9 @@ NTRDKEY=107
 
 rm -f *.sigs
 
-# ReleaseFromEndowment - Axiom Foundation releases newly-sold ndau to its own account - 2 Axiom signatures required
+# ReleaseFromEndowment - Axiom Foundation releases newly-sold ndau to its own account
 
-for ORDINAL in first SECOND; do
+for ORDINAL in first ; do
     RFE="01-RFE"
     echo "1. Release From Endowment - Insert the" $ORDINAL "Axiom key -" $AXIOM
     echo  \"`$SIGN $RFE$SIGNABLE $AXIOMKEY | $B64TONDAU`\", >> $ISSUE$SIGTEMP
@@ -35,7 +35,7 @@ rm $RFE$SIGTEMP
 
 # TransferAndLock - Axiom Foundation transfers newly-released ndau to purchaser, locking it
 
-for ORDINAL in first SECOND; do
+for ORDINAL in first ; do
     TRANSFERANDLOCK="02-TransferAndLock"
     echo "2. Transfer and Lock to purchaser account - Insert the" $ORDINAL "Axiom key -" $NDEV
     for n in $(seq 0 $MAXNODE); do
@@ -47,9 +47,9 @@ for n in $(seq 0 $MAXNODE); do
     rm $TRANSFERANDLOCK$SIGTEMP
 done
 
-# Issue - Axiom reports number of pre-sale ndau issued - 2 Axiom signatures required
+# Issue - Axiom reports number of pre-sale ndau issued
 
-for ORDINAL in first SECOND; do
+for ORDINAL in first ; do
     ISSUE="03-Issue"
     echo "1. Issue - Insert the" $ORDINAL "Axiom key -" $AXIOM
     echo  \"`$SIGN $ISSUE$SIGNABLE $AXIOMKEY | $B64TONDAU`\", >> $ISSUE$SIGTEMP
