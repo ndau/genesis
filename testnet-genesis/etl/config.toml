@@ -1,4 +1,4 @@
-path = "./output-rel48.csv"
+path = "./Release51.csv"
 sheet = ""
 first_row = 6
 noms_path = "$HOME/.localnet/data/noms-ndau-0"
