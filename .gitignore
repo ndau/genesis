@@ -23,4 +23,6 @@ update_genesis_json
 
 localnet-genesis/
 localnet-genesis/etl
-mainnet-genesis/yubihsm/
+mainnet-genesis/transactions/yubihsm/sigs
+mainnet-genesis/transactions/yubihsm/*.sb
+mainnet-genesis/transactions-archive

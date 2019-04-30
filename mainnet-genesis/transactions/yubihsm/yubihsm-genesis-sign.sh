@@ -1,12 +1,14 @@
 #! /bin/bash
 
-SIGN=~/yubi/sign.py
-B64TONDAU=~/go/src/github.com/oneiro-ndev/commands/cmd/keytool/keytool\ ed\ raw\ signature\ --stdin\ --b64
+SIGN=~/go/src/github.com/oneiro-ndev/genesis/bin/yubihsm-sign.py
+B64TONDAU=~/go/src/github.com/oneiro-ndev/commands/keytool\ ed\ raw\ signature\ --stdin\ --b64
 
 MAXNODE=4           # Node numbers start at 0
 SIGNABLE=".sb"
 SIGTEMP=".sigs.temp"
 SIGS=".sigs"
+
+AUTHKEY=100      # Original genesis keys were set up with authkey number 100
 
 BPC="A, B, C"       # Ken (A), Rob (B), Chris (C)
 BPCKEY=101          # 101, 102, 103 are BPC - we don't use the other two
@@ -16,7 +18,7 @@ NDEV="C, E, F"      # Chris (C), Kent (E), Ed (F)
 NDEVKEY=105
 NDAU="C, E, F"      # Chris (C), Kent (E), Ed (F)
 NDAUKEY=106
-NTRD="B, D, G"      # Rob (B), Ciarán (D), Steve (F)
+NTRD="B, C, E"      # Rob (B), Chris (C), Kent (E)
 NTRDKEY=107
 
 # Start from scratch - remove all signatures
@@ -28,7 +30,7 @@ rm -f *.sigs
 for ORDINAL in first SECOND; do
     ISSUE="01-Issue"
     echo "1. Issue - Insert the" $ORDINAL "Axiom key -" $AXIOM
-    echo  \"`$SIGN $ISSUE$SIGNABLE $AXIOMKEY | $B64TONDAU`\", >> $ISSUE$SIGTEMP
+    echo  \"`$SIGN $AUTHKEY $ISSUE$SIGNABLE $AXIOMKEY | $B64TONDAU`\", >> $ISSUE$SIGTEMP
 done
 sed '$s/,//' $ISSUE$SIGTEMP > $ISSUE$SIGS
 rm $ISSUE$SIGTEMP
@@ -39,7 +41,7 @@ for ORDINAL in first SECOND; do
     TRANSFER="02-Transfer-0"
     echo "2. Transfer to nodes - Insert the" $ORDINAL "ndev key -" $NDEV
     for n in $(seq 0 $MAXNODE); do
-        echo \"`$SIGN $TRANSFER$n$SIGNABLE $NDEVKEY | $B64TONDAU`\", >> $TRANSFER$n$SIGTEMP
+        echo \"`$SIGN $AUTHKEY $TRANSFER$n$SIGNABLE $NDEVKEY | $B64TONDAU`\", >> $TRANSFER$n$SIGTEMP
     done
 done
 for n in $(seq 0 $MAXNODE); do
@@ -53,7 +55,7 @@ for ORDINAL in first SECOND; do
     LOCK="03-Lock-0"
     echo "3. Lock nodes - Insert the" $ORDINAL "ndev key -" $NDEV
     for n in $(seq 0 $MAXNODE); do
-        echo \"`$SIGN $LOCK$n$SIGNABLE $NDEVKEY | $B64TONDAU`\", >> $LOCK$n$SIGTEMP
+        echo \"`$SIGN $AUTHKEY $LOCK$n$SIGNABLE $NDEVKEY | $B64TONDAU`\", >> $LOCK$n$SIGTEMP
     done
 done
 for n in $(seq 0 $MAXNODE); do
@@ -67,7 +69,7 @@ for ORDINAL in first SECOND; do
     SETREWARDDEST="04-SetRewardsDestination-0"
     echo "4. Set node reward destinations - Insert the" $ORDINAL "ndev key -" $NDEV
     for n in $(seq 0 $MAXNODE); do
-        echo \"`$SIGN $SETREWARDDEST$n$SIGNABLE $NDEVKEY | $B64TONDAU`\", >> $SETREWARDDEST$n$SIGTEMP
+        echo \"`$SIGN $AUTHKEY $SETREWARDDEST$n$SIGNABLE $NDEVKEY | $B64TONDAU`\", >> $SETREWARDDEST$n$SIGTEMP
     done
 done
 for n in $(seq 0 $MAXNODE); do
@@ -81,7 +83,7 @@ for ORDINAL in first SECOND; do
     REGISTER="05-RegisterNode-0"
     echo "5. Register nodes - Insert the" $ORDINAL "ndev key -" $NDEV
     for n in $(seq 0 $MAXNODE); do
-        echo \"`$SIGN $REGISTER$n$SIGNABLE $NDEVKEY | $B64TONDAU`\", >> $REGISTER$n$SIGTEMP
+        echo \"`$SIGN $AUTHKEY $REGISTER$n$SIGNABLE $NDEVKEY | $B64TONDAU`\", >> $REGISTER$n$SIGTEMP
     done
 done
 for n in $(seq 0 $MAXNODE); do
@@ -94,7 +96,7 @@ done
 for ORDINAL in first; do
     NNR="06-NNR"
     echo "6. Nominate node reward - Insert the" $ORDINAL "ndau network key -" $NDAU
-    echo \"`$SIGN $NNR$SIGNABLE $NDAUKEY | $B64TONDAU`\", >> $NNR$SIGTEMP
+    echo \"`$SIGN $AUTHKEY $NNR$SIGNABLE $NDAUKEY | $B64TONDAU`\", >> $NNR$SIGTEMP
 done
 sed '$s/,//' $NNR$SIGTEMP > $NNR$SIGS
 rm $NNR$SIGTEMP
@@ -105,7 +107,7 @@ for ORDINAL in first SECOND; do
     DELEGATE="07-Delegate-0"
     echo "7. Delegate nodes to themselves - Insert the" $ORDINAL "ndev key -" $NDEV
     for n in $(seq 0 $MAXNODE); do
-        echo \"`$SIGN $DELEGATE$n$SIGNABLE $NDEVKEY | $B64TONDAU`\", >> $DELEGATE$n$SIGTEMP
+        echo \"`$SIGN $AUTHKEY $DELEGATE$n$SIGNABLE $NDEVKEY | $B64TONDAU`\", >> $DELEGATE$n$SIGTEMP
     done
 done
 for n in $(seq 0 $MAXNODE); do
@@ -118,7 +120,7 @@ done
 for ORDINAL in first SECOND; do
     DELEGATE="07-Delegate-ndev"
     echo "7. Delegate ndev operating account to node 0 - Insert the" $ORDINAL "ndev key -" $NDEV
-    echo \"`$SIGN $DELEGATE$SIGNABLE $NDEVKEY | $B64TONDAU`\", >> $DELEGATE$SIGTEMP
+    echo \"`$SIGN $AUTHKEY $DELEGATE$SIGNABLE $NDEVKEY | $B64TONDAU`\", >> $DELEGATE$SIGTEMP
 done
 sed '$s/,//' $DELEGATE$SIGTEMP > $DELEGATE$SIGS
 rm $DELEGATE$SIGTEMP
@@ -128,7 +130,27 @@ rm $DELEGATE$SIGTEMP
 for ORDINAL in first SECOND; do
 DELEGATE="07-Delegate-ntrd"
     echo "7. Delegate ntrd operating account to node 0 - Insert the" $ORDINAL "ntrd key -" $NTRD
-    echo \"`$SIGN $DELEGATE$SIGNABLE $NTRDKEY | $B64TONDAU`\", >> $DELEGATE$SIGTEMP
+    echo \"`$SIGN $AUTHKEY $DELEGATE$SIGNABLE $NTRDKEY | $B64TONDAU`\", >> $DELEGATE$SIGTEMP
 done
 sed '$s/,//' $DELEGATE$SIGTEMP > $DELEGATE$SIGS
 rm $DELEGATE$SIGTEMP
+
+# RecordPrice - Axiom reports nmarket price - 2 Axiom signatures required
+
+for ORDINAL in first SECOND; do
+    RECORDPRICE="08-RecordPrice"
+    echo "8. RecordPrice - Insert the" $ORDINAL "Axiom key -" $AXIOM
+    echo  \"`$SIGN $AUTHKEY $RECORDPRICE$SIGNABLE $AXIOMKEY | $B64TONDAU`\", >> $RECORDPRICE$SIGTEMP
+done
+sed '$s/,//' $RECORDPRICE$SIGTEMP > $RECORDPRICE$SIGS
+rm $RECORDPRICE$SIGTEMP
+
+# SetSysvar - BPC sets the TransactionFeeScript system variable to install transaction fees - 2 BPC signatures required
+
+for ORDINAL in first SECOND; do
+    SETSYSVAR="09-SetSysvar"
+    echo "9. SetSysvar - Insert the" $ORDINAL "BPC key -" $BPC
+    echo  \"`$SIGN $AUTHKEY $SETSYSVAR$SIGNABLE $AXIOMKEY | $B64TONDAU`\", >> $SETSYSVAR$SIGTEMP
+done
+sed '$s/,//' $SETSYSVAR$SIGTEMP > $SETSYSVAR$SIGS
+rm $SETSYSVAR$SIGTEMP

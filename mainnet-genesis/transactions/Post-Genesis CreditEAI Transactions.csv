@@ -1,8 +1,0 @@
-header,txtype,sequence,qty,source,destination,period,target,ownership,rpc_address,validation_keys_0,validation_keys_1,validation_keys_2,validation_keys_3,validation_keys_4,validation_keys_5,validation_keys_6,validation_script,pvt_key,distribution
-CreditEAI,,,,,,,,,,,,,,,,,,,
-Account,,,,,,,Address,Signatures,,,,,,,,,,,
-ndev Node 0,CreditEAI,2,,,,,ndarw5i7rmqtqstw4mtnchmfvxnrq4k3e2ytsyvsc7nxt2y7,ndev Node 0,,,,,,,,,,npvtayjadtcbid5jfgyaxfdqmjagy3wcks2i9ugs8q37t5xy69uydj953dmjd4y3ufyrrv75vh7tfwvdbkfbds2dhdu7x85s79kuqz4hkj5wc6nuauzmszk3u74w,
-ndev Node 1,CreditEAI,2,,,,,ndaq3nqhez3vvxn8rx4m6s6n3kv7k9js8i3xw8hqnwvi2ete,ndev Node 1,,,,,,,,,,npvtayjadtcbidmztx5nhij7d4msqhjjizzrnuz8j2yjpa279kz9segh3diiyub7j8dmk7gykebpmds7ryjf4v46xebdp8ftsz7gagrpp2hdp9yizjz9dmag6mem,
-ndev Node 2,CreditEAI,2,,,,,ndahnsxr8zh7r6u685ka865wz77wb78xcn45rgskpeyiwuza,ndev Node 2,,,,,,,,,,npvtayjadtcbibcdyjat959u82s242m84phfdmrf655s8xwtewhvqx5zssc892bfukcqwumevsnguwpd4e7kgw5wici7je5mbnkh46kbv534kaytrszb3u2yi35y,
-ndev Node 3,CreditEAI,2,,,,,ndam75fnjn7cdues7ivi7ccfq8f534quieaccqibrvuzhqxa,ndev Node 3,,,,,,,,,,npvtayjadtcbic5m757sf4vr6v7bxjdysjf2htib7bs9uua23nmsxkgx93ybgs422r8stm7j6bpditgi476tdey396d2bf97vdnf8iyi4miakkxadxicr8nq57gx,
-ndev Node 4,CreditEAI,2,,,,,ndaekyty73hd56gynsswuj5q9em68tp6ed5v7tpft872hvuc,ndev Node 4,,,,,,,,,,npvtayjadtcbid77ujrn4atvry38ukaqxk6g4a54nw3tcf8ukktn4gi7ecvg35jswmywgp6g3mxbwmdw2nftf4ewqd3fxvw4mqws3gsumwyaiystnqse5tbz4c96,

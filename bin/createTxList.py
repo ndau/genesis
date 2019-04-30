@@ -246,6 +246,9 @@ def tryToSign(t, keytool):
     for pk in pks:
         if not pk.startswith("npvt"):
             sig = pk
+            sbfile = open(pk, 'w')
+            sbfile.write(sb)
+            sbfile.close()
         else:
             args = [keytool, "sign", pk, sb, "-b"]
             r = subprocess.run(args, text=True, capture_output=True)
