@@ -1,4 +1,4 @@
-path = "./Release51.csv"
+path = "./Release51-recovery.csv"
 sheet = ""
 first_row = 6
 noms_path = "$HOME/.localnet/data/noms-ndau-0"
@@ -14,3 +14,6 @@ genesis_toml = "$HOME/.localnet/genesis_files/system_vars.toml"
   reward_target = 4
   settlement_period = 7
   unlock_date = 3
+  validation_public_1 = 9
+  validation_public_2 = 10
+  validation_script = 11
