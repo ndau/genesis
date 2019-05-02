@@ -73,6 +73,13 @@ if __name__ == "__main__":
         help="use mainnet as host",
     )
     parser.add_argument(
+        "--staging",
+        action="store_const",
+        dest="host",
+        const="https://api.ndau.tech:32300",
+        help="use mainnet staging net as host",
+    )
+    parser.add_argument(
         "--test",
         action="store_const",
         dest="host",
