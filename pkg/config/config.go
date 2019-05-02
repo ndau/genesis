@@ -36,6 +36,9 @@ const (
 	DelegationNodeS    = "delegation_node"
 	SettlementS        = "settlement_period"
 	RewardSourceS      = "reward_source"
+	ValidationPublic1S = "validation_public_1"
+	ValidationPublic2S = "validation_public_2"
+	ValidationScriptS  = "validation_script"
 )
 
 // DefaultConfig creates a default config struct
@@ -108,7 +111,17 @@ func WithConfig(configPath string, lambda func(*Config) error) error {
 
 func (conf *Config) missingColumns() []string {
 	missing := make([]string, 0)
-	for _, header := range []string{AddressS, QtyPurchasedS, PurchaseDateS, UnlockDateS, NotifyImmediatelyS, DelegationNodeS} {
+	for _, header := range []string{
+		AddressS,
+		QtyPurchasedS,
+		PurchaseDateS,
+		UnlockDateS,
+		NotifyImmediatelyS,
+		DelegationNodeS,
+		ValidationPublic1S,
+		ValidationPublic2S,
+		ValidationScriptS,
+	} {
 		_, ok := conf.Columns[header]
 		if !ok {
 			missing = append(missing, header)

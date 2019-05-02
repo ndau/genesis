@@ -1,10 +1,14 @@
 package etl
 
 import (
+	"encoding/base64"
 	"fmt"
 	"strings"
 
+	"github.com/oneiro-ndev/chaincode/pkg/vm"
 	"github.com/oneiro-ndev/genesis/pkg/config"
+	"github.com/oneiro-ndev/ndaumath/pkg/signature"
+	"github.com/pkg/errors"
 	"github.com/tealeg/xlsx"
 )
 
@@ -25,7 +29,7 @@ func extractXlsxRow(xrow *xlsx.Row, conf *config.Config, date1904 bool) (rr RawR
 	if qpc != nil {
 		rr.QtyPurchased, err = qpc.Float()
 		if err != nil {
-			return RawRow{}, err
+			return RawRow{}, errors.Wrap(err, config.QtyPurchasedS)
 		}
 	}
 
@@ -38,14 +42,14 @@ func extractXlsxRow(xrow *xlsx.Row, conf *config.Config, date1904 bool) (rr RawR
 	if pdc != nil {
 		rr.PurchaseDate, err = pdc.GetTime(date1904)
 		if err != nil {
-			return RawRow{}, err
+			return RawRow{}, errors.Wrap(err, config.PurchaseDateS)
 		}
 	}
 	udc := getCell(config.UnlockDateS)
 	if udc != nil {
 		ud, err := udc.GetTime(date1904)
 		if err != nil {
-			return RawRow{}, err
+			return RawRow{}, errors.Wrap(err, config.UnlockDateS)
 		}
 		if ud != xlsx.TimeFromExcelTime(0, date1904) {
 			rr.UnlockDate = &ud
@@ -63,6 +67,33 @@ func extractXlsxRow(xrow *xlsx.Row, conf *config.Config, date1904 bool) (rr RawR
 		dns := dnc.String()
 		if len(dns) > 0 && !(strings.EqualFold("false", dns) || dns == "0") {
 			rr.DelegationNode = &dns
+		}
+	}
+	vp1 := getCell(config.ValidationPublic1S)
+	if vp1 != nil {
+		vp1k, err := signature.ParsePublicKey(vp1.String())
+		if err != nil {
+			return RawRow{}, errors.Wrap(err, config.ValidationPublic1S)
+		}
+		rr.ValidationPublic = append(rr.ValidationPublic, *vp1k)
+	}
+	vp2 := getCell(config.ValidationPublic2S)
+	if vp2 != nil {
+		vp2k, err := signature.ParsePublicKey(vp2.String())
+		if err != nil {
+			return RawRow{}, errors.Wrap(err, config.ValidationPublic2S)
+		}
+		rr.ValidationPublic = append(rr.ValidationPublic, *vp2k)
+	}
+	vs := getCell(config.ValidationScriptS)
+	if vs != nil {
+		scriptBytes, err := base64.StdEncoding.DecodeString(vs.String())
+		if err != nil {
+			return RawRow{}, errors.Wrap(err, config.ValidationScriptS)
+		}
+		rr.ValidationScript = vm.ConvertToOpcodes(scriptBytes)
+		if err = rr.ValidationScript.IsValid(); err != nil {
+			return RawRow{}, errors.Wrap(err, config.ValidationScriptS)
 		}
 	}
 
