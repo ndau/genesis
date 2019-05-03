@@ -6,7 +6,9 @@ import (
 	"strings"
 	"time"
 
+	"github.com/oneiro-ndev/chaincode/pkg/vm"
 	"github.com/oneiro-ndev/genesis/pkg/config"
+	"github.com/oneiro-ndev/ndaumath/pkg/signature"
 )
 
 // RawRow encapsulates the raw data of a single row of the ndau spreadsheet
@@ -20,6 +22,8 @@ type RawRow struct {
 	DelegationNode   *string
 	SettlementPeriod time.Duration
 	RewardSource     *string
+	ValidationPublic []signature.PublicKey
+	ValidationScript vm.Chaincode
 }
 
 func (rr RawRow) String() string {

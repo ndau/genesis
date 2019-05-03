@@ -2,6 +2,7 @@ package etl
 
 import (
 	"bufio"
+	"encoding/base64"
 	"encoding/csv"
 	"fmt"
 	"io"
@@ -10,7 +11,10 @@ import (
 	"strings"
 	"time"
 
+	"github.com/oneiro-ndev/chaincode/pkg/vm"
 	"github.com/oneiro-ndev/genesis/pkg/config"
+	"github.com/oneiro-ndev/ndaumath/pkg/signature"
+	"github.com/pkg/errors"
 )
 
 func cellHasValue(cell *string) bool {
@@ -34,7 +38,7 @@ func extractCSVRow(record []string, conf *config.Config) (rr RawRow, err error) 
 	if cellHasValue(qpc) {
 		rr.QtyPurchased, err = strconv.ParseFloat(*qpc, 64)
 		if err != nil {
-			return RawRow{}, err
+			return RawRow{}, errors.Wrap(err, config.QtyPurchasedS)
 		}
 	}
 
@@ -47,14 +51,14 @@ func extractCSVRow(record []string, conf *config.Config) (rr RawRow, err error) 
 	if cellHasValue(pdc) {
 		rr.PurchaseDate, err = time.Parse("1/2/06", *pdc)
 		if err != nil {
-			return RawRow{}, err
+			return RawRow{}, errors.Wrap(err, config.PurchaseDateS)
 		}
 	}
 	udc := getCell(config.UnlockDateS)
 	if cellHasValue(udc) {
 		ud, err := time.Parse("1/2/06", *udc)
 		if err != nil {
-			return RawRow{}, err
+			return RawRow{}, errors.Wrap(err, config.UnlockDateS)
 		}
 		rr.UnlockDate = &ud
 	}
@@ -70,12 +74,39 @@ func extractCSVRow(record []string, conf *config.Config) (rr RawRow, err error) 
 	if cellHasValue(spc) {
 		rr.SettlementPeriod, err = time.ParseDuration(*spc)
 		if err != nil {
-			return RawRow{}, err
+			return RawRow{}, errors.Wrap(err, config.SettlementS)
 		}
 	}
 	rsc := getCell(config.RewardSourceS)
 	if cellHasValue(rsc) {
 		rr.RewardSource = rsc
+	}
+	vp1 := getCell(config.ValidationPublic1S)
+	if cellHasValue(vp1) {
+		vp1k, err := signature.ParsePublicKey(*vp1)
+		if err != nil {
+			return RawRow{}, errors.Wrap(err, config.ValidationPublic1S)
+		}
+		rr.ValidationPublic = append(rr.ValidationPublic, *vp1k)
+	}
+	vp2 := getCell(config.ValidationPublic2S)
+	if cellHasValue(vp2) {
+		vp2k, err := signature.ParsePublicKey(*vp2)
+		if err != nil {
+			return RawRow{}, errors.Wrap(err, config.ValidationPublic2S)
+		}
+		rr.ValidationPublic = append(rr.ValidationPublic, *vp2k)
+	}
+	vs := getCell(config.ValidationScriptS)
+	if cellHasValue(vs) {
+		scriptBytes, err := base64.StdEncoding.DecodeString(*vs)
+		if err != nil {
+			return RawRow{}, errors.Wrap(err, config.ValidationScriptS)
+		}
+		rr.ValidationScript = vm.ConvertToOpcodes(scriptBytes)
+		if err = rr.ValidationScript.IsValid(); err != nil {
+			return RawRow{}, errors.Wrap(err, config.ValidationScriptS)
+		}
 	}
 
 	return rr, nil
