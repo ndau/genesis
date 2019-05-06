@@ -54,7 +54,7 @@ func TransformRow(row RawRow, logger logrus.FieldLogger, bonusTable eai.RateTabl
 	}
 
 	if row.SettlementPeriod > 0 {
-		ad.SettlementSettings.Period = math.DurationFrom(row.SettlementPeriod)
+		ad.RecourseSettings.Period = math.DurationFrom(row.SettlementPeriod)
 	}
 
 	if row.RewardSource != nil {
