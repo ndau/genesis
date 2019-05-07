@@ -11,10 +11,10 @@
   data = [
     "4000000:ndaea8w9gz84ncxrytepzxgkg9ymi4k7c9p427i6b57xw3r4",
     "1000000:ndmmw2cwhhgcgk9edp5tiieqab3pq7uxdic2wabzx49twwxh",
-    "5000:ndbmgby86qw9bds9f8wrzut5zrbxuehum5kvgz9sns9hgknh",
+    "75000:ndbmgby86qw9bds9f8wrzut5zrbxuehum5kvgz9sns9hgknh",
     "5000:ndeeh86uun6us9cenuck2uur679e37uczsmys33794gnvtfz",
     "10000:ndnf9ffbzhyf8mk7z5vvqc4quzz5i2exp5zgsmhyhc9cuwr4",
-    "9980000:",
+    "9910000:",
   ]
 
 [ExchangeEAIScript]
