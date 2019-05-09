@@ -11,10 +11,10 @@ def getPvtKeys(d):
     pvtkeys = [k for k in pvtkeys if k != ""]
     return pvtkeys
 
-def ClaimAccount(d):
+def SetValidation(d):
     tx = dict(
         comment=d["header"],
-        txtype="ClaimAccount",
+        txtype="SetValidation",
         tx=dict(
             target=d["target"],
             ownership=d["ownership"],
@@ -259,7 +259,7 @@ def tryToSign(t, keytool):
 
         tx["signatures"].append(sig)
 
-    if t["txtype"] == "ClaimAccount":
+    if t["txtype"] == "SetValidation":
         tx["signature"] = tx["signatures"][0]
         del tx["signatures"]
 
@@ -295,7 +295,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     txmap = dict(
-        ClaimAccount=ClaimAccount,
+        SetValidation=SetValidation,
         ReleaseFromEndowment=ReleaseFromEndowment,
         Issue=Issue,
         Delegate=Delegate,

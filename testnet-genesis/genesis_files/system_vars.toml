@@ -47,7 +47,7 @@
 
 [RecordPriceAddress]
   go_type = "address.Address"
-  data = "ndeeh86uun6us9cenuck2uur679e37uczsmys33794gnvtfz"
+  data = "ndmmw2cwhhgcgk9edp5tiieqab3pq7uxdic2wabzx49twwxh"
 
 [ReleaseFromEndowmentAddress]
   go_type = "address.Address"
@@ -59,7 +59,7 @@
 
 [SetSysvarAddress]
   go_type = "address.Address"
-  data = "ndbmgby86qw9bds9f8wrzut5zrbxuehum5kvgz9sns9hgknh"
+  data = "ndnf9ffbzhyf8mk7z5vvqc4quzz5i2exp5zgsmhyhc9cuwr4"
 
 [TransactionFeeScript]
   go_type = "[]uint8"
