@@ -84,4 +84,4 @@ ndev Node 3,Delegate,6,,,,,ndam75fnjn7cdues7ivi7ccfq8f534quieaccqibrvuzhqxa,ndah
 ndev Node 4,Delegate,7,,,,,ndaekyty73hd56gynsswuj5q9em68tp6ed5v7tpft872hvuc,ndam75fnjn7cdues7ivi7ccfq8f534quieaccqibrvuzhqxa,,,,,2 of 3 ndev Operations,,,,,,,,,,05-Delegate-04.sb,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,
 SetSysvar,,,,,,,,,,,,,,,,,,,,,,,,,
-BPC Operations,SetSysvar,3,,,,,,,,,TransactionFeeScript,xImgACUAiFJqdIigDRQTCRcWEA0OBggHBQQjIKEHiKADEgwLJADh9QWIoAMVAgqBAIigAQMi6AOBAYigAQEiyACBAYigAQ8iyACBASMgoQdAiIAAAgkiECdCIyChB0CIgAEDCWALCUOBAoiAAgEFIyChB8CKIyChBxCPBSSA8PoCxIokgPD6AhCPiA==,,,,,,,,,,6 of 9 BPC Operations,06-SetSysvar.sb,,
+BPC Operations,SetSysvar,3,,,,,,,,,TransactionFeeScript,xImgACUAiFJqdIigDRQTCRcWEA0OBggHBQQjIKEHiKADEgwLJADh9QWIoAMVAgqBAIigAQMi6AOBAYigAQEi6AOBAYigAQ8i6AOBASMgoQdAiIAAAgkiECdCIyChB0CIgAEDCWALCUOBAoiAAgEFIyChB8CKIyChBxCPBSSA8PoCxIokgPD6AhCPiA==,,,,,,,,,,6 of 9 BPC Operations,06-SetSysvar.sb,,
