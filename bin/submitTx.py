@@ -69,7 +69,7 @@ if __name__ == "__main__":
         "--main",
         action="store_const",
         dest="host",
-        const="https://node-0.main.ndau.tech",
+        const="https://mainnet-0.ndau.tech:3030",
         help="use mainnet as host",
     )
     parser.add_argument(
