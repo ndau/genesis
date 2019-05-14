@@ -83,7 +83,7 @@ if __name__ == "__main__":
         "--test",
         action="store_const",
         dest="host",
-        const="https://testnet-0.api.ndau.tech",
+        const="https://api.ndau.tech:31300",
         help="use testnet as host",
     )
     parser.add_argument(
