@@ -18,6 +18,8 @@ update_genesis_json
 
 **/.DS_Store
 .vscode/
+*~
+.#*
 
 **/debug
 
