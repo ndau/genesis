@@ -1,4 +1,4 @@
-path = "./Release53-recovery.csv"
+path = "../../testnet-genesis/etl/Release53-recovery.csv"
 sheet = ""
 first_row = 6
 noms_path = "$HOME/.localnet/data/noms-ndau-0"
