@@ -21,7 +21,7 @@ At this point, load the ETL data:
 
 Start the blockchain:
 
-1. Run `../bin/run-nofinalize.sh`: this is the standard `./bin/run.sh` script without the ndau and chaos finalize steps.
+1. Run `../bin/run.sh`
 1. Run `../..commands/bin/ndauapi.sh`
 
 You should now have a running blockchain and API with no accounts defined and a complete set of system variables properly loaded.

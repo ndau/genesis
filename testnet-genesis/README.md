@@ -24,7 +24,7 @@ Here are some commands that can be used to generate an ETL snapshot with post-ge
 1. `cd ~/go/src/github.com/oneiro-ndev/commands/bin`
 1. `export RUN_ETL=1`
 1. `./setup.sh 5 testnet` (or you can run `./reset.sh 5 testnet` if you're already up-to-date there)
-1. `./run.sh nofinalize`
+1. `./run.sh`
 1. `cd ../../genesis/testnet-genesis/transactions`
 1. `../../bin/createTxList.py --sign --input "Post-Genesis Transaction Block - testnet.csv" > testnet-genesis.json`
 1. `../../bin/submitTx.py --local --action=both --delay 0 --input testnet-genesis.json`
