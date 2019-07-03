@@ -2,7 +2,7 @@
   go_type = "address.Address"
   data = "ndnf9ffbzhyf8mk7z5vvqc4quzz5i2exp5zgsmhyhc9cuwr4"
 
-[DefaultSettlementDuration]
+[DefaultRecourseDuration]
   go_type = "math.Duration"
   data = "t1h"
 

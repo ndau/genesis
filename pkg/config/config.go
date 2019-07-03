@@ -34,7 +34,7 @@ const (
 	NotifyImmediatelyS = "notify_immediately"
 	RewardTargetS      = "reward_target"
 	DelegationNodeS    = "delegation_node"
-	SettlementS        = "settlement_period"
+	RecourseS          = "recourse_period"
 	RewardSourceS      = "reward_source"
 	ValidationPublic1S = "validation_public_1"
 	ValidationPublic2S = "validation_public_2"
