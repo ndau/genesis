@@ -20,7 +20,7 @@ type RawRow struct {
 	UnlockDate       *time.Time
 	RewardTarget     *string
 	DelegationNode   *string
-	SettlementPeriod time.Duration
+	RecoursePeriod   time.Duration
 	RewardSource     *string
 	ValidationPublic []signature.PublicKey
 	ValidationScript vm.Chaincode

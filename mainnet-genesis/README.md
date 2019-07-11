@@ -34,7 +34,7 @@ Prep: the `../bin/submitTx.py` script processes an input JSON file, prevalidatin
 
 Submits
 
-1. 10 `ClaimAccount` transactions
+1. 10 `SetValidation` transactions
 2. 1 `Issue` transaction
 3. 5 `CreditEAI` transactions
 4. 5 `Transfer` transactions

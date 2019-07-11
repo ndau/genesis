@@ -51,7 +51,7 @@ The YubiHSM device used for mainnet key management identifies keys by an ID numb
 
 These are grouped in groups 1 - 7 corresponding to the hardware keys held by each of the seven people listed in that document. Not every person has an instance of every key type! The first YubiHSM key is assigned to Ken, and he has three BPC keys numbered 101 - 103. He has no other keys. Steve's YubiHSM key only holds key 107, an ntrd Operations Key. Of the 49 possible group/key combinations, only 22 are actually used. Although nine BPC Keys (three instances of 101 - 103) exist, only the three keys labeled 101 are currently used in validation rules for simplicity. Each of Ken, Rob, and Chris holds an instance of keys 101 - 103 and there's little point in making each of them sign each transaction three times.
 
-These keys are assigned to the 10 accounts claimed in the first 10 transactions after genesis according to the validation rules appropriate for each account.
+These keys are assigned to the 10 accounts established in the first 10 transactions after genesis according to the validation rules appropriate for each account.
 
 1. *BPC Operations* - 3 BPC keys:
    1. Group 1 - Key 101
