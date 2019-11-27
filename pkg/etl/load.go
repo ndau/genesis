@@ -95,7 +95,7 @@ func Load(conf *config.Config, rows []RawRow, ndauhome string) error {
 
 	nomsPath := os.ExpandEnv(conf.NomsPath)
 
-	app, err := ndau.NewApp(nomsPath, "", -1, *nconf)
+	app, err := ndau.NewApp(nomsPath, *nconf)
 	if err != nil {
 		return errors.Wrap(err, "Failed to create ndau app")
 	}
