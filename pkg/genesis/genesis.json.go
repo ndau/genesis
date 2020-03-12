@@ -14,7 +14,7 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"github.com/oneiro-ndev/genesis/pkg/config"
+	"github.com/ndau/genesis/pkg/config"
 	"github.com/pkg/errors"
 )
 

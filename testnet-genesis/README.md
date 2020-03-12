@@ -19,9 +19,9 @@ cd transactions
 
 Here are some commands that can be used to generate an ETL snapshot with post-genesis transactions for testnet:
 
-1. Set up a localnet (see the [commands](https://github.com/oneiro-ndev/commands) README for that)
+1. Set up a localnet (see the [commands](https://github.com/ndau/commands) README for that)
 1. Get `genesis_files_testnet_mainnet.tar` from 1password and extract it into `~/.localnet/genesis_files`
-1. `cd ~/go/src/github.com/oneiro-ndev/commands/bin`
+1. `cd ~/go/src/github.com/ndau/commands/bin`
 1. `export RUN_ETL=1`
 1. `./setup.sh 5 testnet` (or you can run `./reset.sh 5 testnet` if you're already up-to-date there)
 1. `./run.sh`

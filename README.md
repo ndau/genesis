@@ -33,7 +33,7 @@ All mainnet genesis data, tools, and instructions are in `mainnet-genesis`
         - delegate node column #
 
     ```sh
-    $ ~/go/src/github.com/oneiro-ndev/commands/cmd/etl/etl
+    $ ~/go/src/github.com/ndau/commands/cmd/etl/etl
     ```
 
 - The spreadsheet data should now be contained in new entries in the noms db data directory specified in the config.toml file referenced above.
@@ -44,10 +44,10 @@ The `etl` program can read an input spreadsheet from a ".xlsx" or ".csv" file an
 
 ```sh
 # clone repos if necessary
-git clone git@github.com:oneiro-ndev/ndau.git $GOPATH/src/github.com/oneiro-ndev/ndau
-git clone git@github.com:oneiro-ndev/genesis.git $GOPATH/src/github.com/oneiro-ndev/genesis
+git clone git@github.com:ndau/ndau.git $GOPATH/src/github.com/ndau/ndau
+git clone git@github.com:ndau/genesis.git $GOPATH/src/github.com/ndau/genesis
 # set up ndau state
-cd $GOPATH/src/github.com/oneiro-ndev/ndau
+cd $GOPATH/src/github.com/ndau/ndau
 bin/reset.sh && bin/build.sh && bin/init.sh
 # set up ETL
 cd ../genesis

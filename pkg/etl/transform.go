@@ -12,11 +12,11 @@ package etl
 import (
 	"fmt"
 
-	"github.com/oneiro-ndev/genesis/pkg/config"
-	"github.com/oneiro-ndev/ndau/pkg/ndau/backing"
-	"github.com/oneiro-ndev/ndaumath/pkg/constants"
-	"github.com/oneiro-ndev/ndaumath/pkg/eai"
-	math "github.com/oneiro-ndev/ndaumath/pkg/types"
+	"github.com/ndau/genesis/pkg/config"
+	"github.com/ndau/ndau/pkg/ndau/backing"
+	"github.com/ndau/ndaumath/pkg/constants"
+	"github.com/ndau/ndaumath/pkg/eai"
+	math "github.com/ndau/ndaumath/pkg/types"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 )

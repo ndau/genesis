@@ -14,9 +14,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/oneiro-ndev/chaincode/pkg/vm"
-	"github.com/oneiro-ndev/genesis/pkg/config"
-	"github.com/oneiro-ndev/ndaumath/pkg/signature"
+	"github.com/ndau/chaincode/pkg/vm"
+	"github.com/ndau/genesis/pkg/config"
+	"github.com/ndau/ndaumath/pkg/signature"
 	"github.com/pkg/errors"
 	"github.com/tealeg/xlsx"
 )

@@ -15,9 +15,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/oneiro-ndev/chaincode/pkg/vm"
-	"github.com/oneiro-ndev/genesis/pkg/config"
-	"github.com/oneiro-ndev/ndaumath/pkg/signature"
+	"github.com/ndau/chaincode/pkg/vm"
+	"github.com/ndau/genesis/pkg/config"
+	"github.com/ndau/ndaumath/pkg/signature"
 )
 
 // RawRow encapsulates the raw data of a single row of the ndau spreadsheet
